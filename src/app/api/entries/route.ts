@@ -32,6 +32,11 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const input = (await request.json()) as Partial<StudyEntry> & { id: string };
+
+    if (!input.id) {
+      return Response.json({ error: "수정할 항목 id가 필요합니다." }, { status: 400 });
+    }
+
     const { database, sha } = await readStudyDatabase();
     const entries = database.entries.map((entry) =>
       entry.id === input.id ? { ...entry, ...input, id: entry.id } : entry,

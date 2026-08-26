@@ -81,6 +81,7 @@ export default function Home() {
   const [activeView, setActiveView] = useState<ActiveView>("input");
   const [entries, setEntries] = useState<StudyEntry[]>([]);
   const [form, setForm] = useState<FormState>(emptyForm);
+  const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [quizEntry, setQuizEntry] = useState<StudyEntry>();
   const [showAnswer, setShowAnswer] = useState(false);
@@ -242,14 +243,14 @@ export default function Home() {
       pronunciation: form.pronunciation.trim(),
       example: form.example.trim(),
       tags: normalizeTags(form.tags),
-      reviewedAt: new Date().toISOString(),
+      ...(editingEntryId ? {} : { reviewedAt: new Date().toISOString() }),
     };
 
     try {
       const response = await fetch("/api/entries", {
-        method: "POST",
+        method: editingEntryId ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(input),
+        body: JSON.stringify(editingEntryId ? { ...input, id: editingEntryId } : input),
       });
       const payload = await response.json();
 
@@ -259,12 +260,34 @@ export default function Home() {
 
       await refreshEntries(payload.entries);
       setForm(emptyForm);
-      setStatus("새 표현을 GitHub JSON 파일에 저장했습니다.");
+      setEditingEntryId(null);
+      setStatus(editingEntryId ? "표현을 수정해 GitHub JSON 파일에 저장했습니다." : "새 표현을 GitHub JSON 파일에 저장했습니다.");
     } catch (saveError) {
       setError(saveError instanceof Error ? saveError.message : "저장하지 못했습니다.");
     } finally {
       setIsSaving(false);
     }
+  }
+
+  function editEntry(entry: StudyEntry) {
+    setEditingEntryId(entry.id);
+    setForm({
+      type: entry.type,
+      english: entry.english,
+      korean: entry.korean,
+      pronunciation: entry.pronunciation ?? "",
+      example: entry.example ?? "",
+      tags: entry.tags.join(", "),
+    });
+    setActiveView("input");
+    setError("");
+    setStatus("표현을 수정한 뒤 저장하세요.");
+  }
+
+  function cancelEditing() {
+    setEditingEntryId(null);
+    setForm(emptyForm);
+    setStatus("새 표현을 입력할 수 있습니다.");
   }
 
   async function markReviewed(entry: StudyEntry) {
@@ -401,7 +424,7 @@ export default function Home() {
         {activeView === "input" && (
           <section className="grid gap-4 sm:gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.55fr)]">
             <MagicSurface className="p-4 sm:p-7">
-              <SectionTitle icon={faPenNib} title="단어 / 문장 패턴 입력" />
+              <SectionTitle icon={faPenNib} title={editingEntryId ? "표현 수정" : "단어 / 문장 패턴 입력"} />
               <form className="mt-5 grid gap-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
                   {(["word", "pattern"] as StudyEntryType[]).map((type) => (
@@ -465,9 +488,14 @@ export default function Home() {
                 </label>
                 <div className="flex flex-wrap gap-2">
                   <Button disabled={isSaving} type="submit">
-                    <FontAwesomeIcon icon={faPlus} />
-                    {isSaving ? "저장 중" : "저장"}
+                    <FontAwesomeIcon icon={editingEntryId ? faCheck : faPlus} />
+                    {isSaving ? "저장 중" : editingEntryId ? "수정 저장" : "저장"}
                   </Button>
+                  {editingEntryId && (
+                    <Button disabled={isSaving} variant="secondary" type="button" onClick={cancelEditing}>
+                      취소
+                    </Button>
+                  )}
                   <Button variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                     뜻/발음 찾기
@@ -582,6 +610,10 @@ export default function Home() {
                   <div className="grid gap-3 rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-4 shadow-sm md:grid-cols-[1fr_auto] md:items-center" key={entry.id}>
                     <EntryRow entry={entry} />
                     <div className="flex gap-2">
+                      <Button size="sm" variant="secondary" onClick={() => editEntry(entry)}>
+                        <FontAwesomeIcon icon={faPenNib} />
+                        수정
+                      </Button>
                       <Button size="sm" variant="secondary" onClick={() => markReviewed(entry)}>
                         <FontAwesomeIcon icon={faCheck} />
                         복습
