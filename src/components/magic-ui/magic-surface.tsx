@@ -17,7 +17,7 @@ export function AnimatedGradientText({ className, ...props }: React.HTMLAttribut
   return (
     <span
       className={cn(
-        "bg-[linear-gradient(90deg,#2541b2,#0f766e,#9a3412,#2541b2)] bg-[length:240%_100%] bg-clip-text text-transparent motion-safe:animate-gradient-pan",
+        "bg-[linear-gradient(90deg,#0f3c81,#2563eb,#0891b2,#0f3c81)] bg-[length:240%_100%] bg-clip-text text-transparent motion-safe:animate-gradient-pan",
         className,
       )}
       {...props}

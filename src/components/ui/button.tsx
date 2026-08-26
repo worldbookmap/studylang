@@ -10,7 +10,7 @@ const buttonVariants = cva(
         default: "bg-[var(--ink)] text-white shadow-sm hover:bg-[var(--ink-soft)]",
         secondary: "bg-white text-[var(--ink)] shadow-sm ring-1 ring-[var(--line)] hover:bg-[var(--paper)]",
         ghost: "text-[var(--ink)] hover:bg-white/70",
-        danger: "bg-[var(--danger)] text-white hover:bg-[#a84532]",
+        danger: "bg-[var(--danger)] text-white hover:bg-[#be123c]",
       },
       size: {
         default: "h-10 px-4",

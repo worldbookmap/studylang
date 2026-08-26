@@ -323,11 +323,11 @@ export default function Home() {
 
   if (isBooting) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,#fff7d6,transparent_34%),linear-gradient(135deg,#f6f0df,#d9efe6_48%,#f4d6bd)] p-6">
+      <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,#dff4ff,transparent_34%),linear-gradient(135deg,#eef7ff,#d7ebff_48%,#c7d7ff)] p-6">
         <MagicSurface className="w-full max-w-md p-8 text-center animate-rise-in">
           <p className="text-xs font-extrabold uppercase tracking-[0.26em] text-[var(--accent)]">StudyLang</p>
           <h1 className="mt-4 font-serif text-4xl font-extrabold text-[var(--ink)]">오늘의 영어장을 여는 중</h1>
-          <div className="mx-auto mt-7 h-2 w-56 overflow-hidden rounded-full bg-[#e8dcc6]">
+          <div className="mx-auto mt-7 h-2 w-56 overflow-hidden rounded-full bg-[#c9def2]">
             <div className="h-full w-2/3 animate-pulse rounded-full bg-[var(--accent)]" />
           </div>
           <p className="mt-5 text-sm font-semibold text-[var(--muted-strong)]">{status}</p>
@@ -337,7 +337,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(145deg,#f6f0df_0%,#e4f1e9_47%,#f5d7bd_100%)] px-4 py-5 text-[var(--ink)] sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-[linear-gradient(145deg,#eef7ff_0%,#d8ecff_47%,#c7d7ff_100%)] px-4 py-5 text-[var(--ink)] sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-5">
         <header className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
@@ -345,9 +345,6 @@ export default function Home() {
             <h1 className="font-serif text-4xl font-extrabold leading-tight sm:text-6xl">
               <AnimatedGradientText>StudyLang</AnimatedGradientText>
             </h1>
-            <p className="mt-3 max-w-2xl text-base font-semibold text-[var(--muted-strong)]">
-              단어와 문장 패턴을 GitHub 저장소의 JSON 파일에 쌓고, 매일 저녁 7시에 다시 꺼내보는 영어 학습장입니다.
-            </p>
           </div>
           <MagicSurface className="p-3">
             <div className="grid grid-cols-3 gap-2 text-center">
@@ -460,7 +457,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2">
                   <Button disabled={isSaving} type="submit">
                     <FontAwesomeIcon icon={faPlus} />
-                    {isSaving ? "저장 중" : "GitHub에 저장"}
+                    {isSaving ? "저장 중" : "저장"}
                   </Button>
                   <Button variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -520,7 +517,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="rounded-lg bg-[var(--ink)] p-5 text-white">
-                  <p className="text-sm font-extrabold text-[#ffd88a]">오늘 7시 리마인드</p>
+                  <p className="text-sm font-extrabold text-[#93c5fd]">오늘 7시 리마인드</p>
                   <p className="mt-3 text-3xl font-extrabold">{todaysEntries.length}개</p>
                   <p className="mt-3 text-sm font-semibold text-white/75">오늘 추가하거나 복습한 표현이 있으면 저녁 7시에 브라우저 알림과 앱 안 리마인드가 뜹니다.</p>
                 </div>
@@ -546,7 +543,7 @@ export default function Home() {
                   <div
                     className={cn(
                       "aspect-square rounded-md border border-[var(--line)] bg-white/64 p-2 text-sm font-extrabold",
-                      count > 0 && "border-[var(--accent)] bg-[#dff3ec]",
+                      count > 0 && "border-[var(--accent)] bg-[#dbeafe]",
                       todayKey() === key && "ring-2 ring-[var(--honey)]",
                     )}
                     key={key}
