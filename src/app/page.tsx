@@ -346,17 +346,17 @@ export default function Home() {
               <Image
                 alt=""
                 aria-hidden="true"
-                className="pointer-events-none absolute -left-8 top-1/2 z-0 h-32 w-32 -translate-y-[52%] rotate-6 object-contain opacity-45 min-[420px]:h-40 min-[420px]:w-40 sm:-left-7 sm:h-60 sm:w-60"
-                height={224}
+                className="pointer-events-none absolute -left-11 top-1/2 z-0 h-44 w-44 -translate-y-[52%] rotate-6 object-contain opacity-43 min-[420px]:h-52 min-[420px]:w-52 sm:-left-7 sm:h-60 sm:w-60"
+                height={240}
                 priority
                 src="/assets/cat.svg"
-                width={224}
+                width={240}
               />
               <AnimatedGradientText className="relative z-10">StudyLang</AnimatedGradientText>
             </h1>
           </div>
-          <div className="rounded-lg border border-white/80 bg-white/54 p-3 shadow-sm backdrop-blur">
-            <div className="grid grid-cols-3 gap-2 text-center">
+          <div className="w-full max-w-[17rem] justify-self-center rounded-lg border border-white/80 bg-white/46 p-1.5 shadow-sm backdrop-blur sm:max-w-none sm:p-3 lg:justify-self-auto">
+            <div className="grid grid-cols-3 gap-1.5 text-center sm:gap-2">
               <Metric label="전체" value={entries.length} />
               <Metric label="오늘" value={todaysEntries.length} />
               <Metric label="단어" value={entries.filter((entry) => entry.type === "word").length} />
@@ -626,9 +626,9 @@ export default function Home() {
 
 function Metric({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-md bg-white/72 px-3 py-2.5 sm:px-4 sm:py-3">
-      <div className="font-serif text-2xl font-extrabold sm:text-4xl lg:text-3xl">{value}</div>
-      <div className="text-[0.72rem] font-extrabold text-[var(--muted)] sm:text-sm lg:text-xs">{label}</div>
+    <div className="rounded-md bg-white/64 px-2 py-1.5 sm:bg-white/72 sm:px-4 sm:py-3">
+      <div className="font-serif text-xl font-extrabold leading-none sm:text-4xl lg:text-3xl">{value}</div>
+      <div className="mt-1 text-[0.65rem] font-extrabold leading-none text-[var(--muted)] sm:text-sm lg:text-xs">{label}</div>
     </div>
   );
 }
