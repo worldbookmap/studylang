@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "inept",
+      "korean": "Not able to do something; not proficient; displaying incompetence. 솜씨없는, 서투른",
+      "pronunciation": "/ɪnˈɛpt/",
+      "example": "She was left felling inept and inadequate.",
+      "tags": [
+        "네이버"
+      ],
+      "reviewedAt": "2026-08-26T09:07:56.150Z",
+      "id": "b60df1f1-87c8-495a-b7b9-4f68880d6411",
+      "createdAt": "2026-08-26T09:07:56.803Z"
+    },
+    {
+      "type": "word",
       "english": "cite",
       "korean": "인용하다, (예를, 이유를) 들다",
       "pronunciation": "/saɪt/",
