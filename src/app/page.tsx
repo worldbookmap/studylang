@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
@@ -323,12 +324,12 @@ export default function Home() {
 
   if (isBooting) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top_left,#dff4ff,transparent_34%),linear-gradient(135deg,#eef7ff,#d7ebff_48%,#c7d7ff)] p-6">
-        <MagicSurface className="w-full max-w-md p-8 text-center animate-rise-in">
-          <p className="text-xs font-extrabold uppercase tracking-[0.26em] text-[var(--accent)]">StudyLang</p>
-          <h1 className="mt-4 font-serif text-4xl font-extrabold text-[var(--ink)]">오늘의 영어장을 여는 중</h1>
+      <main className="flex min-h-screen items-center justify-center bg-[linear-gradient(135deg,#f8fbff,#dbeafe_48%,#c7d2fe)] p-6">
+        <MagicSurface className="w-full max-w-md animate-rise-in p-8 text-center">
+          <p className="text-xs font-black uppercase tracking-[0.32em] text-[var(--accent)]">StudyLang</p>
+          <h1 className="mt-4 font-serif text-4xl font-extrabold tracking-tight text-[var(--ink)]">오늘의 영어장을 여는 중</h1>
           <div className="mx-auto mt-7 h-2 w-56 overflow-hidden rounded-full bg-[#c9def2]">
-            <div className="h-full w-2/3 animate-pulse rounded-full bg-[var(--accent)]" />
+            <div className="h-full w-2/3 animate-pulse rounded-full bg-[linear-gradient(90deg,#0f3c81,#38bdf8)]" />
           </div>
           <p className="mt-5 text-sm font-semibold text-[var(--muted-strong)]">{status}</p>
         </MagicSurface>
@@ -337,25 +338,33 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(145deg,#eef7ff_0%,#d8ecff_47%,#c7d7ff_100%)] px-4 py-5 text-[var(--ink)] sm:px-6 lg:px-8">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-5">
-        <header className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
+    <main className="min-h-screen bg-[linear-gradient(rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.22)_1px,transparent_1px)] bg-[size:44px_44px] px-3 py-4 text-[var(--ink)] sm:px-6 sm:py-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 sm:gap-5">
+        <header className="grid gap-4 rounded-xl border border-white/70 bg-[linear-gradient(135deg,rgba(248,251,255,0.96),rgba(214,232,255,0.88))] p-4 text-[var(--ink)] shadow-[0_22px_70px_rgba(37,99,235,0.18)] sm:p-5 lg:grid-cols-[1fr_auto] lg:items-end lg:p-7">
           <div>
-            <Badge className="mb-3 bg-white/60">GitHub JSON Database</Badge>
-            <h1 className="font-serif text-4xl font-extrabold leading-tight sm:text-6xl">
-              <AnimatedGradientText>StudyLang</AnimatedGradientText>
+            <h1 className="relative isolate inline-flex overflow-visible pl-6 pr-6 font-serif text-[2.65rem] font-extrabold leading-none tracking-tight min-[420px]:text-5xl sm:pl-14 sm:pr-20 sm:text-6xl">
+              <Image
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute -left-8 top-1/2 z-0 h-32 w-32 -translate-y-[52%] rotate-6 object-contain opacity-45 min-[420px]:h-40 min-[420px]:w-40 sm:-left-7 sm:h-60 sm:w-60"
+                height={224}
+                priority
+                src="/assets/cat.svg"
+                width={224}
+              />
+              <AnimatedGradientText className="relative z-10">StudyLang</AnimatedGradientText>
             </h1>
           </div>
-          <MagicSurface className="p-3">
+          <div className="rounded-lg border border-white/80 bg-white/54 p-3 shadow-sm backdrop-blur">
             <div className="grid grid-cols-3 gap-2 text-center">
               <Metric label="전체" value={entries.length} />
               <Metric label="오늘" value={todaysEntries.length} />
               <Metric label="단어" value={entries.filter((entry) => entry.type === "word").length} />
             </div>
-          </MagicSurface>
+          </div>
         </header>
 
-        <MagicSurface className="grid gap-3 p-3 md:grid-cols-[1fr_auto] md:items-center">
+        <MagicSurface className="grid gap-2 p-2 sm:gap-3 md:grid-cols-[1fr_auto] md:items-center">
           <nav className="grid grid-cols-2 gap-2 md:flex">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -363,10 +372,10 @@ export default function Home() {
                 <button
                   key={item.id}
                   className={cn(
-                    "flex h-11 items-center justify-center gap-2 rounded-md px-3 text-sm font-extrabold transition",
+                    "flex h-10 items-center justify-center gap-2 rounded-md px-2.5 text-sm font-extrabold transition sm:h-11 sm:px-3",
                     activeView === item.id
-                      ? "bg-[var(--ink)] text-white shadow-sm"
-                      : "bg-white/60 text-[var(--muted-strong)] hover:bg-white",
+                      ? "bg-[linear-gradient(135deg,#0b1f3a,#2563eb)] text-white shadow-[0_10px_28px_rgba(37,99,235,0.25)]"
+                      : "text-[var(--muted-strong)] hover:bg-white/80",
                   )}
                   onClick={() => setActiveView(item.id)}
                   type="button"
@@ -377,29 +386,29 @@ export default function Home() {
               );
             })}
           </nav>
-          <Button variant="secondary" onClick={requestNotification}>
+          <Button className="w-full md:w-auto" variant="secondary" onClick={requestNotification}>
             <FontAwesomeIcon icon={faBell} />
             {notificationReady ? "알림 켜짐" : "7시 알림 켜기"}
           </Button>
         </MagicSurface>
 
         {(error || status) && (
-          <div className="rounded-md border border-[var(--line)] bg-white/70 px-4 py-3 text-sm font-semibold text-[var(--muted-strong)]">
+          <div className="rounded-lg border border-[var(--line)] bg-white/72 px-4 py-3 text-sm font-bold leading-6 text-[var(--muted-strong)] shadow-sm backdrop-blur sm:leading-normal">
             {error || status}
           </div>
         )}
 
         {activeView === "input" && (
-          <section className="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.55fr)]">
-            <MagicSurface className="p-5 sm:p-7">
+          <section className="grid gap-4 sm:gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.55fr)]">
+            <MagicSurface className="p-4 sm:p-7">
               <SectionTitle icon={faPenNib} title="단어 / 문장 패턴 입력" />
               <form className="mt-5 grid gap-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-2 gap-2 rounded-md bg-white/60 p-1">
+                <div className="grid grid-cols-2 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
                   {(["word", "pattern"] as StudyEntryType[]).map((type) => (
                     <button
                       className={cn(
                         "h-10 rounded-md text-sm font-extrabold transition",
-                        form.type === type ? "bg-[var(--accent)] text-white" : "text-[var(--muted-strong)]",
+                        form.type === type ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
                       )}
                       key={type}
                       onClick={() => setForm((current) => ({ ...current, type }))}
@@ -467,7 +476,7 @@ export default function Home() {
               </form>
             </MagicSurface>
 
-            <MagicSurface className="p-5 sm:p-7">
+            <MagicSurface className="p-4 sm:p-7">
               <SectionTitle icon={faLayerGroup} title="오늘의 복습 묶음" />
               <div className="mt-5 grid gap-3">
                 {todaysEntries.length === 0 ? (
@@ -487,11 +496,11 @@ export default function Home() {
               <EmptyState text="저장된 항목이 생기면 바로 퀴즈를 만들 수 있습니다." />
             ) : (
               <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_320px]">
-                <div className="rounded-lg bg-white/70 p-6">
+                <div className="rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-6 shadow-sm">
                   <Badge>{currentQuizEntry.type === "word" ? "단어" : "문장 패턴"}</Badge>
                   <p className="mt-5 font-serif text-4xl font-extrabold leading-tight">{currentQuizEntry.english}</p>
                   {currentQuizEntry.pronunciation && <p className="mt-2 text-lg font-bold text-[var(--accent)]">{currentQuizEntry.pronunciation}</p>}
-                  <div className="mt-6 min-h-28 rounded-md border border-dashed border-[var(--line)] bg-[var(--paper)] p-4">
+                  <div className="mt-6 min-h-28 rounded-md border border-dashed border-[var(--line)] bg-[#eff7ff] p-4">
                     {showAnswer ? (
                       <div className="grid gap-3">
                         <p className="text-2xl font-extrabold">{currentQuizEntry.korean}</p>
@@ -516,7 +525,7 @@ export default function Home() {
                     </Button>
                   </div>
                 </div>
-                <div className="rounded-lg bg-[var(--ink)] p-5 text-white">
+                <div className="rounded-lg bg-[linear-gradient(160deg,#071a34,#123f80)] p-5 text-white shadow-[0_16px_48px_rgba(7,26,52,0.28)]">
                   <p className="text-sm font-extrabold text-[#93c5fd]">오늘 7시 리마인드</p>
                   <p className="mt-3 text-3xl font-extrabold">{todaysEntries.length}개</p>
                   <p className="mt-3 text-sm font-semibold text-white/75">오늘 추가하거나 복습한 표현이 있으면 저녁 7시에 브라우저 알림과 앱 안 리마인드가 뜹니다.</p>
@@ -542,8 +551,8 @@ export default function Home() {
                 return (
                   <div
                     className={cn(
-                      "aspect-square rounded-md border border-[var(--line)] bg-white/64 p-2 text-sm font-extrabold",
-                      count > 0 && "border-[var(--accent)] bg-[#dbeafe]",
+                      "aspect-square rounded-md border border-[var(--line)] bg-white/70 p-2 text-sm font-extrabold shadow-sm",
+                      count > 0 && "border-[var(--accent)] bg-[#dbeafe] shadow-[0_10px_24px_rgba(37,99,235,0.16)]",
                       todayKey() === key && "ring-2 ring-[var(--honey)]",
                     )}
                     key={key}
@@ -570,7 +579,7 @@ export default function Home() {
                 <EmptyState text="검색 결과가 없거나 아직 저장된 항목이 없습니다." />
               ) : (
                 filteredEntries.map((entry) => (
-                  <div className="grid gap-3 rounded-lg border border-[var(--line)] bg-white/68 p-4 md:grid-cols-[1fr_auto] md:items-center" key={entry.id}>
+                  <div className="grid gap-3 rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-4 shadow-sm md:grid-cols-[1fr_auto] md:items-center" key={entry.id}>
                     <EntryRow entry={entry} />
                     <div className="flex gap-2">
                       <Button size="sm" variant="secondary" onClick={() => markReviewed(entry)}>
@@ -617,9 +626,9 @@ export default function Home() {
 
 function Metric({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-md bg-white/72 px-4 py-3">
-      <div className="font-serif text-3xl font-extrabold">{value}</div>
-      <div className="text-xs font-extrabold text-[var(--muted)]">{label}</div>
+    <div className="rounded-md bg-white/72 px-3 py-2.5 sm:px-4 sm:py-3">
+      <div className="font-serif text-2xl font-extrabold sm:text-4xl lg:text-3xl">{value}</div>
+      <div className="text-[0.72rem] font-extrabold text-[var(--muted)] sm:text-sm lg:text-xs">{label}</div>
     </div>
   );
 }
@@ -627,10 +636,10 @@ function Metric({ label, value }: { label: string; value: number }) {
 function SectionTitle({ icon, title }: { icon: typeof faPenNib; title: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[var(--ink)] text-white">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[var(--ink)] text-white sm:h-11 sm:w-11">
         <FontAwesomeIcon icon={icon} />
       </span>
-      <h2 className="font-serif text-2xl font-extrabold">{title}</h2>
+      <h2 className="font-serif text-[1.45rem] font-extrabold leading-tight sm:text-3xl lg:text-2xl">{title}</h2>
     </div>
   );
 }
