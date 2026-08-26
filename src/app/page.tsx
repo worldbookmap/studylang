@@ -15,6 +15,7 @@ import {
   faPlus,
   faRotateRight,
   faTrash,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Bell, BookText, CalendarDays, ListChecks, Sparkles } from "lucide-react";
 import { AnimatedGradientText, MagicSurface } from "@/components/magic-ui/magic-surface";
@@ -76,6 +77,13 @@ function getMonthDays(date = new Date()) {
   return Array.from({ length: lastDate }, (_, index) => new Date(year, month, index + 1));
 }
 
+function localDateKey(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 export default function Home() {
   const [isBooting, setIsBooting] = useState(true);
   const [activeView, setActiveView] = useState<ActiveView>("input");
@@ -92,6 +100,7 @@ export default function Home() {
   const [notificationReady, setNotificationReady] = useState(false);
   const [reminderOpen, setReminderOpen] = useState(false);
   const [reminderSentKey, setReminderSentKey] = useState("");
+  const [selectedCalendarDate, setSelectedCalendarDate] = useState<string | null>(null);
 
   const todaysEntries = useMemo(
     () => entries.filter((entry) => isSameLocalDay(entry.createdAt) || isSameLocalDay(entry.reviewedAt)),
@@ -113,13 +122,18 @@ export default function Home() {
     );
   }, [entries, query]);
 
-  const calendarCounts = useMemo(() => {
-    return entries.reduce<Record<string, number>>((acc, entry) => {
-      const key = todayKey(new Date(entry.reviewedAt ?? entry.createdAt));
-      acc[key] = (acc[key] ?? 0) + 1;
+  const calendarEntries = useMemo(() => {
+    return entries.reduce<Record<string, { word: number; pattern: number; entries: StudyEntry[] }>>((acc, entry) => {
+      const key = localDateKey(new Date(entry.reviewedAt ?? entry.createdAt));
+      const current = acc[key] ?? { word: 0, pattern: 0, entries: [] };
+      current[entry.type] += 1;
+      current.entries.push(entry);
+      acc[key] = current;
       return acc;
     }, {});
   }, [entries]);
+
+  const selectedCalendarEntries = selectedCalendarDate ? calendarEntries[selectedCalendarDate]?.entries ?? [] : [];
 
   const currentQuizEntry = useMemo(() => {
     if (entries.length === 0) {
@@ -434,7 +448,11 @@ export default function Home() {
                         form.type === type ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
                       )}
                       key={type}
-                      onClick={() => setForm((current) => ({ ...current, type }))}
+                      onClick={() => setForm((current) => ({
+                        ...current,
+                        type,
+                        pronunciation: type === "pattern" ? "" : current.pronunciation,
+                      }))}
                       type="button"
                     >
                       {type === "word" ? "영어 단어" : "문장 패턴"}
@@ -464,9 +482,10 @@ export default function Home() {
                   <label className="grid gap-2 text-sm font-extrabold">
                     발음기호
                     <Input
+                      disabled={form.type === "pattern"}
                       value={form.pronunciation}
                       onChange={(event) => setForm((current) => ({ ...current, pronunciation: event.target.value }))}
-                      placeholder={isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
+                      placeholder={form.type === "pattern" ? "문장 패턴은 발음기호를 사용하지 않습니다" : isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
                     />
                   </label>
                 </div>
@@ -496,7 +515,7 @@ export default function Home() {
                       취소
                     </Button>
                   )}
-                  <Button variant="secondary" type="button" onClick={() => lookupWordDetails()}>
+                  <Button disabled={form.type === "pattern" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                     뜻/발음 찾기
                   </Button>
@@ -574,20 +593,29 @@ export default function Home() {
                 <div key={`blank-${index}`} />
               ))}
               {getMonthDays().map((day) => {
-                const key = todayKey(day);
-                const count = calendarCounts[key] ?? 0;
+                const key = localDateKey(day);
+                const dayEntries = calendarEntries[key] ?? { word: 0, pattern: 0, entries: [] };
+                const count = dayEntries.entries.length;
                 return (
-                  <div
+                  <button
                     className={cn(
-                      "aspect-square rounded-md border border-[var(--line)] bg-white/70 p-2 text-sm font-extrabold shadow-sm",
+                      "aspect-square rounded-md border border-[var(--line)] bg-white/70 p-2 text-left text-sm font-extrabold shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-white",
                       count > 0 && "border-[var(--accent)] bg-[#dbeafe] shadow-[0_10px_24px_rgba(37,99,235,0.16)]",
-                      todayKey() === key && "ring-2 ring-[var(--honey)]",
+                      localDateKey(new Date()) === key && "ring-2 ring-[var(--honey)]",
                     )}
+                    aria-label={`${day.getMonth() + 1}월 ${day.getDate()}일 공부 내용 보기`}
                     key={key}
+                    onClick={() => setSelectedCalendarDate(key)}
+                    type="button"
                   >
                     <div>{day.getDate()}</div>
-                    {count > 0 && <div className="mt-2 text-xs text-[var(--accent)]">{count}개</div>}
-                  </div>
+                    {count > 0 && (
+                      <div className="mt-2 grid gap-0.5 text-[0.65rem] leading-tight text-[var(--accent)] sm:text-xs">
+                        {dayEntries.word > 0 && <span>단어 {dayEntries.word}</span>}
+                        {dayEntries.pattern > 0 && <span>패턴 {dayEntries.pattern}</span>}
+                      </div>
+                    )}
+                  </button>
                 );
               })}
             </div>
@@ -652,8 +680,36 @@ export default function Home() {
           </MagicSurface>
         </div>
       )}
+
+      {selectedCalendarDate && (
+        <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/30 p-4 backdrop-blur-sm">
+          <MagicSurface className="w-full max-w-lg p-6">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-extrabold text-[var(--accent)]">공부 기록</p>
+                <h2 className="mt-1 font-serif text-2xl font-extrabold">{formatCalendarDate(selectedCalendarDate)}</h2>
+              </div>
+              <Button aria-label="공부 기록 닫기" size="icon" variant="secondary" onClick={() => setSelectedCalendarDate(null)}>
+                <FontAwesomeIcon icon={faXmark} />
+              </Button>
+            </div>
+            <div className="mt-5 grid max-h-80 gap-2 overflow-auto">
+              {selectedCalendarEntries.length === 0 ? (
+                <EmptyState text="이 날 공부한 내용이 없습니다." />
+              ) : (
+                selectedCalendarEntries.map((entry) => <EntryRow entry={entry} key={entry.id} />)
+              )}
+            </div>
+          </MagicSurface>
+        </div>
+      )}
     </main>
   );
+}
+
+function formatCalendarDate(dateKey: string) {
+  const [year, month, day] = dateKey.split("-");
+  return `${year}년 ${Number(month)}월 ${Number(day)}일`;
 }
 
 function Metric({ label, value }: { label: string; value: number }) {
