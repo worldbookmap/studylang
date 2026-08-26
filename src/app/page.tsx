@@ -762,18 +762,16 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
       </div>
       <div className="mt-3 flex items-center gap-2">
         <p className="text-lg font-extrabold">{entry.english}</p>
-        {entry.type === "word" && (
-          <Button
-            aria-label={`${entry.english} 듣기`}
-            className="h-8 w-8 text-xs"
-            size="icon"
-            variant="secondary"
-            onClick={speakEntry}
-            title="단어 듣기"
-          >
-            <FontAwesomeIcon icon={faVolumeHigh} />
-          </Button>
-        )}
+        <Button
+          aria-label={`${entry.english} 듣기`}
+          className="h-8 w-8 text-xs"
+          size="icon"
+          variant="secondary"
+          onClick={speakEntry}
+          title="표현 듣기"
+        >
+          <FontAwesomeIcon icon={faVolumeHigh} />
+        </Button>
       </div>
       {entry.pronunciation && <p className="text-sm font-bold text-[var(--accent)]">{entry.pronunciation}</p>}
       <p className="mt-1 text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</p>
