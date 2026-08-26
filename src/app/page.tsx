@@ -15,6 +15,7 @@ import {
   faPlus,
   faRotateRight,
   faTrash,
+  faVolumeHigh,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Bell, BookText, CalendarDays, ListChecks, Sparkles } from "lucide-react";
@@ -733,13 +734,37 @@ function SectionTitle({ icon, title }: { icon: typeof faPenNib; title: string })
 }
 
 function EntryRow({ entry }: { entry: StudyEntry }) {
+  function speakEntry() {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(entry.english);
+    utterance.lang = "en-US";
+    window.speechSynthesis.speak(utterance);
+  }
+
   return (
     <div className="rounded-md bg-white/70 p-3">
       <div className="flex flex-wrap items-center gap-2">
         <Badge>{entry.type === "word" ? "단어" : "패턴"}</Badge>
         {entry.tags.map((tag) => <Badge key={tag}>#{tag}</Badge>)}
       </div>
-      <p className="mt-3 text-lg font-extrabold">{entry.english}</p>
+      <div className="mt-3 flex items-center gap-2">
+        <p className="text-lg font-extrabold">{entry.english}</p>
+        {entry.type === "word" && (
+          <Button
+            aria-label={`${entry.english} 듣기`}
+            size="icon"
+            variant="secondary"
+            onClick={speakEntry}
+            title="단어 듣기"
+          >
+            <FontAwesomeIcon icon={faVolumeHigh} />
+          </Button>
+        )}
+      </div>
       {entry.pronunciation && <p className="text-sm font-bold text-[var(--accent)]">{entry.pronunciation}</p>}
       <p className="mt-1 text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</p>
       {entry.example && <p className="mt-2 text-sm text-[var(--muted)]">{entry.example}</p>}
