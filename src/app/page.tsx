@@ -760,11 +760,11 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
         <Badge>{entry.type === "word" ? "단어" : "패턴"}</Badge>
         {entry.tags.map((tag) => <Badge key={tag}>#{tag}</Badge>)}
       </div>
-      <div className="mt-3 flex items-center gap-2">
+      <div className="mt-3 flex items-center gap-1.5">
         <p className="text-lg font-extrabold">{entry.english}</p>
         <Button
           aria-label={`${entry.english} 듣기`}
-          className="h-8 w-8 text-xs"
+          className="h-5 w-5 text-[9px]"
           size="icon"
           variant="secondary"
           onClick={speakEntry}
