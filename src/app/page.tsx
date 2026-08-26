@@ -86,7 +86,7 @@ export default function Home() {
   const [status, setStatus] = useState("GitHub 저장소에서 학습장을 여는 중입니다.");
   const [error, setError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
-  const [isPronunciationLoading, setIsPronunciationLoading] = useState(false);
+  const [isWordLookupLoading, setIsWordLookupLoading] = useState(false);
   const [notificationReady, setNotificationReady] = useState(false);
   const [reminderOpen, setReminderOpen] = useState(false);
   const [reminderSentKey, setReminderSentKey] = useState("");
@@ -206,22 +206,26 @@ export default function Home() {
     setEntries(payload.entries ?? []);
   }
 
-  async function lookupPronunciation(word = form.english) {
+  async function lookupWordDetails(word = form.english) {
     if (form.type !== "word" || !word.trim()) {
       return;
     }
 
-    setIsPronunciationLoading(true);
+    setIsWordLookupLoading(true);
 
     try {
       const response = await fetch(`/api/pronunciation?word=${encodeURIComponent(word.trim())}`);
       const payload = await response.json();
 
-      if (payload.pronunciation) {
-        setForm((current) => ({ ...current, pronunciation: payload.pronunciation }));
+      if (payload.pronunciation || payload.meaning) {
+        setForm((current) => ({
+          ...current,
+          pronunciation: payload.pronunciation || current.pronunciation,
+          korean: current.korean.trim() ? current.korean : payload.meaning || current.korean,
+        }));
       }
     } finally {
-      setIsPronunciationLoading(false);
+      setIsWordLookupLoading(false);
     }
   }
 
@@ -412,7 +416,7 @@ export default function Home() {
                   영어 표현
                   <Input
                     value={form.english}
-                    onBlur={() => lookupPronunciation()}
+                    onBlur={() => lookupWordDetails()}
                     onChange={(event) => setForm((current) => ({ ...current, english: event.target.value }))}
                     placeholder="e.g. resilient / I tend to..."
                     required
@@ -433,7 +437,7 @@ export default function Home() {
                     <Input
                       value={form.pronunciation}
                       onChange={(event) => setForm((current) => ({ ...current, pronunciation: event.target.value }))}
-                      placeholder={isPronunciationLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
+                      placeholder={isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
                     />
                   </label>
                 </div>
@@ -458,9 +462,9 @@ export default function Home() {
                     <FontAwesomeIcon icon={faPlus} />
                     {isSaving ? "저장 중" : "GitHub에 저장"}
                   </Button>
-                  <Button variant="secondary" type="button" onClick={() => lookupPronunciation()}>
+                  <Button variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    발음 찾기
+                    뜻/발음 찾기
                   </Button>
                 </div>
               </form>
