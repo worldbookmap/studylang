@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "I have not stopped thinking about you since the party.",
+      "korean": "파티 이후로 당신 생각만 했어요.",
+      "pronunciation": "",
+      "example": "프렌즈 S3E11P15",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-26T08:49:22.604Z",
+      "id": "277e965c-c43c-4fce-8318-67ec0ff83620",
+      "createdAt": "2026-08-26T08:49:23.193Z"
+    },
+    {
       "type": "pattern",
       "english": "I thought we'd never be alone.",
       "korean": "드디어 둘만 있네요.",
