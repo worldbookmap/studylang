@@ -48,9 +48,37 @@
   }
 }
 
+@keyframes surface-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes soft-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 @theme inline {
   --animate-gradient-pan: gradient-pan 7s linear infinite;
   --animate-rise-in: rise-in 520ms ease both;
+  --animate-surface-in: surface-in 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-soft-pop: soft-pop 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 body {

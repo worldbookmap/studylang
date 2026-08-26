@@ -2,23 +2,25 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBell,
-  faBookOpen,
-  faCalendarDays,
-  faCheck,
-  faDice,
-  faLayerGroup,
-  faMagnifyingGlass,
-  faPenNib,
-  faPlus,
-  faRotateRight,
-  faTrash,
-  faVolumeHigh,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import { Bell, BookText, CalendarDays, ListChecks, Sparkles } from "lucide-react";
+  Bell,
+  BookOpenCheck,
+  BookText,
+  CalendarDays,
+  CircleCheck,
+  Dices,
+  Layers3,
+  ListChecks,
+  PenLine,
+  Plus,
+  RotateCw,
+  Search,
+  Sparkles,
+  Trash2,
+  Volume2,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import { AnimatedGradientText, MagicSurface } from "@/components/magic-ui/magic-surface";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -47,7 +49,7 @@ const emptyForm: FormState = {
   tags: "",
 };
 
-const navItems: { id: ActiveView; label: string; icon: typeof BookText }[] = [
+const navItems: { id: ActiveView; label: string; icon: LucideIcon }[] = [
   { id: "input", label: "입력", icon: BookText },
   { id: "quiz", label: "랜덤퀴즈", icon: Sparkles },
   { id: "calendar", label: "공부달력", icon: CalendarDays },
@@ -425,7 +427,7 @@ export default function Home() {
             })}
           </nav>
           <Button className="w-full md:w-auto" variant="secondary" onClick={requestNotification}>
-            <FontAwesomeIcon icon={faBell} />
+            <Bell className="h-4 w-4" />
             {notificationReady ? "알림 켜짐" : "7시 알림 켜기"}
           </Button>
         </MagicSurface>
@@ -439,7 +441,7 @@ export default function Home() {
         {activeView === "input" && (
           <section className="grid gap-4 sm:gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.55fr)]">
             <MagicSurface className="p-4 sm:p-7">
-              <SectionTitle icon={faPenNib} title={editingEntryId ? "표현 수정" : "단어 / 문장 패턴 입력"} />
+              <SectionTitle icon={PenLine} title={editingEntryId ? "표현 수정" : "단어 / 문장 패턴 입력"} />
               <form className="mt-5 grid gap-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
                   {(["word", "pattern"] as StudyEntryType[]).map((type) => (
@@ -508,7 +510,7 @@ export default function Home() {
                 </label>
                 <div className="flex flex-wrap gap-2">
                   <Button disabled={isSaving} type="submit">
-                    <FontAwesomeIcon icon={editingEntryId ? faCheck : faPlus} />
+                    {editingEntryId ? <CircleCheck className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                     {isSaving ? "저장 중" : editingEntryId ? "수정 저장" : "저장"}
                   </Button>
                   {editingEntryId && (
@@ -517,7 +519,7 @@ export default function Home() {
                     </Button>
                   )}
                   <Button disabled={form.type === "pattern" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <Search className="h-4 w-4" />
                     뜻/발음 찾기
                   </Button>
                 </div>
@@ -525,7 +527,7 @@ export default function Home() {
             </MagicSurface>
 
             <MagicSurface className="p-4 sm:p-7">
-              <SectionTitle icon={faLayerGroup} title="오늘의 복습 묶음" />
+              <SectionTitle icon={Layers3} title="오늘의 복습 묶음" />
               <div className="mt-5 grid gap-3">
                 {todaysEntries.length === 0 ? (
                   <EmptyState text="오늘 추가하거나 복습한 항목이 아직 없습니다." />
@@ -539,7 +541,7 @@ export default function Home() {
 
         {activeView === "quiz" && (
           <MagicSurface className="p-5 sm:p-8">
-            <SectionTitle icon={faDice} title="랜덤퀴즈" />
+            <SectionTitle icon={Dices} title="랜덤퀴즈" />
             {!currentQuizEntry ? (
               <EmptyState text="저장된 항목이 생기면 바로 퀴즈를 만들 수 있습니다." />
             ) : (
@@ -560,15 +562,15 @@ export default function Home() {
                   </div>
                   <div className="mt-5 flex flex-wrap gap-2">
                     <Button onClick={() => setShowAnswer(true)}>
-                      <FontAwesomeIcon icon={faCheck} />
+                      <CircleCheck className="h-4 w-4" />
                       정답 보기
                     </Button>
                     <Button variant="secondary" onClick={nextQuiz}>
-                      <FontAwesomeIcon icon={faRotateRight} />
+                      <RotateCw className="h-4 w-4" />
                       다음 문제
                     </Button>
                     <Button variant="secondary" onClick={() => markReviewed(currentQuizEntry)}>
-                      <FontAwesomeIcon icon={faBookOpen} />
+                      <BookOpenCheck className="h-4 w-4" />
                       복습 완료
                     </Button>
                   </div>
@@ -585,7 +587,7 @@ export default function Home() {
 
         {activeView === "calendar" && (
           <MagicSurface className="p-5 sm:p-8">
-            <SectionTitle icon={faCalendarDays} title="공부달력" />
+            <SectionTitle icon={CalendarDays} title="공부달력" />
             <div className="mt-5 grid grid-cols-7 gap-2">
               {["일", "월", "화", "수", "목", "금", "토"].map((day) => (
                 <div className="text-center text-xs font-extrabold text-[var(--muted)]" key={day}>{day}</div>
@@ -626,7 +628,7 @@ export default function Home() {
         {activeView === "list" && (
           <MagicSurface className="p-5 sm:p-8">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <SectionTitle icon={faLayerGroup} title="전체목록" />
+              <SectionTitle icon={Layers3} title="전체목록" />
               <div className="w-full sm:w-80">
                 <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="표현, 뜻, 태그 검색" />
               </div>
@@ -640,15 +642,15 @@ export default function Home() {
                     <EntryRow entry={entry} />
                     <div className="flex gap-2">
                       <Button size="sm" variant="secondary" onClick={() => editEntry(entry)}>
-                        <FontAwesomeIcon icon={faPenNib} />
+                        <PenLine className="h-4 w-4" />
                         수정
                       </Button>
                       <Button size="sm" variant="secondary" onClick={() => markReviewed(entry)}>
-                        <FontAwesomeIcon icon={faCheck} />
+                        <CircleCheck className="h-4 w-4" />
                         복습
                       </Button>
                       <Button size="sm" variant="danger" onClick={() => deleteEntry(entry.id)}>
-                        <FontAwesomeIcon icon={faTrash} />
+                        <Trash2 className="h-4 w-4" />
                         삭제
                       </Button>
                     </div>
@@ -662,7 +664,7 @@ export default function Home() {
 
       {reminderOpen && (
         <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/30 p-4 backdrop-blur-sm">
-          <MagicSurface className="w-full max-w-lg p-6">
+          <MagicSurface className="motion-safe:animate-soft-pop w-full max-w-lg p-6">
             <div className="flex items-start gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-md bg-[var(--honey)] text-[var(--ink)]">
                 <Bell className="h-5 w-5" />
@@ -684,14 +686,14 @@ export default function Home() {
 
       {selectedCalendarDate && (
         <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/30 p-4 backdrop-blur-sm">
-          <MagicSurface className="w-full max-w-lg p-6">
+          <MagicSurface className="motion-safe:animate-soft-pop w-full max-w-lg p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-extrabold text-[var(--accent)]">공부 기록</p>
                 <h2 className="mt-1 font-serif text-2xl font-extrabold">{formatCalendarDate(selectedCalendarDate)}</h2>
               </div>
               <Button aria-label="공부 기록 닫기" size="icon" variant="secondary" onClick={() => setSelectedCalendarDate(null)}>
-                <FontAwesomeIcon icon={faXmark} />
+                <X className="h-5 w-5" />
               </Button>
             </div>
             <div className="mt-5 grid max-h-80 gap-2 overflow-auto">
@@ -722,11 +724,11 @@ function Metric({ label, value }: { label: string; value: number }) {
   );
 }
 
-function SectionTitle({ icon, title }: { icon: typeof faPenNib; title: string }) {
+function SectionTitle({ icon: Icon, title }: { icon: LucideIcon; title: string }) {
   return (
     <div className="flex items-center gap-3">
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[var(--ink)] text-white sm:h-11 sm:w-11">
-        <FontAwesomeIcon icon={icon} />
+        <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
       </span>
       <h2 className="font-serif text-[1.45rem] font-extrabold leading-tight sm:text-3xl lg:text-2xl">{title}</h2>
     </div>
@@ -755,7 +757,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
   }
 
   return (
-    <div className="rounded-md bg-white/70 p-3">
+    <div className="rounded-md bg-white/70 p-3 motion-safe:animate-rise-in motion-safe:transition-transform motion-safe:hover:-translate-y-0.5">
       <div className="flex flex-wrap items-center gap-2">
         <Badge>{entry.type === "word" ? "단어" : "패턴"}</Badge>
         {entry.tags.map((tag) => <Badge key={tag}>#{tag}</Badge>)}
@@ -770,7 +772,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
           onClick={speakEntry}
           title="표현 듣기"
         >
-          <FontAwesomeIcon icon={faVolumeHigh} />
+          <Volume2 className="h-3 w-3" />
         </Button>
       </div>
       {entry.pronunciation && <p className="text-sm font-bold text-[var(--accent)]">{entry.pronunciation}</p>}

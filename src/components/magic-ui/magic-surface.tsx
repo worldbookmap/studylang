@@ -5,7 +5,7 @@ export function MagicSurface({ className, ...props }: React.HTMLAttributes<HTMLD
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.94),rgba(255,255,255,0.74))] shadow-[var(--shadow-soft)] backdrop-blur-2xl before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white before:to-transparent",
+        "relative overflow-hidden rounded-lg border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.94),rgba(255,255,255,0.74))] shadow-[var(--shadow-soft)] backdrop-blur-2xl motion-safe:animate-surface-in before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white before:to-transparent",
         className,
       )}
       {...props}
