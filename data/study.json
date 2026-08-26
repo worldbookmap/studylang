@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "cite",
+      "korean": "인용하다, (예를, 이유를) 들다",
+      "pronunciation": "/saɪt/",
+      "example": "He cited his heavy workload as the reason for his breakdown.",
+      "tags": [
+        "네이버"
+      ],
+      "reviewedAt": "2026-08-26T09:06:29.557Z",
+      "id": "63e65df1-2578-4972-a837-d79505bd424c",
+      "createdAt": "2026-08-26T09:06:30.227Z"
+    },
+    {
       "type": "pattern",
       "english": "I have not stopped thinking about you since the party.",
       "korean": "파티 이후로 당신 생각만 했어요.",
