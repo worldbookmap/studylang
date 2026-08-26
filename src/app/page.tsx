@@ -741,7 +741,16 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
 
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(entry.english);
-    utterance.lang = "en-US";
+    const voices = window.speechSynthesis.getVoices();
+    const englishVoice = voices.find((voice) =>
+      /^(en-US|en-GB)$/i.test(voice.lang) && /Samantha|Google US English|Microsoft Aria|Microsoft Jenny/i.test(voice.name),
+    ) ?? voices.find((voice) => /^en(-US|-GB)?$/i.test(voice.lang));
+
+    utterance.lang = englishVoice?.lang ?? "en-US";
+    utterance.voice = englishVoice ?? null;
+    utterance.rate = 0.88;
+    utterance.pitch = 1.02;
+    utterance.volume = 0.95;
     window.speechSynthesis.speak(utterance);
   }
 
@@ -756,6 +765,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
         {entry.type === "word" && (
           <Button
             aria-label={`${entry.english} 듣기`}
+            className="h-8 w-8 text-xs"
             size="icon"
             variant="secondary"
             onClick={speakEntry}
