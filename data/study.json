@@ -2,7 +2,7 @@
   "version": 1,
   "entries": [
     {
-      "type": "word",
+      "type": "pattern",
       "english": "I have not stopped thinking about you since the party.",
       "korean": "파티 이후로 당신 생각만 했어요.",
       "pronunciation": "",
