@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "we've been expecting you. How was your trip?",
+      "korean": "기다리고 있었습니다. 여행은 어떠셨나요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:18:19.151Z",
+      "id": "00a86264-ebf7-4c97-9136-a658f74dd3c4",
+      "createdAt": "2026-08-27T06:18:20.688Z"
+    },
+    {
+      "type": "pattern",
       "english": "You have been saving up forever for this.",
       "korean": "너 이걸 위해 오랫동안 돈을 모아 왔잖아.",
       "pronunciation": "",
