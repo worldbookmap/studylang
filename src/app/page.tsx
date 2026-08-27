@@ -180,10 +180,14 @@ export default function Home() {
 
   useEffect(() => {
     const savedUser = localStorage.getItem("studylang_user") as UserId | null;
-    const initialUser: UserId = (savedUser === "colly" || savedUser === "baebjji") ? savedUser : "colly";
-    localStorage.setItem("studylang_user", initialUser);
-    setCurrentUser(initialUser);
-    loadUserEntries(initialUser);
+    if (savedUser && (savedUser === "colly" || savedUser === "baebjji")) {
+      setCurrentUser(savedUser);
+      loadUserEntries(savedUser);
+    } else {
+      setIsBooting(false);
+      setIsUserModalOpen(true);
+      setStatus("사용자를 선택하면 단어장이 시작됩니다.");
+    }
   }, []);
 
   function handleSelectUser(user: UserId) {
