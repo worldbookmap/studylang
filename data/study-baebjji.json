@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "They've been trying to have a kid for like 5 years.",
+      "korean": "그들은 한 5년 동안 아이를 가지려고 노력해 오고 있어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:20:10.087Z",
+      "id": "5f346c0c-58f9-4001-a769-91e1edc57f01",
+      "createdAt": "2026-08-27T06:20:11.807Z"
+    },
+    {
+      "type": "pattern",
       "english": "I know we've been putting off talking about marriage.",
       "korean": "우리가 결혼 이야기 나누는 것을 계속 미뤄왔다는 거 알아.",
       "pronunciation": "",
