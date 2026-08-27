@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I've got to",
+      "korean": "-해야겠다.로 have to나 must 보다 훨씬 회화적이고 생생",
+      "pronunciation": "",
+      "example": "I've got to say hi to Rosse.\nI've got to go now. I'm late.\nYou've got to try this cake. It's amazing.\nI've got to finish this work by tonight.",
+      "tags": [
+        "소리튠"
+      ],
+      "reviewedAt": "2026-08-27T09:18:57.155Z",
+      "id": "86355213-d7ac-4ee0-b1aa-4eced697baaa",
+      "createdAt": "2026-08-27T09:18:58.699Z"
+    },
+    {
+      "type": "pattern",
       "english": "What are we drinking over here?",
       "korean": "마실거 뭐 있어요?",
       "pronunciation": "",
