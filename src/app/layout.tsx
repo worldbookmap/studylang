@@ -15,8 +15,20 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "StudyLang",
-  description: "GitHub JSON 기반 영어 단어와 문장 패턴 암기 앱",
+  title: "우리의 영어공부 | StudyLang",
+  description: "콜리와 뱁찌의 영어 단어와 문장 패턴 학습장",
+  openGraph: {
+    title: "우리의 영어공부",
+    description: "콜리와 뱁찌의 영어 단어와 문장 패턴 학습장",
+    siteName: "우리의 영어공부",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "우리의 영어공부",
+    description: "콜리와 뱁찌의 영어 단어와 문장 패턴 학습장",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
