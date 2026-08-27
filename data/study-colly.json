@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "I'd like to order a coffee to go",
+      "korean": "커피 포장할게요",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:08:21.278Z",
+      "id": "756e2c2f-0b5e-4427-a901-583ec1cbbc58",
+      "createdAt": "2026-08-27T06:08:21.747Z"
+    },
+    {
       "type": "word",
       "english": "savor",
       "korean": "to enjoy food or an experience slowly, in order to enjoy it as much as possible: 맛을 보다",
