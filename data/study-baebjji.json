@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "apparently",
+      "korean": "보아하니, 겉보기엔, 듣자하니, 분명히",
+      "pronunciation": "/əˈpaɹəntli/",
+      "example": "정황이나 소문을 바탕으로 추측하는 뉘앙스\nApparently, I do(듣고 보니 그런 것 같네)",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:24:36.645Z",
+      "id": "e39f4779-f665-4d7d-a18d-e4b84e067815",
+      "createdAt": "2026-08-27T06:24:37.894Z"
+    },
+    {
       "type": "pattern",
       "english": "Apparently she's been cutting classes all week.",
       "korean": "듣자 하니 걔 이번 주 내내 수업 빼먹고 있대",
