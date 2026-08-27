@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "in a force for manner",
+      "korean": "훨씬 더 강경한 방식으로",
+      "pronunciation": "",
+      "example": "Trump: Very big, big crackdowns, and this will give us the right to do it in a much more forceful manner.",
+      "tags": [
+        "뉴스"
+      ],
+      "reviewedAt": "2026-08-27T23:46:19.175Z",
+      "id": "d6a9ae22-f6dc-4166-b33d-cff6b4bef95b",
+      "createdAt": "2026-08-27T23:46:19.946Z"
+    },
+    {
+      "type": "word",
       "english": "crack down on",
       "korean": "강하게 단속하다",
       "pronunciation": "",
