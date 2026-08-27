@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "I've been texting you all night.",
+      "korean": "밤새 문자했잖아.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T02:08:18.683Z",
+      "id": "8136ff28-32e3-4b34-b032-220c0915488b",
+      "createdAt": "2026-08-27T02:08:19.617Z"
+    },
+    {
       "type": "pattern",
       "english": "I've been meaning to call you",
       "korean": "너한테 전화하려고 계속 생각하고 있었어.",
