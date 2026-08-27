@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "savor",
+      "korean": "to enjoy food or an experience slowly, in order to enjoy it as much as possible: 맛을 보다",
+      "pronunciation": "/ˈseɪ.vɚ/",
+      "example": "It was the first chocolate he'd tasted for over a year, so he savored every mouthful.\nLove the fact that you are alive and savor everything that life has to offer.",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-27T03:32:13.802Z",
+      "id": "c6478bb7-322a-4977-99e1-60b59008ea1f",
+      "createdAt": "2026-08-27T03:32:14.227Z"
+    },
+    {
       "type": "pattern",
       "english": "I'm taking my ex-girlfriend off my speed dialer.",
       "korean": "전 여친 번호 단축번호에서 지우는 중이에요.",
