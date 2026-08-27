@@ -1,4 +1,16 @@
 {
   "version": 1,
-  "entries": []
+  "entries": [
+    {
+      "type": "word",
+      "english": "epic",
+      "korean": "서사시",
+      "pronunciation": "/ˈɛp.ɪk/",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T01:53:25.328Z",
+      "id": "65258021-be36-4d5b-a6c3-5b6d32f00446",
+      "createdAt": "2026-08-27T01:53:25.856Z"
+    }
+  ]
 }
