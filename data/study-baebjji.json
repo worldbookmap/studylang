@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "It's been bothering me.",
+      "korean": "그게 계속 마음에 걸려.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:25:10.859Z",
+      "id": "ce2ec199-c46e-47ae-8a88-40904ff3add7",
+      "createdAt": "2026-08-27T06:25:12.395Z"
+    },
+    {
       "type": "word",
       "english": "apparently",
       "korean": "보아하니, 겉보기엔, 듣자하니, 분명히",
