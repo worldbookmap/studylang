@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Even if you brought me flowers every day, I wouldn't still marry you.",
+      "korean": "꽃을 매일 보내와도 너랑은 여전히 결혼할 생각이 없어",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T05:55:29.435Z",
+      "id": "04253123-ae66-4cc2-9ce2-489a528ee9cf",
+      "createdAt": "2026-08-27T05:55:30.701Z"
+    },
+    {
+      "type": "pattern",
       "english": "Would it be all right if I gave Judy a call?",
       "korean": "주디에게 전화해도 괜찮겠냐?",
       "pronunciation": "",
