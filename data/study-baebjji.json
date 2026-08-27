@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "That's what I've been saying",
+      "korean": "그게 내가 계속 말했던 거야.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "현재완료진행have been ~ing"
+      ],
+      "reviewedAt": "2026-08-27T02:11:39.131Z",
+      "id": "039fd123-5b51-4ec4-878a-d07828ae60d4",
+      "createdAt": "2026-08-27T02:11:39.923Z"
+    },
+    {
+      "type": "word",
       "english": "I've been watching your stuff on YouTube.",
       "korean": "유투브에서 당신 영상들 계속 봐왔어요.",
       "pronunciation": "",
