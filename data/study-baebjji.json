@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "If that ever happens, I'll let you know.",
+      "korean": "혹시 그런 일이 일어나면 알려 줄게.",
+      "pronunciation": "",
+      "example": "가정법 현재: 현재의 행동이나 상황에 따라 미래가 달라질 때 사용하며, '이프(if)절에 현재 시제, 주절에 미래 시제(will, be going to 등)'를 사용합니다\n.",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:35:06.702Z",
+      "id": "106c8bec-a087-44ed-8279-878324858c97",
+      "createdAt": "2026-08-27T06:35:08.904Z"
+    },
+    {
+      "type": "pattern",
       "english": "how long have you two been going out?",
       "korean": "그래서 너희 둘이 사귄 지는 얼마나 됐어?",
       "pronunciation": "",
