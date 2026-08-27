@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "What are we drinking over here?",
+      "korean": "마실거 뭐 있어요?",
+      "pronunciation": "",
+      "example": "What are we watching over here?\nWhat are you doing tonight, Ben? Frozen Razanya?",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-27T06:37:01.919Z",
+      "id": "67590544-afdf-4c7c-86f0-5ac004adb9f8",
+      "createdAt": "2026-08-27T06:37:02.664Z"
+    },
+    {
+      "type": "pattern",
       "english": "I'd like to order a coffee to go",
       "korean": "커피 포장할게요",
       "pronunciation": "",
