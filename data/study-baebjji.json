@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Wouldn't it be easier if we put all of our stuff in the same notebook?",
+      "korean": "우리 모든 걸 같은 공책 한 권에 정리하면 더 편하지 않을까",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:45:26.370Z",
+      "id": "9711498c-e4a8-4c08-a41a-fcb1449ec8e4",
+      "createdAt": "2026-08-27T06:45:27.929Z"
+    },
+    {
+      "type": "pattern",
       "english": "I said something in that video that would be really hurtful if she saw it.",
       "korean": "제가 그 영상에서 혹시 그녀가 보면 정말 상처가 될 만한 말을 했어요.",
       "pronunciation": "",
