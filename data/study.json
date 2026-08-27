@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "hammered",
+      "korean": "취했다",
+      "pronunciation": "",
+      "example": "I was so hammered last night",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-27T00:29:17.977Z",
+      "id": "c5279acd-3aed-4e5e-b7fe-d272a45ae9ba",
+      "createdAt": "2026-08-27T00:29:18.849Z"
+    },
+    {
+      "type": "word",
       "english": "inept",
       "korean": "Not able to do something; not proficient; displaying incompetence. 솜씨없는, 서투른",
       "pronunciation": "/ɪnˈɛpt/",
