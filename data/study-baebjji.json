@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "If I won the lottery right now, all my problems would be solved.",
+      "korean": "내가 지금 당장 복권에 당첨된다면 나의 모든 문제들이 해결될 텐데.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:41:22.509Z",
+      "id": "4f93b31e-5d71-447e-b42e-dd437ed0c47f",
+      "createdAt": "2026-08-27T06:41:24.304Z"
+    },
+    {
+      "type": "pattern",
       "english": "If I didn't have to eat, I wouldn't.",
       "korean": "만약 제가 먹지 않아도 살아갈 수 있다면 전 안 먹겠어요.",
       "pronunciation": "",
