@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "how long have you two been going out?",
+      "korean": "그래서 너희 둘이 사귄 지는 얼마나 됐어?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:27:30.643Z",
+      "id": "627b2686-2951-4f66-a9b0-7d54f5024a5e",
+      "createdAt": "2026-08-27T06:27:32.199Z"
+    },
+    {
+      "type": "pattern",
       "english": "What have you been doing all day?",
       "korean": "너 오늘 하루 종일 뭐 했어?",
       "pronunciation": "",
