@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Would it be all right if I gave Judy a call?",
+      "korean": "주디에게 전화해도 괜찮겠냐?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T05:53:59.602Z",
+      "id": "9cc14340-3f36-4f62-a985-d01a7d4dd79d",
+      "createdAt": "2026-08-27T05:54:01.697Z"
+    },
+    {
+      "type": "pattern",
       "english": "I've been dying to see this movie.",
       "korean": "나 이영화 진짜 보고 싶었어.",
       "pronunciation": "",
