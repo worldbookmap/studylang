@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I'm taking my ex-girlfriend off my speed dialer.",
+      "korean": "전 여친 번호 단축번호에서 지우는 중이에요.",
+      "pronunciation": "",
+      "example": "take off: 이륙하다, 제거하다, 옷을 벗다.",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-27T03:26:54.236Z",
+      "id": "5cc9918f-bb3e-48ee-8342-e4823a0e1292",
+      "createdAt": "2026-08-27T03:26:54.606Z"
+    },
+    {
+      "type": "pattern",
       "english": "I don't know how to talk to you",
       "korean": "와우 말문이 탁 막히네요.",
       "pronunciation": "",
