@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "What have you been doing all day?",
+      "korean": "너 오늘 하루 종일 뭐 했어?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:26:44.209Z",
+      "id": "9bf78c7b-8171-4fa6-8ee0-108fe7e6347b",
+      "createdAt": "2026-08-27T06:26:45.792Z"
+    },
+    {
+      "type": "pattern",
       "english": "It's been driving me crazy not telling you.",
       "korean": "너한테 말 안 하는 동안 진짜 미칠 것 같았어.",
       "pronunciation": "",
