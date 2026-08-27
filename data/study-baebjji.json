@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "He's been calling me for three days straight.",
+      "korean": "걔 사흘 연속으로 나한테 전화하고 있어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:22:40.618Z",
+      "id": "1234ccb4-cb83-44b4-90e3-5e4c09f653b6",
+      "createdAt": "2026-08-27T06:22:41.970Z"
+    },
+    {
+      "type": "pattern",
       "english": "They've been trying to have a kid for like 5 years.",
       "korean": "그들은 한 5년 동안 아이를 가지려고 노력해 오고 있어.",
       "pronunciation": "",
