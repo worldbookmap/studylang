@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I said something in that video that would be really hurtful if she saw it.",
+      "korean": "제가 그 영상에서 혹시 그녀가 보면 정말 상처가 될 만한 말을 했어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:43:01.893Z",
+      "id": "11976476-5556-421e-bfca-dcd1e74bacd9",
+      "createdAt": "2026-08-27T06:43:03.497Z"
+    },
+    {
+      "type": "pattern",
       "english": "If I won the lottery right now, all my problems would be solved.",
       "korean": "내가 지금 당장 복권에 당첨된다면 나의 모든 문제들이 해결될 텐데.",
       "pronunciation": "",
