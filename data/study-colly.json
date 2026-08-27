@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "I am a boy",
+      "korean": "aa",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T03:23:18.213Z",
+      "id": "2383a315-07e6-463a-8c75-399fd0124c6e",
+      "createdAt": "2026-08-27T03:23:18.985Z"
+    },
+    {
       "type": "pattern",
       "english": "I don't know how to talk to you",
       "korean": "와우 말문이 탁 막히네요.",
