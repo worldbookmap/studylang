@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "It's been driving me crazy not telling you.",
+      "korean": "너한테 말 안 하는 동안 진짜 미칠 것 같았어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:26:06.239Z",
+      "id": "498bb619-b07d-45eb-89a4-9a85c0ed06c8",
+      "createdAt": "2026-08-27T06:26:07.825Z"
+    },
+    {
+      "type": "pattern",
       "english": "It's been bothering me.",
       "korean": "그게 계속 마음에 걸려.",
       "pronunciation": "",
