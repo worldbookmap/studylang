@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "We've been arguing about this forever.",
+      "korean": "우리 이것 때문에 맨날 싸우고 있잖아",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:18:53.114Z",
+      "id": "e9bcad89-86a8-4568-9d53-b234fcbc4923",
+      "createdAt": "2026-08-27T06:18:54.628Z"
+    },
+    {
+      "type": "pattern",
       "english": "we've been expecting you. How was your trip?",
       "korean": "기다리고 있었습니다. 여행은 어떠셨나요?",
       "pronunciation": "",
