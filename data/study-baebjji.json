@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "If it were easy, everyone would be popular.",
+      "korean": "그게 쉬웠으면 모든 사람이 인기가 많겠지.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "가정법과거"
+      ],
+      "reviewedAt": "2026-08-27T06:38:46.978Z",
+      "id": "11d5a86c-5c8d-4147-a2a7-014b38815f06",
+      "createdAt": "2026-08-27T06:38:48.353Z"
+    },
+    {
+      "type": "pattern",
       "english": "If I were you, I'd kick him out.",
       "korean": "제가 당신이라면 전 그를 쫓아낼 거예요.",
       "pronunciation": "",
