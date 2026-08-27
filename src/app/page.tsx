@@ -854,7 +854,7 @@ function formatCalendarDate(dateKey: string) {
 
 function Metric({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-md bg-white/20 px-2 py-1.5 backdrop-blur-xs sm:bg-white/30 sm:px-4 sm:py-3">
+    <div className="rounded-md bg-white/10 px-2 py-1.5 backdrop-blur-[2px] sm:bg-white/15 sm:px-4 sm:py-3">
       <div className="font-serif text-xl font-extrabold leading-none sm:text-4xl lg:text-3xl">{value}</div>
       <div className="mt-1 text-[0.65rem] font-extrabold leading-none text-[var(--muted)] sm:text-sm lg:text-xs">{label}</div>
     </div>
