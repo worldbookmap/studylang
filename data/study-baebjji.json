@@ -96,17 +96,6 @@
       "reviewedAt": "2026-08-27T02:06:07.386Z",
       "id": "03cf28b2-dc42-4c05-a8ee-3614292e2cf2",
       "createdAt": "2026-08-27T02:06:09.103Z"
-    },
-    {
-      "type": "word",
-      "english": "epic",
-      "korean": "서사시",
-      "pronunciation": "/ˈɛp.ɪk/",
-      "example": "",
-      "tags": [],
-      "reviewedAt": "2026-08-27T01:53:25.328Z",
-      "id": "65258021-be36-4d5b-a6c3-5b6d32f00446",
-      "createdAt": "2026-08-27T01:53:25.856Z"
     }
   ]
 }
