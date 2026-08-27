@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I know we've been putting off talking about marriage.",
+      "korean": "우리가 결혼 이야기 나누는 것을 계속 미뤄왔다는 거 알아.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:19:18.676Z",
+      "id": "a182bcc0-dbde-45d9-9a71-0ad62f4033a0",
+      "createdAt": "2026-08-27T06:19:19.998Z"
+    },
+    {
+      "type": "pattern",
       "english": "We've been arguing about this forever.",
       "korean": "우리 이것 때문에 맨날 싸우고 있잖아",
       "pronunciation": "",
