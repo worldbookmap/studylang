@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "If I could help you , I would.",
+      "korean": "널 도와줄 수 있으면 내가 돕겠지.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T05:57:10.885Z",
+      "id": "651e3b5c-be35-479f-9a9e-ed772e418132",
+      "createdAt": "2026-08-27T05:57:12.137Z"
+    },
+    {
+      "type": "pattern",
       "english": "Even if you brought me flowers every day, I wouldn't still marry you.",
       "korean": "꽃을 매일 보내와도 너랑은 여전히 결혼할 생각이 없어",
       "pronunciation": "",
