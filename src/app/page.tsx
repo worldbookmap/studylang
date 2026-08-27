@@ -98,6 +98,7 @@ export default function Home() {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const [listFilter, setListFilter] = useState<"all" | "word" | "pattern">("all");
   const [quizEntry, setQuizEntry] = useState<StudyEntry>();
   const [showAnswer, setShowAnswer] = useState(false);
   const [status, setStatus] = useState("학습장을 불러오는 중입니다.");
@@ -119,17 +120,19 @@ export default function Home() {
   const filteredEntries = useMemo(() => {
     const lowerQuery = query.trim().toLowerCase();
 
-    if (!lowerQuery) {
-      return entries;
-    }
-
-    return entries.filter((entry) =>
-      [entry.english, entry.korean, entry.pronunciation, entry.example, entry.tags.join(" ")]
+    return entries.filter((entry) => {
+      if (listFilter !== "all" && entry.type !== listFilter) {
+        return false;
+      }
+      if (!lowerQuery) {
+        return true;
+      }
+      return [entry.english, entry.korean, entry.pronunciation, entry.example, entry.tags.join(" ")]
         .join(" ")
         .toLowerCase()
-        .includes(lowerQuery),
-    );
-  }, [entries, query]);
+        .includes(lowerQuery);
+    });
+  }, [entries, query, listFilter]);
 
   const calendarEntries = useMemo(() => {
     return entries.reduce<Record<string, { word: number; pattern: number; entries: StudyEntry[] }>>((acc, entry) => {
@@ -666,8 +669,42 @@ export default function Home() {
           <MagicSurface className="p-5 sm:p-8">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <SectionTitle icon={Layers3} title="전체목록" />
-              <div className="w-full sm:w-80">
-                <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="표현, 뜻, 태그 검색" />
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <div className="flex rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
+                  <button
+                    type="button"
+                    onClick={() => setListFilter("all")}
+                    className={cn(
+                      "px-3 py-1.5 text-xs sm:text-sm font-extrabold rounded-md transition",
+                      listFilter === "all" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
+                    )}
+                  >
+                    전체
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setListFilter("word")}
+                    className={cn(
+                      "px-3 py-1.5 text-xs sm:text-sm font-extrabold rounded-md transition",
+                      listFilter === "word" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
+                    )}
+                  >
+                    단어
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setListFilter("pattern")}
+                    className={cn(
+                      "px-3 py-1.5 text-xs sm:text-sm font-extrabold rounded-md transition",
+                      listFilter === "pattern" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
+                    )}
+                  >
+                    문장 패턴
+                  </button>
+                </div>
+                <div className="w-full sm:w-64">
+                  <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="표현, 뜻, 태그 검색" />
+                </div>
               </div>
             </div>
             <div className="mt-5 grid gap-3">
