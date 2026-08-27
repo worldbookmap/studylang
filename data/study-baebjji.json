@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "\"If I had a supportive spouse, I wouldn't be in this situation.",
+      "korean": "나한테 지지해주는 배우자가 있었다면 내가 이런 상황에 있지 않을 거야.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:39:26.664Z",
+      "id": "fefd29a2-908c-4354-afd9-a373b9d4a895",
+      "createdAt": "2026-08-27T06:39:28.247Z"
+    },
+    {
+      "type": "pattern",
       "english": "If it were easy, everyone would be popular.",
       "korean": "그게 쉬웠으면 모든 사람이 인기가 많겠지.",
       "pronunciation": "",
