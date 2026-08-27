@@ -417,35 +417,9 @@ export default function Home() {
                 <AnimatedGradientText className="relative z-10">StudyLang</AnimatedGradientText>
               </h1>
             </div>
-
-            {/* 사용자 표시 및 스위처 */}
-            <div className="mt-1 flex flex-wrap items-center gap-2">
-              {activeProfile ? (
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/80 px-3.5 py-1.5 shadow-sm backdrop-blur">
-                  <span className="text-xl">{activeProfile.emoji}</span>
-                  <span className="text-sm font-extrabold text-[var(--ink)]">{activeProfile.name}의 학습장</span>
-                  <button
-                    onClick={() => setIsUserModalOpen(true)}
-                    className="ml-1 inline-flex items-center gap-1 rounded-md bg-[var(--surface)] px-2 py-0.5 text-xs font-bold text-[var(--accent)] hover:bg-blue-100 transition"
-                    title="사용자 전환"
-                  >
-                    <RefreshCw className="h-3 w-3" />
-                    교체
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setIsUserModalOpen(true)}
-                  className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-1.5 text-sm font-bold text-white shadow-sm hover:opacity-90 transition"
-                >
-                  <User className="h-4 w-4" />
-                  사용자 선택하기
-                </button>
-              )}
-            </div>
           </div>
 
-          <div className="w-full max-w-[17rem] justify-self-center rounded-lg border border-white/80 bg-white/46 p-1.5 shadow-sm backdrop-blur sm:max-w-none sm:p-3 lg:justify-self-auto">
+          <div className="w-full max-w-[17rem] justify-self-center rounded-lg border border-white/60 bg-white/20 p-1.5 shadow-sm backdrop-blur-md sm:max-w-none sm:p-3 lg:justify-self-auto">
             <div className="grid grid-cols-3 gap-1.5 text-center sm:gap-2">
               <Metric label="전체" value={entries.length} />
               <Metric label="오늘" value={todaysEntries.length} />
@@ -483,8 +457,17 @@ export default function Home() {
         </MagicSurface>
 
         {(error || status) && (
-          <div className="rounded-lg border border-[var(--line)] bg-white/72 px-4 py-3 text-sm font-bold leading-6 text-[var(--muted-strong)] shadow-sm backdrop-blur sm:leading-normal">
-            {error || status}
+          <div className="flex items-center justify-between gap-3 rounded-lg border border-[var(--line)] bg-white/72 px-4 py-3 text-sm font-bold leading-6 text-[var(--muted-strong)] shadow-sm backdrop-blur sm:leading-normal">
+            <span>{error || status}</span>
+            <button
+              onClick={() => setIsUserModalOpen(true)}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/90 bg-white/80 text-xl shadow-sm transition hover:scale-110 hover:bg-blue-50 active:scale-95"
+              title="사용자 교체"
+              aria-label="사용자 교체"
+              type="button"
+            >
+              {activeProfile?.emoji ?? "🐶"}
+            </button>
           </div>
         )}
 
@@ -830,7 +813,7 @@ function formatCalendarDate(dateKey: string) {
 
 function Metric({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-md bg-white/64 px-2 py-1.5 sm:bg-white/72 sm:px-4 sm:py-3">
+    <div className="rounded-md bg-white/20 px-2 py-1.5 backdrop-blur-xs sm:bg-white/30 sm:px-4 sm:py-3">
       <div className="font-serif text-xl font-extrabold leading-none sm:text-4xl lg:text-3xl">{value}</div>
       <div className="mt-1 text-[0.65rem] font-extrabold leading-none text-[var(--muted)] sm:text-sm lg:text-xs">{label}</div>
     </div>
