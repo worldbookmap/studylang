@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "I don't know how to talk to you",
+      "korean": "와우 말문이 탁 막히네요.",
+      "pronunciation": "",
+      "example": "프렌즈 S3E11P7",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-27T02:56:48.026Z",
+      "id": "a13a8d5c-e33b-4919-9dbc-8a88b23e711e",
+      "createdAt": "2026-08-27T02:56:49.451Z"
+    },
+    {
       "type": "word",
       "english": "hammered",
       "korean": "취한",
