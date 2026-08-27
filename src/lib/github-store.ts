@@ -80,19 +80,6 @@ async function readLocalDatabase(userId?: string): Promise<{ database: StudyData
     };
   } catch (error: any) {
     if (error.code === "ENOENT") {
-      // If user-specific file is missing, try fallback to default study.json
-      if (userId) {
-        try {
-          const defaultPath = path.join(process.cwd(), DEFAULT_DATA_PATH);
-          const defaultData = await fs.readFile(defaultPath, "utf-8");
-          const parsed = JSON.parse(defaultData) as StudyDatabase;
-          return {
-            database: { version: 1, entries: Array.isArray(parsed.entries) ? parsed.entries : [] },
-          };
-        } catch {
-          // ignore
-        }
-      }
       return { database: { version: 1, entries: [] } };
     }
     throw error;
@@ -128,25 +115,6 @@ export async function readStudyDatabase(userId?: string): Promise<{ database: St
   });
 
   if (response.status === 404) {
-    // If user database is not found on GitHub, check if default database exists
-    if (userId) {
-      try {
-        const defaultUrl = new URL(
-          `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.path}`,
-        );
-        defaultUrl.searchParams.set("ref", config.branch);
-        const defaultResponse = await fetch(defaultUrl, {
-          headers: githubHeaders(config.token),
-          cache: "no-store",
-        });
-        if (defaultResponse.ok) {
-          const payload = (await defaultResponse.json()) as GithubContentResponse;
-          return { database: decodeDatabase(payload.content) };
-        }
-      } catch {
-        // ignore
-      }
-    }
     return { database: { version: 1, entries: [] } };
   }
 
