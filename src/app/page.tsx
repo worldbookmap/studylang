@@ -507,7 +507,17 @@ export default function Home() {
                   <Input
                     value={form.english}
                     onBlur={() => lookupWordDetails()}
-                    onChange={(event) => setForm((current) => ({ ...current, english: event.target.value }))}
+                    onChange={(event) => setForm((current) => {
+                      const english = event.target.value;
+                      const wordCount = english.trim().split(/\s+/).filter(Boolean).length;
+
+                      return {
+                        ...current,
+                        english,
+                        type: current.type === "word" && wordCount >= 3 ? "pattern" : current.type,
+                        pronunciation: current.type === "word" && wordCount >= 3 ? "" : current.pronunciation,
+                      };
+                    })}
                     placeholder="e.g. resilient / I tend to..."
                     required
                   />
