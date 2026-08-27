@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "crack down on",
+      "korean": "강하게 단속하다",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "뉴스"
+      ],
+      "reviewedAt": "2026-08-27T23:43:03.276Z",
+      "id": "f12eae94-bc5b-4a23-9aac-7be3b37087dd",
+      "createdAt": "2026-08-27T23:43:03.845Z"
+    },
+    {
       "type": "pattern",
       "english": "I've got to",
       "korean": "-해야겠다.로 have to나 must 보다 훨씬 회화적이고 생생",
