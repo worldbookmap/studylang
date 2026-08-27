@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "I've been watching your stuff on YouTube.",
+      "korean": "유투브에서 당신 영상들 계속 봐왔어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T02:09:25.609Z",
+      "id": "23583ae1-6a96-4518-b40f-e48c8a66a237",
+      "createdAt": "2026-08-27T02:09:26.543Z"
+    },
+    {
+      "type": "word",
       "english": "I've been texting you all night.",
       "korean": "밤새 문자했잖아.",
       "pronunciation": "",
