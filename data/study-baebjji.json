@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Apparently she's been cutting classes all week.",
+      "korean": "듣자 하니 걔 이번 주 내내 수업 빼먹고 있대",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:23:00.640Z",
+      "id": "6611b66f-e140-4a97-85e8-462c5fb80025",
+      "createdAt": "2026-08-27T06:23:02.951Z"
+    },
+    {
+      "type": "pattern",
       "english": "He's been calling me for three days straight.",
       "korean": "걔 사흘 연속으로 나한테 전화하고 있어.",
       "pronunciation": "",
