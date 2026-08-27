@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "I've been dying to see this movie.",
+      "korean": "나 이영화 진짜 보고 싶었어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "현재완료진행have been ~ing"
+      ],
+      "reviewedAt": "2026-08-27T02:36:41.951Z",
+      "id": "2705e9be-441a-41ca-bd79-4bce42deea72",
+      "createdAt": "2026-08-27T02:36:42.947Z"
+    },
+    {
+      "type": "word",
       "english": "That's what I've been saying",
       "korean": "그게 내가 계속 말했던 거야.",
       "pronunciation": "",
