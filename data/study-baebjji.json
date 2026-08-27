@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Your life would be better if you worked less.",
+      "korean": "일을 더 적게 할 수 있다면 당신의 삶은 나을 것입니다.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:40:08.812Z",
+      "id": "846cea34-8878-4183-8a88-ea6cb60621f8",
+      "createdAt": "2026-08-27T06:40:10.439Z"
+    },
+    {
+      "type": "pattern",
       "english": "\"If I had a supportive spouse, I wouldn't be in this situation.",
       "korean": "나한테 지지해주는 배우자가 있었다면 내가 이런 상황에 있지 않을 거야.",
       "pronunciation": "",
