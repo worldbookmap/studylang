@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I've been wanting to talk with you.",
+      "korean": "너랑 계속 이야기하고 싶었어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:15:18.041Z",
+      "id": "b1b22c04-daeb-4daa-9dd0-4585f6d21c2d",
+      "createdAt": "2026-08-27T06:15:20.335Z"
+    },
+    {
+      "type": "pattern",
       "english": "If I could help you , I would.",
       "korean": "널 도와줄 수 있으면 내가 돕겠지.",
       "pronunciation": "",
