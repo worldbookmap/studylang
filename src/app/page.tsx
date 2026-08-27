@@ -636,9 +636,9 @@ export default function Home() {
         )}
 
         {activeView === "calendar" && (
-          <MagicSurface className="p-5 sm:p-8">
+          <MagicSurface className="p-3 sm:p-8">
             <SectionTitle icon={CalendarDays} title="공부달력" />
-            <div className="mt-5 grid grid-cols-7 gap-2">
+            <div className="mt-3 grid grid-cols-7 gap-1 sm:mt-5 sm:gap-2">
               {["일", "월", "화", "수", "목", "금", "토"].map((day) => (
                 <div className="text-center text-xs font-extrabold text-[var(--muted)]" key={day}>{day}</div>
               ))}
@@ -652,7 +652,7 @@ export default function Home() {
                 return (
                   <button
                     className={cn(
-                      "aspect-square rounded-md border border-[var(--line)] bg-white/70 p-2 text-left text-sm font-extrabold shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-white",
+                      "aspect-square rounded-md border border-[var(--line)] bg-white/70 p-1 text-left text-xs font-extrabold shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-white sm:p-2 sm:text-sm",
                       count > 0 && "border-[var(--accent)] bg-[#dbeafe] shadow-[0_10px_24px_rgba(37,99,235,0.16)]",
                       localDateKey(new Date()) === key && "ring-2 ring-[var(--honey)]",
                     )}
@@ -663,9 +663,9 @@ export default function Home() {
                   >
                     <div>{day.getDate()}</div>
                     {count > 0 && (
-                      <div className="mt-2 grid gap-0.5 text-[0.65rem] leading-tight text-[var(--accent)] sm:text-xs">
-                        {dayEntries.word > 0 && <span>단어 {dayEntries.word}</span>}
-                        {dayEntries.pattern > 0 && <span>패턴 {dayEntries.pattern}</span>}
+                      <div className="mt-1 grid gap-0 text-[0.6rem] leading-tight text-[var(--accent)] sm:mt-2 sm:gap-0.5 sm:text-xs">
+                        {dayEntries.word > 0 && <span><span className="sm:hidden">단 </span><span className="hidden sm:inline">단어 </span>{dayEntries.word}</span>}
+                        {dayEntries.pattern > 0 && <span><span className="sm:hidden">패 </span><span className="hidden sm:inline">패턴 </span>{dayEntries.pattern}</span>}
                       </div>
                     )}
                   </button>
