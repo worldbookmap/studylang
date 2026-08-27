@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "If I didn't have to eat, I wouldn't.",
+      "korean": "만약 제가 먹지 않아도 살아갈 수 있다면 전 안 먹겠어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:40:28.441Z",
+      "id": "839828eb-5dcb-4d4f-bbb8-6de3ab804d10",
+      "createdAt": "2026-08-27T06:40:29.993Z"
+    },
+    {
+      "type": "pattern",
       "english": "Your life would be better if you worked less.",
       "korean": "일을 더 적게 할 수 있다면 당신의 삶은 나을 것입니다.",
       "pronunciation": "",
