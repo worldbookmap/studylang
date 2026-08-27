@@ -1,3 +1,5 @@
+import fs from "fs/promises";
+import path from "path";
 import { StudyDatabase, StudyEntry } from "@/lib/types";
 
 const DEFAULT_DATA_PATH = "data/study.json";
@@ -32,6 +34,13 @@ function getGithubConfig() {
   return { token, owner, repo, branch, path };
 }
 
+function resolveUserPath(basePath: string, userId: string = "colly") {
+  const targetUser = userId || "colly";
+  const ext = path.extname(basePath);
+  const name = basePath.substring(0, basePath.length - ext.length);
+  return `${name}-${targetUser}${ext || ".json"}`;
+}
+
 function githubHeaders(token: string) {
   return {
     Accept: "application/vnd.github+json",
@@ -54,10 +63,62 @@ function decodeDatabase(content: string): StudyDatabase {
   };
 }
 
-export async function readStudyDatabase(): Promise<{ database: StudyDatabase; sha?: string }> {
-  const config = getGithubConfig();
+// Local filesystem helpers for fallback when GitHub env vars are missing
+function getLocalFilePath(userId?: string) {
+  const basePath = process.env.GITHUB_DATA_PATH ?? DEFAULT_DATA_PATH;
+  const userPath = resolveUserPath(basePath, userId);
+  return path.join(process.cwd(), userPath);
+}
+
+async function readLocalDatabase(userId?: string): Promise<{ database: StudyDatabase; sha?: string }> {
+  const filePath = getLocalFilePath(userId);
+  try {
+    const data = await fs.readFile(filePath, "utf-8");
+    const parsed = JSON.parse(data) as StudyDatabase;
+    return {
+      database: { version: 1, entries: Array.isArray(parsed.entries) ? parsed.entries : [] },
+    };
+  } catch (error: any) {
+    if (error.code === "ENOENT") {
+      // If user-specific file is missing, try fallback to default study.json
+      if (userId) {
+        try {
+          const defaultPath = path.join(process.cwd(), DEFAULT_DATA_PATH);
+          const defaultData = await fs.readFile(defaultPath, "utf-8");
+          const parsed = JSON.parse(defaultData) as StudyDatabase;
+          return {
+            database: { version: 1, entries: Array.isArray(parsed.entries) ? parsed.entries : [] },
+          };
+        } catch {
+          // ignore
+        }
+      }
+      return { database: { version: 1, entries: [] } };
+    }
+    throw error;
+  }
+}
+
+async function writeLocalDatabase(entries: StudyEntry[], userId?: string) {
+  const filePath = getLocalFilePath(userId);
+  const database: StudyDatabase = { version: 1, entries };
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, JSON.stringify(database, null, 2), "utf-8");
+  return database;
+}
+
+export async function readStudyDatabase(userId?: string): Promise<{ database: StudyDatabase; sha?: string }> {
+  let config;
+  try {
+    config = getGithubConfig();
+  } catch (err) {
+    // Fall back to local file system if GitHub config is not provided
+    return readLocalDatabase(userId);
+  }
+
+  const userPath = resolveUserPath(config.path, userId);
   const url = new URL(
-    `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.path}`,
+    `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${userPath}`,
   );
   url.searchParams.set("ref", config.branch);
 
@@ -67,6 +128,25 @@ export async function readStudyDatabase(): Promise<{ database: StudyDatabase; sh
   });
 
   if (response.status === 404) {
+    // If user database is not found on GitHub, check if default database exists
+    if (userId) {
+      try {
+        const defaultUrl = new URL(
+          `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.path}`,
+        );
+        defaultUrl.searchParams.set("ref", config.branch);
+        const defaultResponse = await fetch(defaultUrl, {
+          headers: githubHeaders(config.token),
+          cache: "no-store",
+        });
+        if (defaultResponse.ok) {
+          const payload = (await defaultResponse.json()) as GithubContentResponse;
+          return { database: decodeDatabase(payload.content) };
+        }
+      } catch {
+        // ignore
+      }
+    }
     return { database: { version: 1, entries: [] } };
   }
 
@@ -78,9 +158,17 @@ export async function readStudyDatabase(): Promise<{ database: StudyDatabase; sh
   return { database: decodeDatabase(payload.content), sha: payload.sha };
 }
 
-export async function writeStudyDatabase(entries: StudyEntry[], sha?: string) {
-  const config = getGithubConfig();
-  const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.path}`;
+export async function writeStudyDatabase(entries: StudyEntry[], sha?: string, userId?: string) {
+  let config;
+  try {
+    config = getGithubConfig();
+  } catch (err) {
+    // Fall back to local file system if GitHub config is missing
+    return writeLocalDatabase(entries, userId);
+  }
+
+  const userPath = resolveUserPath(config.path, userId);
+  const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${userPath}`;
   const database: StudyDatabase = { version: 1, entries };
 
   const response = await fetch(url, {
@@ -90,7 +178,7 @@ export async function writeStudyDatabase(entries: StudyEntry[], sha?: string) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: "Update study language database",
+      message: `Update study language database${userId ? ` (${userId})` : ""}`,
       content: encodeDatabase(database),
       branch: config.branch,
       sha,

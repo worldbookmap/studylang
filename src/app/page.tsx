@@ -13,10 +13,12 @@ import {
   ListChecks,
   PenLine,
   Plus,
+  RefreshCw,
   RotateCw,
   Search,
   Sparkles,
   Trash2,
+  User,
   Volume2,
   X,
   type LucideIcon,
@@ -27,7 +29,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn, isSameLocalDay, todayKey } from "@/lib/utils";
-import { EntryInput, StudyEntry, StudyEntryType } from "@/lib/types";
+import { EntryInput, StudyEntry, StudyEntryType, UserId, USER_PROFILES } from "@/lib/types";
 
 type ActiveView = "input" | "quiz" | "calendar" | "list";
 
@@ -88,6 +90,8 @@ function localDateKey(date: Date) {
 }
 
 export default function Home() {
+  const [currentUser, setCurrentUser] = useState<UserId | null>(null);
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isBooting, setIsBooting] = useState(true);
   const [activeView, setActiveView] = useState<ActiveView>("input");
   const [entries, setEntries] = useState<StudyEntry[]>([]);
@@ -96,7 +100,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [quizEntry, setQuizEntry] = useState<StudyEntry>();
   const [showAnswer, setShowAnswer] = useState(false);
-  const [status, setStatus] = useState("GitHub 저장소에서 학습장을 여는 중입니다.");
+  const [status, setStatus] = useState("학습장을 불러오는 중입니다.");
   const [error, setError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isWordLookupLoading, setIsWordLookupLoading] = useState(false);
@@ -104,6 +108,8 @@ export default function Home() {
   const [reminderOpen, setReminderOpen] = useState(false);
   const [reminderSentKey, setReminderSentKey] = useState("");
   const [selectedCalendarDate, setSelectedCalendarDate] = useState<string | null>(null);
+
+  const activeProfile = currentUser ? USER_PROFILES[currentUser] : null;
 
   const todaysEntries = useMemo(
     () => entries.filter((entry) => isSameLocalDay(entry.createdAt) || isSameLocalDay(entry.reviewedAt)),
@@ -146,43 +152,48 @@ export default function Home() {
     return entries.find((entry) => entry.id === quizEntry?.id) ?? entries[0];
   }, [entries, quizEntry]);
 
-  useEffect(() => {
-    let mounted = true;
+  async function loadUserEntries(user: UserId) {
+    setIsBooting(true);
+    setError("");
 
-    async function loadEntries() {
-      try {
-        const [response] = await Promise.all([
-          fetch("/api/entries", { cache: "no-store" }),
-          new Promise((resolve) => setTimeout(resolve, 900)),
-        ]);
-        const payload = await response.json();
+    try {
+      const [response] = await Promise.all([
+        fetch(`/api/entries?user=${user}`, { cache: "no-store" }),
+        new Promise((resolve) => setTimeout(resolve, 600)),
+      ]);
+      const payload = await response.json();
 
-        if (!response.ok) {
-          throw new Error(payload.error ?? "학습 데이터를 불러오지 못했습니다.");
-        }
-
-        if (mounted) {
-          setEntries(payload.entries ?? []);
-          setStatus("GitHub JSON 학습장이 연결되었습니다.");
-        }
-      } catch (loadError) {
-        if (mounted) {
-          setError(loadError instanceof Error ? loadError.message : "학습 데이터를 불러오지 못했습니다.");
-          setStatus("환경변수를 설정하면 GitHub 저장소에 저장됩니다.");
-        }
-      } finally {
-        if (mounted) {
-          setIsBooting(false);
-        }
+      if (!response.ok) {
+        throw new Error(payload.error ?? "학습 데이터를 불러오지 못했습니다.");
       }
+
+      setEntries(payload.entries ?? []);
+      const profile = USER_PROFILES[user];
+      setStatus(`${profile.name}(${profile.emoji})의 단어장 데이터베이스가 연결되었습니다.`);
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : "학습 데이터를 불러오지 못했습니다.");
+      setStatus("저장 데이터를 불러오는 중 오류가 발생했습니다.");
+    } finally {
+      setIsBooting(false);
     }
+  }
 
-    loadEntries();
-
-    return () => {
-      mounted = false;
-    };
+  useEffect(() => {
+    const savedUser = localStorage.getItem("studylang_user") as UserId | null;
+    const initialUser: UserId = (savedUser === "colly" || savedUser === "baebjji") ? savedUser : "colly";
+    localStorage.setItem("studylang_user", initialUser);
+    setCurrentUser(initialUser);
+    loadUserEntries(initialUser);
   }, []);
+
+  function handleSelectUser(user: UserId) {
+    localStorage.setItem("studylang_user", user);
+    setCurrentUser(user);
+    setIsUserModalOpen(false);
+    setForm(emptyForm);
+    setEditingEntryId(null);
+    loadUserEntries(user);
+  }
 
   useEffect(() => {
     const checkReminder = () => {
@@ -215,7 +226,9 @@ export default function Home() {
       return;
     }
 
-    const response = await fetch("/api/entries", { cache: "no-store" });
+    if (!currentUser) return;
+
+    const response = await fetch(`/api/entries?user=${currentUser}`, { cache: "no-store" });
     const payload = await response.json();
 
     if (!response.ok) {
@@ -250,6 +263,7 @@ export default function Home() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!currentUser) return;
     setError("");
     setIsSaving(true);
 
@@ -264,7 +278,7 @@ export default function Home() {
     };
 
     try {
-      const response = await fetch("/api/entries", {
+      const response = await fetch(`/api/entries?user=${currentUser}`, {
         method: editingEntryId ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editingEntryId ? { ...input, id: editingEntryId } : input),
@@ -278,7 +292,7 @@ export default function Home() {
       await refreshEntries(payload.entries);
       setForm(emptyForm);
       setEditingEntryId(null);
-      setStatus(editingEntryId ? "표현을 수정해 GitHub JSON 파일에 저장했습니다." : "새 표현을 GitHub JSON 파일에 저장했습니다.");
+      setStatus(editingEntryId ? "표현을 수정해 저장했습니다." : "새 표현을 저장했습니다.");
     } catch (saveError) {
       setError(saveError instanceof Error ? saveError.message : "저장하지 못했습니다.");
     } finally {
@@ -308,10 +322,11 @@ export default function Home() {
   }
 
   async function markReviewed(entry: StudyEntry) {
+    if (!currentUser) return;
     setError("");
 
     try {
-      const response = await fetch("/api/entries", {
+      const response = await fetch(`/api/entries?user=${currentUser}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: entry.id, reviewedAt: new Date().toISOString() }),
@@ -323,17 +338,18 @@ export default function Home() {
       }
 
       await refreshEntries(payload.entries);
-      setStatus("복습 시간을 GitHub JSON 파일에 기록했습니다.");
+      setStatus("복습 시간을 기록했습니다.");
     } catch (reviewError) {
       setError(reviewError instanceof Error ? reviewError.message : "복습 표시를 저장하지 못했습니다.");
     }
   }
 
   async function deleteEntry(entryId: string) {
+    if (!currentUser) return;
     setError("");
 
     try {
-      const response = await fetch(`/api/entries?id=${entryId}`, { method: "DELETE" });
+      const response = await fetch(`/api/entries?user=${currentUser}&id=${entryId}`, { method: "DELETE" });
       const payload = await response.json();
 
       if (!response.ok) {
@@ -341,7 +357,7 @@ export default function Home() {
       }
 
       await refreshEntries(payload.entries);
-      setStatus("항목을 GitHub JSON 파일에서 삭제했습니다.");
+      setStatus("항목을 삭제했습니다.");
     } catch (deleteError) {
       setError(deleteError instanceof Error ? deleteError.message : "삭제하지 못했습니다.");
     }
@@ -362,12 +378,17 @@ export default function Home() {
     setShowAnswer(false);
   }
 
-  if (isBooting) {
+  if (isBooting && currentUser) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[linear-gradient(135deg,#f8fbff,#dbeafe_48%,#c7d2fe)] p-6">
         <MagicSurface className="w-full max-w-md animate-rise-in p-8 text-center">
           <p className="text-xs font-black uppercase tracking-[0.32em] text-[var(--accent)]">StudyLang</p>
-          <h1 className="mt-4 font-serif text-4xl font-extrabold tracking-tight text-[var(--ink)]">오늘의 영어장을 여는 중</h1>
+          <div className="mt-3 flex justify-center text-4xl">
+            {activeProfile?.emoji ?? "📖"}
+          </div>
+          <h1 className="mt-2 font-serif text-3xl font-extrabold tracking-tight text-[var(--ink)]">
+            {activeProfile?.name ?? "사용자"}의 영어장을 여는 중
+          </h1>
           <div className="mx-auto mt-7 h-2 w-56 overflow-hidden rounded-full bg-[#c9def2]">
             <div className="h-full w-2/3 animate-pulse rounded-full bg-[linear-gradient(90deg,#0f3c81,#38bdf8)]" />
           </div>
@@ -381,20 +402,49 @@ export default function Home() {
     <main className="min-h-screen bg-[linear-gradient(rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.22)_1px,transparent_1px)] bg-[size:44px_44px] px-3 py-4 text-[var(--ink)] sm:px-6 sm:py-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 sm:gap-5">
         <header className="grid gap-4 rounded-xl border border-white/70 bg-[linear-gradient(135deg,rgba(248,251,255,0.96),rgba(214,232,255,0.88))] p-4 text-[var(--ink)] shadow-[0_22px_70px_rgba(37,99,235,0.18)] sm:p-5 lg:grid-cols-[1fr_auto] lg:items-end lg:p-7">
-          <div>
-            <h1 className="relative isolate inline-flex overflow-visible pl-6 pr-6 font-serif text-[2.65rem] font-extrabold leading-none tracking-tight min-[420px]:text-5xl sm:pl-14 sm:pr-20 sm:text-6xl">
-              <Image
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute -left-11 top-1/2 z-0 h-44 w-44 -translate-y-[52%] rotate-6 object-contain opacity-43 min-[420px]:h-52 min-[420px]:w-52 sm:-left-7 sm:h-60 sm:w-60"
-                height={240}
-                priority
-                src="/assets/cat.svg"
-                width={240}
-              />
-              <AnimatedGradientText className="relative z-10">StudyLang</AnimatedGradientText>
-            </h1>
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <h1 className="relative isolate inline-flex overflow-visible pl-6 pr-6 font-serif text-[2.65rem] font-extrabold leading-none tracking-tight min-[420px]:text-5xl sm:pl-14 sm:pr-20 sm:text-6xl">
+                <Image
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -left-11 top-1/2 z-0 h-44 w-44 -translate-y-[52%] rotate-6 object-contain opacity-43 min-[420px]:h-52 min-[420px]:w-52 sm:-left-7 sm:h-60 sm:w-60"
+                  height={240}
+                  priority
+                  src="/assets/cat.svg"
+                  width={240}
+                />
+                <AnimatedGradientText className="relative z-10">StudyLang</AnimatedGradientText>
+              </h1>
+            </div>
+
+            {/* 사용자 표시 및 스위처 */}
+            <div className="mt-1 flex flex-wrap items-center gap-2">
+              {activeProfile ? (
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/80 px-3.5 py-1.5 shadow-sm backdrop-blur">
+                  <span className="text-xl">{activeProfile.emoji}</span>
+                  <span className="text-sm font-extrabold text-[var(--ink)]">{activeProfile.name}의 학습장</span>
+                  <button
+                    onClick={() => setIsUserModalOpen(true)}
+                    className="ml-1 inline-flex items-center gap-1 rounded-md bg-[var(--surface)] px-2 py-0.5 text-xs font-bold text-[var(--accent)] hover:bg-blue-100 transition"
+                    title="사용자 전환"
+                  >
+                    <RefreshCw className="h-3 w-3" />
+                    교체
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setIsUserModalOpen(true)}
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-1.5 text-sm font-bold text-white shadow-sm hover:opacity-90 transition"
+                >
+                  <User className="h-4 w-4" />
+                  사용자 선택하기
+                </button>
+              )}
+            </div>
           </div>
+
           <div className="w-full max-w-[17rem] justify-self-center rounded-lg border border-white/80 bg-white/46 p-1.5 shadow-sm backdrop-blur sm:max-w-none sm:p-3 lg:justify-self-auto">
             <div className="grid grid-cols-3 gap-1.5 text-center sm:gap-2">
               <Metric label="전체" value={entries.length} />
@@ -661,6 +711,69 @@ export default function Home() {
           </MagicSurface>
         )}
       </div>
+
+      {/* 사용자 선택 / 교체 모달 */}
+      {isUserModalOpen && (
+        <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 p-4 backdrop-blur-md">
+          <MagicSurface className="motion-safe:animate-soft-pop w-full max-w-lg p-6 text-center sm:p-8">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-2xl shadow-inner">
+              👋
+            </div>
+            <h2 className="mt-4 font-serif text-2xl font-extrabold text-[var(--ink)] sm:text-3xl">
+              누가 공부할 건가요?
+            </h2>
+            <p className="mt-2 text-sm font-semibold text-[var(--muted-strong)]">
+              사용자를 선택하면 개별 데이터베이스에 학습한 단어가 안전하게 따로 저장됩니다.
+            </p>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {(Object.keys(USER_PROFILES) as UserId[]).map((userId) => {
+                const profile = USER_PROFILES[userId];
+                const isSelected = currentUser === userId;
+                return (
+                  <button
+                    key={userId}
+                    onClick={() => handleSelectUser(userId)}
+                    className={cn(
+                      "group relative flex flex-col items-center rounded-xl border-2 p-5 text-center transition-all hover:-translate-y-1 hover:shadow-md",
+                      isSelected
+                        ? "border-[var(--accent)] bg-blue-50/80 shadow-md ring-2 ring-[var(--accent)]/30"
+                        : "border-gray-200/80 bg-white hover:border-blue-300",
+                    )}
+                    type="button"
+                  >
+                    <div className="text-4xl transition-transform group-hover:scale-110">
+                      {profile.emoji}
+                    </div>
+                    <h3 className="mt-3 font-serif text-xl font-extrabold text-[var(--ink)]">
+                      {profile.name}
+                    </h3>
+                    <p className="mt-1 text-xs font-bold text-[var(--muted-strong)]">
+                      {profile.description}
+                    </p>
+                    <span
+                      className={cn(
+                        "mt-4 rounded-full px-3 py-1 text-xs font-black",
+                        profile.badgeBg,
+                      )}
+                    >
+                      {isSelected ? "현재 선택됨" : "선택하기"}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {currentUser && (
+              <div className="mt-6 flex justify-center">
+                <Button variant="secondary" onClick={() => setIsUserModalOpen(false)}>
+                  취소
+                </Button>
+              </div>
+            )}
+          </MagicSurface>
+        </div>
+      )}
 
       {reminderOpen && (
         <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/30 p-4 backdrop-blur-sm">
