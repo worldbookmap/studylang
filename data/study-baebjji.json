@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "If I were you, I'd kick him out.",
+      "korean": "제가 당신이라면 전 그를 쫓아낼 거예요.",
+      "pronunciation": "",
+      "example": "가정법 과거 (현재 상황과 반대되는 가정) : 현재 일어날 가능성이 희박하거나 단순한 가정 상황임을 강조할 때 쓰며, '이프(if)절에 과거 시제(b동사는 주로 were), 주절에 과거 조동사(would, could, might 등)'를 사용합니다\n.",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:37:43.272Z",
+      "id": "74655da7-c3bc-4483-aaad-f4be9c682c04",
+      "createdAt": "2026-08-27T06:37:44.833Z"
+    },
+    {
+      "type": "pattern",
       "english": "If that ever happens, I'll let you know.",
       "korean": "혹시 그런 일이 일어나면 알려 줄게.",
       "pronunciation": "",
