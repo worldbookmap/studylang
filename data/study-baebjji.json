@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "What if (주어) + (과거동사/동사) ~?",
+      "korean": "상대방에게 의견이나 아이디어를 부드럽고 조심스럽게 제안(동사 과거형을 쓰면 더욱 가정적이고 조심스러운 뉘앙스)",
+      "pronunciation": "",
+      "example": "What if you looked at it this way? \nWhat if we made a few changes?\nWhat if we opened it up to the whole neighborhood?",
+      "tags": [],
+      "reviewedAt": "2026-08-28T03:00:15.777Z",
+      "id": "15208d16-b6f2-436e-bd44-acfa79479ccb",
+      "createdAt": "2026-08-28T03:00:17.288Z"
+    },
+    {
+      "type": "pattern",
       "english": "work for you?/ ~ works for me",
       "korean": "상대방에게 특정 일정이 괜찮은지 정중하게 확인하거나 자신의 가능 여부를 답할 때 쓰는 표현",
       "pronunciation": "",
