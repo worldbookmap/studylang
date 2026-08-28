@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "contraction",
+      "english": "I would have",
+      "korean": "I'd have done the same thing.",
+      "pronunciation": "I'da",
+      "example": "I'da done the same thing.\nI'da gone if I had more time.\nI'da helped, but I didn't know.\nI'da called, but my phone died.",
+      "tags": [
+        "Speed Cell"
+      ],
+      "reviewedAt": "2026-08-28T03:25:55.561Z",
+      "id": "29a766f9-0c49-45bd-b6ba-0ffc739a00f0",
+      "createdAt": "2026-08-28T03:25:56.511Z"
+    },
+    {
+      "type": "contraction",
       "english": "When do you want to",
       "korean": "When do you want to go?",
       "pronunciation": "When ya wanna",
