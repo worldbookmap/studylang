@@ -5,7 +5,12 @@ type DictionaryPhonetic = {
 };
 
 type DictionaryMeaning = {
-  definitions?: { definition?: string; example?: string }[];
+  definitions?: DictionaryDefinition[];
+};
+
+type DictionaryDefinition = {
+  definition?: string;
+  example?: string;
 };
 
 type DictionaryEntry = {
@@ -56,16 +61,16 @@ export async function GET(request: NextRequest) {
     data.find((entry) => entry.phonetic)?.phonetic ??
     data.flatMap((entry) => entry.phonetics ?? []).find((phonetic) => phonetic.text)?.text ??
     "";
-  const englishDefinition =
-    data
-      .flatMap((entry) => entry.meanings ?? [])
-      .flatMap((meaning) => meaning.definitions ?? [])
-      .find((definition) => definition.definition)?.definition ?? "";
-  const example =
-    data
-      .flatMap((entry) => entry.meanings ?? [])
-      .flatMap((meaning) => meaning.definitions ?? [])
-      .find((definition) => definition.example)?.example ?? "";
+  const definitions = data.flatMap((entry) => entry.meanings ?? []).flatMap((meaning) => meaning.definitions ?? []);
+  const englishDefinition = definitions.find((definition) => definition.definition)?.definition ?? "";
+  const example = definitions
+    .filter((definition) => definition.definition)
+    .slice(0, 2)
+    .map((definition, index) => {
+      const meaning = `${index + 1}. 의미: ${definition.definition}`;
+      return definition.example ? `${meaning}\n   예문: ${definition.example}` : meaning;
+    })
+    .join("\n\n");
   const koreanMeaning = await lookupKoreanMeaning(word);
 
   return Response.json({ pronunciation, meaning: koreanMeaning || englishDefinition, example });
