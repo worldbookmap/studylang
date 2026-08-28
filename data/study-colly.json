@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "neither",
+      "korean": "부정문에 동감을 표할 때",
+      "pronunciation": "/ˈnaɪð.ə(ɹ)/",
+      "example": "Me, neighter\nNeither am I, Neither do I\n\n1. 의미: Similarly not.\n   예문: Just as you would not correct it, neither would I.\n\n2. 의미: Not either one of two.\n   예문: I've tried on both shirts, but neither fits properly.",
+      "tags": [],
+      "reviewedAt": "2026-08-28T02:58:13.285Z",
+      "id": "49d3177b-19e5-45b6-898c-cc420c0dbe81",
+      "createdAt": "2026-08-28T02:58:13.756Z"
+    },
+    {
+      "type": "word",
       "english": "propagate",
       "korean": "전파하다",
       "pronunciation": "/ˈpɹɒpəˌɡeɪt/",
