@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "work for you?/ ~ works for me",
+      "korean": "상대방에게 특정 일정이 괜찮은지 정중하게 확인하거나 자신의 가능 여부를 답할 때 쓰는 표현",
+      "pronunciation": "",
+      "example": "Does next Tuesday work for you?\nSay, 3:00 work for you?\nWhich day of the week works best for you?\nTonight works better for me.",
+      "tags": [],
+      "reviewedAt": "2026-08-28T02:58:21.186Z",
+      "id": "c66c4b89-2356-4559-bd22-9d87306ebc3e",
+      "createdAt": "2026-08-28T02:58:21.871Z"
+    },
+    {
+      "type": "pattern",
       "english": "Wouldn't it be easier if we put all of our stuff in the same notebook?",
       "korean": "우리 모든 걸 같은 공책 한 권에 정리하면 더 편하지 않을까",
       "pronunciation": "",
