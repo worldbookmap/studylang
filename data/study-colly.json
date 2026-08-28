@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "for the purpose of",
+      "korean": "~의 목적으로",
+      "pronunciation": "",
+      "example": "She moved to Seoul for the purpose of studying at university.",
+      "tags": [
+        "뉴스"
+      ],
+      "reviewedAt": "2026-08-28T00:05:13.927Z",
+      "id": "38a8896b-931b-4d56-a6e0-2d024081222e",
+      "createdAt": "2026-08-28T00:05:14.748Z"
+    },
+    {
+      "type": "word",
       "english": "solely",
       "korean": "단독, 무엇만을 위해",
       "pronunciation": "/ˈsəʊl.li/",
