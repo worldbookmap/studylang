@@ -957,7 +957,7 @@ function ExampleText({ text, className }: { text: string; className?: string }) 
 
         return (
           <span key={`${line}-${index}`}>
-            {match ? <><strong className="font-extrabold text-[var(--accent)]">{match[1]}</strong>{match[2]}</> : line}
+            {match ? <><strong className="text-[#164e63]">{match[1]}</strong>{match[2]}</> : line}
             {index < text.split("\n").length - 1 && <br />}
           </span>
         );
