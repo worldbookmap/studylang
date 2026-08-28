@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "solely",
+      "korean": "단독, 무엇만을 위해",
+      "pronunciation": "/ˈsəʊl.li/",
+      "example": "She moved to the city solely for her career.",
+      "tags": [],
+      "reviewedAt": "2026-08-28T00:02:32.273Z",
+      "id": "056b96d7-4cc0-4bba-9c1f-d62d10bd7a33",
+      "createdAt": "2026-08-28T00:02:32.762Z"
+    },
+    {
+      "type": "word",
       "english": "in a force for manner",
       "korean": "훨씬 더 강경한 방식으로",
       "pronunciation": "",
