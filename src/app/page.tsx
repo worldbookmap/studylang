@@ -65,13 +65,8 @@ function normalizeTags(tags: string) {
     .filter(Boolean);
 }
 
-function getRandomEntry(entries: StudyEntry[], currentId?: string) {
-  if (entries.length === 0) {
-    return undefined;
-  }
-
-  const pool = entries.length > 1 ? entries.filter((entry) => entry.id !== currentId) : entries;
-  return pool[Math.floor(Math.random() * pool.length)];
+function getRandomEntries(entries: StudyEntry[], count: number) {
+  return [...entries].sort(() => Math.random() - 0.5).slice(0, count);
 }
 
 function getMonthDays(date = new Date()) {
@@ -99,8 +94,10 @@ export default function Home() {
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [listFilter, setListFilter] = useState<"all" | "word" | "pattern">("all");
-  const [quizEntry, setQuizEntry] = useState<StudyEntry>();
   const [quizScope, setQuizScope] = useState<"all" | "today">("all");
+  const [quizCount, setQuizCount] = useState(5);
+  const [quizQuestions, setQuizQuestions] = useState<StudyEntry[]>([]);
+  const [quizIndex, setQuizIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [status, setStatus] = useState("학습장을 불러오는 중입니다.");
   const [error, setError] = useState("");
@@ -155,8 +152,8 @@ export default function Home() {
       return undefined;
     }
 
-    return quizEntries.find((entry) => entry.id === quizEntry?.id) ?? quizEntries[0];
-  }, [quizEntries, quizEntry]);
+    return quizQuestions[quizIndex] ?? quizEntries[0];
+  }, [quizEntries, quizIndex, quizQuestions]);
 
   async function loadUserEntries(user: UserId) {
     setIsBooting(true);
@@ -173,7 +170,9 @@ export default function Home() {
         throw new Error(payload.error ?? "학습 데이터를 불러오지 못했습니다.");
       }
 
-      setEntries(payload.entries ?? []);
+      const loadedEntries = payload.entries ?? [];
+      setEntries(loadedEntries);
+      setQuizCount(Math.max(1, loadedEntries.length));
       const profile = USER_PROFILES[user];
       setStatus(`${profile.name}(${profile.emoji})의 단어장 데이터베이스가 연결되었습니다.`);
     } catch (loadError) {
@@ -384,14 +383,30 @@ export default function Home() {
   }
 
   function nextQuiz() {
-    setQuizEntry(getRandomEntry(quizEntries, currentQuizEntry?.id));
+    if (quizQuestions.length > 0 && quizIndex + 1 < quizQuestions.length) {
+      setQuizIndex((index) => index + 1);
+    } else {
+      setQuizQuestions(getRandomEntries(quizEntries, Math.min(quizCount, quizEntries.length)));
+      setQuizIndex(0);
+    }
     setShowAnswer(false);
   }
 
   function changeQuizScope(scope: "all" | "today") {
     setQuizScope(scope);
     const scopeEntries = scope === "today" ? todaysEntries : entries;
-    setQuizEntry(getRandomEntry(scopeEntries));
+    const nextCount = Math.max(1, scopeEntries.length);
+    setQuizCount(nextCount);
+    setQuizQuestions(getRandomEntries(scopeEntries, scopeEntries.length));
+    setQuizIndex(0);
+    setShowAnswer(false);
+  }
+
+  function changeQuizCount(count: number) {
+    const nextCount = Math.max(1, Math.min(Math.max(1, quizEntries.length), count || 1));
+    setQuizCount(nextCount);
+    setQuizQuestions(getRandomEntries(quizEntries, Math.min(nextCount, quizEntries.length)));
+    setQuizIndex(0);
     setShowAnswer(false);
   }
 
@@ -623,6 +638,19 @@ export default function Home() {
                 </button>
               ))}
             </div>
+            <label className="mt-4 flex w-fit items-center gap-3 text-sm font-extrabold text-[var(--muted-strong)]">
+              문제 수 <span className="text-[var(--accent)]">{quizCount}개</span>
+              <input
+                className="h-2 w-44 cursor-pointer accent-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50 sm:w-56"
+                type="range"
+                min={1}
+                max={Math.max(1, quizEntries.length)}
+                value={quizCount}
+                onChange={(event) => changeQuizCount(Number(event.target.value))}
+                aria-label="퀴즈 문제 수"
+                disabled={quizEntries.length === 0}
+              />
+            </label>
             {!currentQuizEntry ? (
               <EmptyState
                 text={quizScope === "today" ? "오늘 추가하거나 복습한 항목이 없어 퀴즈를 만들 수 없습니다." : "저장된 항목이 생기면 바로 퀴즈를 만들 수 있습니다."}
@@ -630,7 +658,12 @@ export default function Home() {
             ) : (
               <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_320px]">
                 <div className="rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-6 shadow-sm">
-                  <Badge>{currentQuizEntry.type === "word" ? "단어" : "문장 패턴"}</Badge>
+                  <div className="flex items-center justify-between gap-3">
+                    <Badge>{currentQuizEntry.type === "word" ? "단어" : "문장 패턴"}</Badge>
+                    <span className="text-sm font-extrabold text-[var(--muted)]">
+                      {Math.min(quizIndex + 1, quizQuestions.length || 1)} / {Math.min(quizCount, quizEntries.length)}
+                    </span>
+                  </div>
                   <p className="mt-5 font-serif text-4xl font-extrabold leading-tight">{currentQuizEntry.english}</p>
                   {currentQuizEntry.pronunciation && <p className="mt-2 text-lg font-bold text-[var(--accent)]">{currentQuizEntry.pronunciation}</p>}
                   <div className="mt-6 min-h-28 rounded-md border border-dashed border-[var(--line)] bg-[#eff7ff] p-4">
