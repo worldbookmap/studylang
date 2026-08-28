@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "contraction",
+      "english": "You would have",
+      "korean": "Then you'd have to let me go",
+      "pronunciation": "You'da (유더)",
+      "example": "Then you'da to let me go.\nYou'da laughted so hard.\nYou'da been proud.",
+      "tags": [
+        "Speed Cell"
+      ],
+      "reviewedAt": "2026-08-28T03:28:10.980Z",
+      "id": "4bd5c29b-6be4-4ba1-9812-d3111f4d7762",
+      "createdAt": "2026-08-28T03:28:11.871Z"
+    },
+    {
+      "type": "contraction",
       "english": "I would have",
       "korean": "I'd have done the same thing.",
       "pronunciation": "I'da",
