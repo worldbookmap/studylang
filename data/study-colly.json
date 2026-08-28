@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "contraction",
+      "english": "You know what I mean.",
+      "korean": "무슨말인지 알지?",
+      "pronunciation": "Y'know wha di mean",
+      "example": "It's just frustrating sometimes, y'know wha di mean?",
+      "tags": [
+        "Speed Cell"
+      ],
+      "reviewedAt": "2026-08-28T03:10:15.282Z",
+      "id": "ca0e33e5-0fdd-4314-b5e3-962a5fdbc888",
+      "createdAt": "2026-08-28T03:10:15.879Z"
+    },
+    {
       "type": "word",
       "english": "neither",
       "korean": "부정문에 동감을 표할 때",
