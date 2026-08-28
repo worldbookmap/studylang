@@ -258,11 +258,12 @@ export default function Home() {
       const response = await fetch(`/api/pronunciation?word=${encodeURIComponent(word.trim())}`);
       const payload = await response.json();
 
-      if (payload.pronunciation || payload.meaning) {
+      if (payload.pronunciation || payload.meaning || payload.example) {
         setForm((current) => ({
           ...current,
           pronunciation: payload.pronunciation || current.pronunciation,
           korean: current.korean.trim() ? current.korean : payload.meaning || current.korean,
+          example: current.example.trim() ? current.example : payload.example || current.example,
         }));
       }
     } finally {

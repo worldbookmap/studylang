@@ -5,7 +5,7 @@ type DictionaryPhonetic = {
 };
 
 type DictionaryMeaning = {
-  definitions?: { definition?: string }[];
+  definitions?: { definition?: string; example?: string }[];
 };
 
 type DictionaryEntry = {
@@ -61,7 +61,12 @@ export async function GET(request: NextRequest) {
       .flatMap((entry) => entry.meanings ?? [])
       .flatMap((meaning) => meaning.definitions ?? [])
       .find((definition) => definition.definition)?.definition ?? "";
+  const example =
+    data
+      .flatMap((entry) => entry.meanings ?? [])
+      .flatMap((meaning) => meaning.definitions ?? [])
+      .find((definition) => definition.example)?.example ?? "";
   const koreanMeaning = await lookupKoreanMeaning(word);
 
-  return Response.json({ pronunciation, meaning: koreanMeaning || englishDefinition });
+  return Response.json({ pronunciation, meaning: koreanMeaning || englishDefinition, example });
 }
