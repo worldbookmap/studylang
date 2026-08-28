@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Could you possibly ~?",
+      "korean": "상대방에게 무언가를 조심스럽고 아주 정중하게 부탁할 때 쓰는 유용한 비즈니스 및 일상 표현",
+      "pronunciation": "",
+      "example": "Could you possibly tell me where he's at?\nCould you possibly just close the door on your way out?\nCould you possibly take this up to my room for me?",
+      "tags": [],
+      "reviewedAt": "2026-08-28T03:02:54.967Z",
+      "id": "278f98e5-8753-475c-9089-6c075bb2bba0",
+      "createdAt": "2026-08-28T03:02:56.143Z"
+    },
+    {
+      "type": "pattern",
       "english": "What if (주어) + (과거동사/동사) ~?",
       "korean": "상대방에게 의견이나 아이디어를 부드럽고 조심스럽게 제안(동사 과거형을 쓰면 더욱 가정적이고 조심스러운 뉘앙스)",
       "pronunciation": "",
