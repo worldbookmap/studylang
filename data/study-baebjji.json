@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "What are your thoughts on ~?",
+      "korean": "특정 주제나 사안에 대해 상대방의 생각이나 의견을 매끄럽게 물어볼 때 쓰는 표현",
+      "pronunciation": "",
+      "example": "What are your thoughts on what's happening?\nWhat are your thoughts on having another one?\nWhat are your thoughts on hiring an extra set of hands?",
+      "tags": [],
+      "reviewedAt": "2026-08-28T03:04:27.048Z",
+      "id": "49bcfd30-e7ec-4b13-80a0-4735f84207a4",
+      "createdAt": "2026-08-28T03:04:28.182Z"
+    },
+    {
+      "type": "pattern",
       "english": "Could you possibly ~?",
       "korean": "상대방에게 무언가를 조심스럽고 아주 정중하게 부탁할 때 쓰는 유용한 비즈니스 및 일상 표현",
       "pronunciation": "",
