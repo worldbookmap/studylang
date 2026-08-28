@@ -100,6 +100,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [listFilter, setListFilter] = useState<"all" | "word" | "pattern">("all");
   const [quizEntry, setQuizEntry] = useState<StudyEntry>();
+  const [quizScope, setQuizScope] = useState<"all" | "today">("all");
   const [showAnswer, setShowAnswer] = useState(false);
   const [status, setStatus] = useState("학습장을 불러오는 중입니다.");
   const [error, setError] = useState("");
@@ -147,13 +148,15 @@ export default function Home() {
 
   const selectedCalendarEntries = selectedCalendarDate ? calendarEntries[selectedCalendarDate]?.entries ?? [] : [];
 
+  const quizEntries = quizScope === "today" ? todaysEntries : entries;
+
   const currentQuizEntry = useMemo(() => {
-    if (entries.length === 0) {
+    if (quizEntries.length === 0) {
       return undefined;
     }
 
-    return entries.find((entry) => entry.id === quizEntry?.id) ?? entries[0];
-  }, [entries, quizEntry]);
+    return quizEntries.find((entry) => entry.id === quizEntry?.id) ?? quizEntries[0];
+  }, [quizEntries, quizEntry]);
 
   async function loadUserEntries(user: UserId) {
     setIsBooting(true);
@@ -381,7 +384,14 @@ export default function Home() {
   }
 
   function nextQuiz() {
-    setQuizEntry(getRandomEntry(entries, currentQuizEntry?.id));
+    setQuizEntry(getRandomEntry(quizEntries, currentQuizEntry?.id));
+    setShowAnswer(false);
+  }
+
+  function changeQuizScope(scope: "all" | "today") {
+    setQuizScope(scope);
+    const scopeEntries = scope === "today" ? todaysEntries : entries;
+    setQuizEntry(getRandomEntry(scopeEntries));
     setShowAnswer(false);
   }
 
@@ -592,8 +602,31 @@ export default function Home() {
         {activeView === "quiz" && (
           <MagicSurface className="p-5 sm:p-8">
             <SectionTitle icon={Dices} title="랜덤퀴즈" />
+            <div className="mt-5 inline-flex rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-1" role="group" aria-label="퀴즈 범위 선택">
+              {([
+                ["all", "전체"],
+                ["today", "오늘"],
+              ] as const).map(([scope, label]) => (
+                <button
+                  className={cn(
+                    "rounded-md px-4 py-2 text-sm font-extrabold transition",
+                    quizScope === scope
+                      ? "bg-[var(--accent)] text-white shadow-sm"
+                      : "text-[var(--muted-strong)] hover:bg-[#eff7ff]",
+                  )}
+                  key={scope}
+                  type="button"
+                  aria-pressed={quizScope === scope}
+                  onClick={() => changeQuizScope(scope)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
             {!currentQuizEntry ? (
-              <EmptyState text="저장된 항목이 생기면 바로 퀴즈를 만들 수 있습니다." />
+              <EmptyState
+                text={quizScope === "today" ? "오늘 추가하거나 복습한 항목이 없어 퀴즈를 만들 수 없습니다." : "저장된 항목이 생기면 바로 퀴즈를 만들 수 있습니다."}
+              />
             ) : (
               <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_320px]">
                 <div className="rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-6 shadow-sm">
