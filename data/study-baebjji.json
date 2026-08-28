@@ -3,6 +3,50 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "What are your thoughts on ~?",
+      "korean": "특정 주제나 사안에 대해 상대방의 생각이나 의견을 매끄럽게 물어볼 때 쓰는 표현",
+      "pronunciation": "",
+      "example": "What are your thoughts on what's happening?\nWhat are your thoughts on having another one?\nWhat are your thoughts on hiring an extra set of hands?",
+      "tags": [],
+      "reviewedAt": "2026-08-28T03:04:27.048Z",
+      "id": "49bcfd30-e7ec-4b13-80a0-4735f84207a4",
+      "createdAt": "2026-08-28T03:04:28.182Z"
+    },
+    {
+      "type": "pattern",
+      "english": "Could you possibly ~?",
+      "korean": "상대방에게 무언가를 조심스럽고 아주 정중하게 부탁할 때 쓰는 유용한 비즈니스 및 일상 표현",
+      "pronunciation": "",
+      "example": "Could you possibly tell me where he's at?\nCould you possibly just close the door on your way out?\nCould you possibly take this up to my room for me?",
+      "tags": [],
+      "reviewedAt": "2026-08-28T03:02:54.967Z",
+      "id": "278f98e5-8753-475c-9089-6c075bb2bba0",
+      "createdAt": "2026-08-28T03:02:56.143Z"
+    },
+    {
+      "type": "pattern",
+      "english": "What if (주어) + (과거동사/동사) ~?",
+      "korean": "상대방에게 의견이나 아이디어를 부드럽고 조심스럽게 제안(동사 과거형을 쓰면 더욱 가정적이고 조심스러운 뉘앙스)",
+      "pronunciation": "",
+      "example": "What if you looked at it this way? \nWhat if we made a few changes?\nWhat if we opened it up to the whole neighborhood?",
+      "tags": [],
+      "reviewedAt": "2026-08-28T03:00:15.777Z",
+      "id": "15208d16-b6f2-436e-bd44-acfa79479ccb",
+      "createdAt": "2026-08-28T03:00:17.288Z"
+    },
+    {
+      "type": "pattern",
+      "english": "work for you?/ ~ works for me",
+      "korean": "상대방에게 특정 일정이 괜찮은지 정중하게 확인하거나 자신의 가능 여부를 답할 때 쓰는 표현",
+      "pronunciation": "",
+      "example": "Does next Tuesday work for you?\nSay, 3:00 work for you?\nWhich day of the week works best for you?\nTonight works better for me.",
+      "tags": [],
+      "reviewedAt": "2026-08-28T02:58:21.186Z",
+      "id": "c66c4b89-2356-4559-bd22-9d87306ebc3e",
+      "createdAt": "2026-08-28T02:58:21.871Z"
+    },
+    {
+      "type": "pattern",
       "english": "Wouldn't it be easier if we put all of our stuff in the same notebook?",
       "korean": "우리 모든 걸 같은 공책 한 권에 정리하면 더 편하지 않을까",
       "pronunciation": "",
