@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "contraction",
+      "english": "What will",
+      "korean": "What will happen to him",
+      "pronunciation": "What'll (워를)",
+      "example": "What'll you say if she asks?\nWhat'll we do if it rains?\nWhat'll happen next",
+      "tags": [
+        "Speed Cell"
+      ],
+      "reviewedAt": "2026-08-28T03:13:02.602Z",
+      "id": "6d93bd9f-572b-4fb0-8af2-235908079237",
+      "createdAt": "2026-08-28T03:13:03.469Z"
+    },
+    {
+      "type": "contraction",
       "english": "You know what I mean.",
       "korean": "무슨말인지 알지?",
       "pronunciation": "Y'know wha di mean",
