@@ -93,7 +93,7 @@ export default function Home() {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const [listFilter, setListFilter] = useState<"all" | "word" | "pattern">("all");
+  const [listFilter, setListFilter] = useState<"all" | StudyEntryType>("all");
   const [quizScope, setQuizScope] = useState<"all" | "today">("all");
   const [quizCount, setQuizCount] = useState(5);
   const [quizQuestions, setQuizQuestions] = useState<StudyEntry[]>([]);
@@ -133,9 +133,9 @@ export default function Home() {
   }, [entries, query, listFilter]);
 
   const calendarEntries = useMemo(() => {
-    return entries.reduce<Record<string, { word: number; pattern: number; entries: StudyEntry[] }>>((acc, entry) => {
+    return entries.reduce<Record<string, { word: number; pattern: number; contraction: number; entries: StudyEntry[] }>>((acc, entry) => {
       const key = localDateKey(new Date(entry.reviewedAt ?? entry.createdAt));
-      const current = acc[key] ?? { word: 0, pattern: 0, entries: [] };
+      const current = acc[key] ?? { word: 0, pattern: 0, contraction: 0, entries: [] };
       current[entry.type] += 1;
       current.entries.push(entry);
       acc[key] = current;
@@ -507,10 +507,10 @@ export default function Home() {
         {activeView === "input" && (
           <section className="grid gap-4 sm:gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.55fr)]">
             <MagicSurface className="p-4 sm:p-7">
-              <SectionTitle icon={PenLine} title={editingEntryId ? "표현 수정" : "단어 / 문장 패턴 입력"} />
+              <SectionTitle icon={PenLine} title={editingEntryId ? "표현 수정" : "단어 / 문장 패턴 / 축약표현 입력"} />
               <form className="mt-5 grid gap-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-2 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
-                  {(["word", "pattern"] as StudyEntryType[]).map((type) => (
+                <div className="grid grid-cols-3 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
+                  {(["word", "pattern", "contraction"] as StudyEntryType[]).map((type) => (
                     <button
                       className={cn(
                         "h-10 rounded-md text-sm font-extrabold transition",
@@ -524,7 +524,7 @@ export default function Home() {
                       }))}
                       type="button"
                     >
-                      {type === "word" ? "영어 단어" : "문장 패턴"}
+                      {type === "word" ? "영어 단어" : type === "pattern" ? "문장 패턴" : "축약표현"}
                     </button>
                   ))}
                 </div>
@@ -559,12 +559,12 @@ export default function Home() {
                     />
                   </label>
                   <label className="grid gap-2 text-sm font-extrabold">
-                    발음기호
+                    {form.type === "contraction" ? "축약발음" : "발음기호"}
                     <Input
                       disabled={form.type === "pattern"}
                       value={form.pronunciation}
                       onChange={(event) => setForm((current) => ({ ...current, pronunciation: event.target.value }))}
-                      placeholder={form.type === "pattern" ? "문장 패턴은 발음기호를 사용하지 않습니다" : isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
+                      placeholder={form.type === "pattern" ? "문장 패턴은 발음기호를 사용하지 않습니다" : form.type === "contraction" ? "빠르게 말할 때의 발음" : isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
                     />
                   </label>
                 </div>
@@ -594,7 +594,7 @@ export default function Home() {
                       취소
                     </Button>
                   )}
-                  <Button disabled={form.type === "pattern" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
+                  <Button disabled={form.type !== "word" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <Search className="h-4 w-4" />
                     뜻/발음 찾기
                   </Button>
@@ -660,13 +660,18 @@ export default function Home() {
               <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_320px]">
                 <div className="rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-6 shadow-sm">
                   <div className="flex items-center justify-between gap-3">
-                    <Badge>{currentQuizEntry.type === "word" ? "단어" : "문장 패턴"}</Badge>
+                    <Badge>{currentQuizEntry.type === "word" ? "단어" : currentQuizEntry.type === "pattern" ? "문장 패턴" : "축약표현"}</Badge>
                     <span className="text-sm font-extrabold text-[var(--muted)]">
                       {Math.min(quizIndex + 1, quizQuestions.length || 1)} / {Math.min(quizCount, quizEntries.length)}
                     </span>
                   </div>
                   <p className="mt-5 font-serif text-4xl font-extrabold leading-tight">{currentQuizEntry.english}</p>
-                  {currentQuizEntry.pronunciation && <p className="mt-2 text-lg font-bold text-[var(--accent)]">{currentQuizEntry.pronunciation}</p>}
+                  {currentQuizEntry.pronunciation && (
+                    <p className="mt-2 text-lg font-bold text-[var(--accent)]">
+                      {currentQuizEntry.type === "contraction" && <span className="mr-1 text-base text-[var(--muted-strong)]">축약발음:</span>}
+                      {currentQuizEntry.pronunciation}
+                    </p>
+                  )}
                   <div className="mt-6 min-h-28 rounded-md border border-dashed border-[var(--line)] bg-[#eff7ff] p-4">
                     {showAnswer ? (
                       <div className="grid gap-3">
@@ -733,6 +738,7 @@ export default function Home() {
                       <div className="mt-1 grid gap-0 text-[0.6rem] leading-tight text-[var(--accent)] sm:mt-2 sm:gap-0.5 sm:text-xs">
                         {dayEntries.word > 0 && <span><span className="sm:hidden">단 </span><span className="hidden sm:inline">단어 </span>{dayEntries.word}</span>}
                         {dayEntries.pattern > 0 && <span><span className="sm:hidden">패 </span><span className="hidden sm:inline">패턴 </span>{dayEntries.pattern}</span>}
+                        {dayEntries.contraction > 0 && <span><span className="sm:hidden">축 </span><span className="hidden sm:inline">축약 </span>{dayEntries.contraction}</span>}
                       </div>
                     )}
                   </button>
@@ -777,6 +783,16 @@ export default function Home() {
                     )}
                   >
                     문장 패턴
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setListFilter("contraction")}
+                    className={cn(
+                      "px-3 py-1.5 text-xs sm:text-sm font-extrabold rounded-md transition",
+                      listFilter === "contraction" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
+                    )}
+                  >
+                    축약표현
                   </button>
                 </div>
                 <div className="w-full sm:w-64">
@@ -1006,7 +1022,12 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
           <Volume2 className="h-3 w-3" />
         </Button>
       </div>
-      {entry.pronunciation && <p className="text-sm font-bold text-[var(--accent)]">{entry.pronunciation}</p>}
+      {entry.pronunciation && (
+        <p className="text-sm font-bold text-[var(--accent)]">
+          {entry.type === "contraction" && <span className="mr-1 text-[var(--muted-strong)]">축약발음:</span>}
+          {entry.pronunciation}
+        </p>
+      )}
       <p className="mt-1 text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</p>
       {entry.example && <ExampleText className="mt-2 text-sm text-[var(--muted)]" text={entry.example} />}
     </div>
