@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "word",
+      "english": "propagate",
+      "korean": "전파",
+      "pronunciation": "/ˈpɹɒpəˌɡeɪt/",
+      "example": "The patched Next.js releases turn off AVIF optimization entirely until the upstream fix propagates from libheif.\n\n1. 의미: (of animals or plants) To cause to continue or multiply by generation, or successive production\n\n2. 의미: To cause to spread to extend; to impel or continue forward in space\n   예문: to propagate sound or light",
+      "tags": [
+        "기사"
+      ],
+      "reviewedAt": "2026-08-28T02:46:15.883Z",
+      "id": "cc000772-fa49-4092-a07a-c3393fbeccaf",
+      "createdAt": "2026-08-28T02:46:16.355Z"
+    },
+    {
+      "type": "word",
       "english": "for the purpose of",
       "korean": "~의 목적으로",
       "pronunciation": "",
