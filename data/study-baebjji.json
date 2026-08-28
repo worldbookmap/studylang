@@ -3,6 +3,294 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Wouldn't it be easier if we put all of our stuff in the same notebook?",
+      "korean": "우리 모든 걸 같은 공책 한 권에 정리하면 더 편하지 않을까",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:45:26.370Z",
+      "id": "9711498c-e4a8-4c08-a41a-fcb1449ec8e4",
+      "createdAt": "2026-08-27T06:45:27.929Z"
+    },
+    {
+      "type": "pattern",
+      "english": "I said something in that video that would be really hurtful if she saw it.",
+      "korean": "제가 그 영상에서 혹시 그녀가 보면 정말 상처가 될 만한 말을 했어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:43:01.893Z",
+      "id": "11976476-5556-421e-bfca-dcd1e74bacd9",
+      "createdAt": "2026-08-27T06:43:03.497Z"
+    },
+    {
+      "type": "pattern",
+      "english": "If I won the lottery right now, all my problems would be solved.",
+      "korean": "내가 지금 당장 복권에 당첨된다면 나의 모든 문제들이 해결될 텐데.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:41:22.509Z",
+      "id": "4f93b31e-5d71-447e-b42e-dd437ed0c47f",
+      "createdAt": "2026-08-27T06:41:24.304Z"
+    },
+    {
+      "type": "pattern",
+      "english": "If I didn't have to eat, I wouldn't.",
+      "korean": "만약 제가 먹지 않아도 살아갈 수 있다면 전 안 먹겠어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:40:28.441Z",
+      "id": "839828eb-5dcb-4d4f-bbb8-6de3ab804d10",
+      "createdAt": "2026-08-27T06:40:29.993Z"
+    },
+    {
+      "type": "pattern",
+      "english": "Your life would be better if you worked less.",
+      "korean": "일을 더 적게 할 수 있다면 당신의 삶은 나을 것입니다.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:40:08.812Z",
+      "id": "846cea34-8878-4183-8a88-ea6cb60621f8",
+      "createdAt": "2026-08-27T06:40:10.439Z"
+    },
+    {
+      "type": "pattern",
+      "english": "\"If I had a supportive spouse, I wouldn't be in this situation.",
+      "korean": "나한테 지지해주는 배우자가 있었다면 내가 이런 상황에 있지 않을 거야.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:39:26.664Z",
+      "id": "fefd29a2-908c-4354-afd9-a373b9d4a895",
+      "createdAt": "2026-08-27T06:39:28.247Z"
+    },
+    {
+      "type": "pattern",
+      "english": "If it were easy, everyone would be popular.",
+      "korean": "그게 쉬웠으면 모든 사람이 인기가 많겠지.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "가정법과거"
+      ],
+      "reviewedAt": "2026-08-27T06:38:46.978Z",
+      "id": "11d5a86c-5c8d-4147-a2a7-014b38815f06",
+      "createdAt": "2026-08-27T06:38:48.353Z"
+    },
+    {
+      "type": "pattern",
+      "english": "If I were you, I'd kick him out.",
+      "korean": "제가 당신이라면 전 그를 쫓아낼 거예요.",
+      "pronunciation": "",
+      "example": "가정법 과거 (현재 상황과 반대되는 가정) : 현재 일어날 가능성이 희박하거나 단순한 가정 상황임을 강조할 때 쓰며, '이프(if)절에 과거 시제(b동사는 주로 were), 주절에 과거 조동사(would, could, might 등)'를 사용합니다\n.",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:37:43.272Z",
+      "id": "74655da7-c3bc-4483-aaad-f4be9c682c04",
+      "createdAt": "2026-08-27T06:37:44.833Z"
+    },
+    {
+      "type": "pattern",
+      "english": "If that ever happens, I'll let you know.",
+      "korean": "혹시 그런 일이 일어나면 알려 줄게.",
+      "pronunciation": "",
+      "example": "가정법 현재: 현재의 행동이나 상황에 따라 미래가 달라질 때 사용하며, '이프(if)절에 현재 시제, 주절에 미래 시제(will, be going to 등)'를 사용합니다\n.",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:35:06.702Z",
+      "id": "106c8bec-a087-44ed-8279-878324858c97",
+      "createdAt": "2026-08-27T06:35:08.904Z"
+    },
+    {
+      "type": "pattern",
+      "english": "how long have you two been going out?",
+      "korean": "그래서 너희 둘이 사귄 지는 얼마나 됐어?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:27:30.643Z",
+      "id": "627b2686-2951-4f66-a9b0-7d54f5024a5e",
+      "createdAt": "2026-08-27T06:27:32.199Z"
+    },
+    {
+      "type": "pattern",
+      "english": "What have you been doing all day?",
+      "korean": "너 오늘 하루 종일 뭐 했어?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:26:44.209Z",
+      "id": "9bf78c7b-8171-4fa6-8ee0-108fe7e6347b",
+      "createdAt": "2026-08-27T06:26:45.792Z"
+    },
+    {
+      "type": "pattern",
+      "english": "It's been driving me crazy not telling you.",
+      "korean": "너한테 말 안 하는 동안 진짜 미칠 것 같았어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:26:06.239Z",
+      "id": "498bb619-b07d-45eb-89a4-9a85c0ed06c8",
+      "createdAt": "2026-08-27T06:26:07.825Z"
+    },
+    {
+      "type": "pattern",
+      "english": "It's been bothering me.",
+      "korean": "그게 계속 마음에 걸려.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:25:10.859Z",
+      "id": "ce2ec199-c46e-47ae-8a88-40904ff3add7",
+      "createdAt": "2026-08-27T06:25:12.395Z"
+    },
+    {
+      "type": "word",
+      "english": "apparently",
+      "korean": "보아하니, 겉보기엔, 듣자하니, 분명히",
+      "pronunciation": "/əˈpaɹəntli/",
+      "example": "정황이나 소문을 바탕으로 추측하는 뉘앙스\nApparently, I do(듣고 보니 그런 것 같네)",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:24:36.645Z",
+      "id": "e39f4779-f665-4d7d-a18d-e4b84e067815",
+      "createdAt": "2026-08-27T06:24:37.894Z"
+    },
+    {
+      "type": "pattern",
+      "english": "Apparently she's been cutting classes all week.",
+      "korean": "듣자 하니 걔 이번 주 내내 수업 빼먹고 있대",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:23:00.640Z",
+      "id": "6611b66f-e140-4a97-85e8-462c5fb80025",
+      "createdAt": "2026-08-27T06:23:02.951Z"
+    },
+    {
+      "type": "pattern",
+      "english": "He's been calling me for three days straight.",
+      "korean": "걔 사흘 연속으로 나한테 전화하고 있어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:22:40.618Z",
+      "id": "1234ccb4-cb83-44b4-90e3-5e4c09f653b6",
+      "createdAt": "2026-08-27T06:22:41.970Z"
+    },
+    {
+      "type": "pattern",
+      "english": "They've been trying to have a kid for like 5 years.",
+      "korean": "그들은 한 5년 동안 아이를 가지려고 노력해 오고 있어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:20:10.087Z",
+      "id": "5f346c0c-58f9-4001-a769-91e1edc57f01",
+      "createdAt": "2026-08-27T06:20:11.807Z"
+    },
+    {
+      "type": "pattern",
+      "english": "I know we've been putting off talking about marriage.",
+      "korean": "우리가 결혼 이야기 나누는 것을 계속 미뤄왔다는 거 알아.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:19:18.676Z",
+      "id": "a182bcc0-dbde-45d9-9a71-0ad62f4033a0",
+      "createdAt": "2026-08-27T06:19:19.998Z"
+    },
+    {
+      "type": "pattern",
+      "english": "We've been arguing about this forever.",
+      "korean": "우리 이것 때문에 맨날 싸우고 있잖아",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:18:53.114Z",
+      "id": "e9bcad89-86a8-4568-9d53-b234fcbc4923",
+      "createdAt": "2026-08-27T06:18:54.628Z"
+    },
+    {
+      "type": "pattern",
+      "english": "we've been expecting you. How was your trip?",
+      "korean": "기다리고 있었습니다. 여행은 어떠셨나요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:18:19.151Z",
+      "id": "00a86264-ebf7-4c97-9136-a658f74dd3c4",
+      "createdAt": "2026-08-27T06:18:20.688Z"
+    },
+    {
+      "type": "pattern",
+      "english": "You have been saving up forever for this.",
+      "korean": "너 이걸 위해 오랫동안 돈을 모아 왔잖아.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:17:41.594Z",
+      "id": "cbdefd85-db61-4e76-a081-24ee79e99c7d",
+      "createdAt": "2026-08-27T06:17:43.216Z"
+    },
+    {
+      "type": "pattern",
+      "english": "I've been wondering about that.",
+      "korean": "그것에 대해 계속 궁금해하고 있었어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:16:26.444Z",
+      "id": "22ea29ae-af90-4de9-9a13-3ed249fd303b",
+      "createdAt": "2026-08-27T06:16:27.966Z"
+    },
+    {
+      "type": "pattern",
+      "english": "I've been wanting to talk with you.",
+      "korean": "너랑 계속 이야기하고 싶었어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:15:18.041Z",
+      "id": "b1b22c04-daeb-4daa-9dd0-4585f6d21c2d",
+      "createdAt": "2026-08-27T06:15:20.335Z"
+    },
+    {
+      "type": "pattern",
+      "english": "If I could help you , I would.",
+      "korean": "널 도와줄 수 있으면 내가 돕겠지.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T05:57:10.885Z",
+      "id": "651e3b5c-be35-479f-9a9e-ed772e418132",
+      "createdAt": "2026-08-27T05:57:12.137Z"
+    },
+    {
+      "type": "pattern",
+      "english": "Even if you brought me flowers every day, I wouldn't still marry you.",
+      "korean": "꽃을 매일 보내와도 너랑은 여전히 결혼할 생각이 없어",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T05:55:29.435Z",
+      "id": "04253123-ae66-4cc2-9ce2-489a528ee9cf",
+      "createdAt": "2026-08-27T05:55:30.701Z"
+    },
+    {
+      "type": "pattern",
+      "english": "Would it be all right if I gave Judy a call?",
+      "korean": "주디에게 전화해도 괜찮겠냐?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T05:53:59.602Z",
+      "id": "9cc14340-3f36-4f62-a985-d01a7d4dd79d",
+      "createdAt": "2026-08-27T05:54:01.697Z"
+    },
+    {
+      "type": "pattern",
       "english": "I've been dying to see this movie.",
       "korean": "나 이영화 진짜 보고 싶었어.",
       "pronunciation": "",
@@ -63,17 +351,6 @@
       "reviewedAt": "2026-08-27T02:06:07.386Z",
       "id": "03cf28b2-dc42-4c05-a8ee-3614292e2cf2",
       "createdAt": "2026-08-27T02:06:09.103Z"
-    },
-    {
-      "type": "word",
-      "english": "epic",
-      "korean": "서사시",
-      "pronunciation": "/ˈɛp.ɪk/",
-      "example": "",
-      "tags": [],
-      "reviewedAt": "2026-08-27T01:53:25.328Z",
-      "id": "65258021-be36-4d5b-a6c3-5b6d32f00446",
-      "createdAt": "2026-08-27T01:53:25.856Z"
     }
   ]
 }

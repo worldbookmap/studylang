@@ -3,6 +3,93 @@
   "entries": [
     {
       "type": "word",
+      "english": "for the purpose of",
+      "korean": "~의 목적으로",
+      "pronunciation": "",
+      "example": "She moved to Seoul for the purpose of studying at university.",
+      "tags": [
+        "뉴스"
+      ],
+      "reviewedAt": "2026-08-28T00:05:13.927Z",
+      "id": "38a8896b-931b-4d56-a6e0-2d024081222e",
+      "createdAt": "2026-08-28T00:05:14.748Z"
+    },
+    {
+      "type": "word",
+      "english": "solely",
+      "korean": "단독, 무엇만을 위해",
+      "pronunciation": "/ˈsəʊl.li/",
+      "example": "She moved to the city solely for her career.",
+      "tags": [],
+      "reviewedAt": "2026-08-28T00:02:32.273Z",
+      "id": "056b96d7-4cc0-4bba-9c1f-d62d10bd7a33",
+      "createdAt": "2026-08-28T00:02:32.762Z"
+    },
+    {
+      "type": "word",
+      "english": "in a force for manner",
+      "korean": "훨씬 더 강경한 방식으로",
+      "pronunciation": "",
+      "example": "1. Trump: Very big, big crackdowns, and this will give us the right to do it in a much more forceful manner.\n\n2. She defended her opinion in a forceful manner during the meeting.",
+      "tags": [
+        "뉴스"
+      ],
+      "reviewedAt": "2026-08-27T23:46:19.175Z",
+      "id": "d6a9ae22-f6dc-4166-b33d-cff6b4bef95b",
+      "createdAt": "2026-08-27T23:46:19.946Z"
+    },
+    {
+      "type": "word",
+      "english": "crack down on",
+      "korean": "강하게 단속하다",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "뉴스"
+      ],
+      "reviewedAt": "2026-08-27T23:43:03.276Z",
+      "id": "f12eae94-bc5b-4a23-9aac-7be3b37087dd",
+      "createdAt": "2026-08-27T23:43:03.845Z"
+    },
+    {
+      "type": "pattern",
+      "english": "I've got to",
+      "korean": "-해야겠다.로 have to나 must 보다 훨씬 회화적이고 생생",
+      "pronunciation": "",
+      "example": "I've got to say hi to Rosse.\nI've got to go now. I'm late.\nYou've got to try this cake. It's amazing.\nI've got to finish this work by tonight.",
+      "tags": [
+        "소리튠"
+      ],
+      "reviewedAt": "2026-08-27T09:18:57.155Z",
+      "id": "86355213-d7ac-4ee0-b1aa-4eced697baaa",
+      "createdAt": "2026-08-27T09:18:58.699Z"
+    },
+    {
+      "type": "pattern",
+      "english": "What are we drinking over here?",
+      "korean": "마실거 뭐 있어요?",
+      "pronunciation": "",
+      "example": "What are we watching over here?\nWhat are you doing tonight, Ben? Frozen Razanya?",
+      "tags": [
+        "프렌즈"
+      ],
+      "reviewedAt": "2026-08-27T06:37:01.919Z",
+      "id": "67590544-afdf-4c7c-86f0-5ac004adb9f8",
+      "createdAt": "2026-08-27T06:37:02.664Z"
+    },
+    {
+      "type": "pattern",
+      "english": "I'd like to order a coffee to go",
+      "korean": "커피 포장할게요",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-08-27T06:08:21.278Z",
+      "id": "756e2c2f-0b5e-4427-a901-583ec1cbbc58",
+      "createdAt": "2026-08-27T06:08:21.747Z"
+    },
+    {
+      "type": "word",
       "english": "savor",
       "korean": "to enjoy food or an experience slowly, in order to enjoy it as much as possible: 맛을 보다",
       "pronunciation": "/ˈseɪ.vɚ/",
