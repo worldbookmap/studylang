@@ -671,7 +671,7 @@ export default function Home() {
                     {showAnswer ? (
                       <div className="grid gap-3">
                         <p className="text-2xl font-extrabold">{currentQuizEntry.korean}</p>
-                        {currentQuizEntry.example && <p className="text-base font-semibold text-[var(--muted-strong)]">{currentQuizEntry.example}</p>}
+                        {currentQuizEntry.example && <ExampleText className="text-base font-semibold text-[var(--muted-strong)]" text={currentQuizEntry.example} />}
                       </div>
                     ) : (
                       <p className="text-sm font-extrabold text-[var(--muted)]">뜻과 예문을 떠올린 뒤 정답을 확인하세요.</p>
@@ -949,6 +949,23 @@ function SectionTitle({ icon: Icon, title }: { icon: LucideIcon; title: string }
   );
 }
 
+function ExampleText({ text, className }: { text: string; className?: string }) {
+  return (
+    <p className={cn("whitespace-pre-wrap", className)}>
+      {text.split("\n").map((line, index) => {
+        const match = line.match(/^(\s*(?:\d+\.\s*)?(?:의미|예문):)(.*)$/);
+
+        return (
+          <span key={`${line}-${index}`}>
+            {match ? <><strong className="font-extrabold text-[var(--accent)]">{match[1]}</strong>{match[2]}</> : line}
+            {index < text.split("\n").length - 1 && <br />}
+          </span>
+        );
+      })}
+    </p>
+  );
+}
+
 function EntryRow({ entry }: { entry: StudyEntry }) {
   function speakEntry() {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -991,7 +1008,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
       </div>
       {entry.pronunciation && <p className="text-sm font-bold text-[var(--accent)]">{entry.pronunciation}</p>}
       <p className="mt-1 text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</p>
-      {entry.example && <p className="mt-2 text-sm text-[var(--muted)]">{entry.example}</p>}
+      {entry.example && <ExampleText className="mt-2 text-sm text-[var(--muted)]" text={entry.example} />}
     </div>
   );
 }
