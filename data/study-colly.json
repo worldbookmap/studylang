@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "contraction",
+      "english": "When do you want to",
+      "korean": "When do you want to go?",
+      "pronunciation": "When ya wanna",
+      "example": "You hear about the exhibition? When ya wanna see it?",
+      "tags": [
+        "Speed Cell"
+      ],
+      "reviewedAt": "2026-08-28T03:23:22.776Z",
+      "id": "1e129310-1417-44b0-8048-83041d643f8a",
+      "createdAt": "2026-08-28T03:23:24.380Z"
+    },
+    {
+      "type": "contraction",
       "english": "What will",
       "korean": "What will happen to him",
       "pronunciation": "What'll (워를)",
