@@ -19,6 +19,14 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const userId = getUserId(request);
+    const shouldSync = request.nextUrl.searchParams.get("sync") === "true";
+
+    if (shouldSync) {
+      const { database, sha } = await readStudyDatabase(userId);
+      const nextDatabase = await writeStudyDatabase(database.entries, sha, userId);
+      return Response.json({ ok: true, entries: nextDatabase.entries });
+    }
+
     const input = (await request.json()) as EntryInput;
     const { database, sha } = await readStudyDatabase(userId);
     const entry: StudyEntry = {

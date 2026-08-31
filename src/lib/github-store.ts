@@ -78,8 +78,9 @@ async function readLocalDatabase(userId?: string): Promise<{ database: StudyData
     return {
       database: { version: 1, entries: Array.isArray(parsed.entries) ? parsed.entries : [] },
     };
-  } catch (error: any) {
-    if (error.code === "ENOENT") {
+  } catch (error: unknown) {
+    const err = error as NodeJS.ErrnoException;
+    if (err?.code === "ENOENT") {
       return { database: { version: 1, entries: [] } };
     }
     throw error;
@@ -98,7 +99,7 @@ export async function readStudyDatabase(userId?: string): Promise<{ database: St
   let config;
   try {
     config = getGithubConfig();
-  } catch (err) {
+  } catch {
     // Fall back to local file system if GitHub config is not provided
     return readLocalDatabase(userId);
   }
@@ -130,7 +131,7 @@ export async function writeStudyDatabase(entries: StudyEntry[], sha?: string, us
   let config;
   try {
     config = getGithubConfig();
-  } catch (err) {
+  } catch {
     // Fall back to local file system if GitHub config is missing
     return writeLocalDatabase(entries, userId);
   }

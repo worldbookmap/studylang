@@ -3,22 +3,22 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
+  ArrowLeftRight,
   Bell,
   BookOpenCheck,
   BookText,
   CalendarDays,
   CircleCheck,
   Dices,
+  Languages,
   Layers3,
   ListChecks,
   PenLine,
   Plus,
-  RefreshCw,
   RotateCw,
   Search,
   Sparkles,
   Trash2,
-  User,
   Volume2,
   X,
   type LucideIcon,
@@ -32,6 +32,7 @@ import { cn, isSameLocalDay, todayKey } from "@/lib/utils";
 import { EntryInput, StudyEntry, StudyEntryType, UserId, USER_PROFILES } from "@/lib/types";
 
 type ActiveView = "input" | "quiz" | "calendar" | "list";
+type QuizDirection = "en-to-ko" | "ko-to-en" | "mixed";
 
 type FormState = {
   type: StudyEntryType;
@@ -56,6 +57,12 @@ const navItems: { id: ActiveView; label: string; icon: LucideIcon }[] = [
   { id: "quiz", label: "랜덤퀴즈", icon: Sparkles },
   { id: "calendar", label: "공부달력", icon: CalendarDays },
   { id: "list", label: "전체목록", icon: ListChecks },
+];
+
+const quizDirectionOptions: { id: QuizDirection; label: string; icon: LucideIcon }[] = [
+  { id: "en-to-ko", label: "영어 → 한국어", icon: Languages },
+  { id: "ko-to-en", label: "한국어 → 영어", icon: ArrowLeftRight },
+  { id: "mixed", label: "랜덤 섞기", icon: Sparkles },
 ];
 
 function normalizeTags(tags: string) {
@@ -84,10 +91,20 @@ function localDateKey(date: Date) {
   return `${year}-${month}-${day}`;
 }
 
+function getSavedUser(): UserId | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const savedUser = localStorage.getItem("studylang_user") as UserId | null;
+  return savedUser && (savedUser === "colly" || savedUser === "baebjji") ? savedUser : null;
+}
+
 export default function Home() {
-  const [currentUser, setCurrentUser] = useState<UserId | null>(null);
-  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
-  const [isBooting, setIsBooting] = useState(true);
+  const savedUser = getSavedUser();
+  const [currentUser, setCurrentUser] = useState<UserId | null>(savedUser);
+  const [isUserModalOpen, setIsUserModalOpen] = useState(!savedUser);
+  const [isBooting, setIsBooting] = useState(!savedUser);
   const [activeView, setActiveView] = useState<ActiveView>("input");
   const [entries, setEntries] = useState<StudyEntry[]>([]);
   const [form, setForm] = useState<FormState>(emptyForm);
@@ -96,10 +113,11 @@ export default function Home() {
   const [listFilter, setListFilter] = useState<"all" | StudyEntryType>("all");
   const [quizScope, setQuizScope] = useState<"all" | "today">("all");
   const [quizCount, setQuizCount] = useState(5);
+  const [quizDirection, setQuizDirection] = useState<QuizDirection>("en-to-ko");
   const [quizQuestions, setQuizQuestions] = useState<StudyEntry[]>([]);
   const [quizIndex, setQuizIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [status, setStatus] = useState("학습장을 불러오는 중입니다.");
+  const [status, setStatus] = useState(savedUser ? "학습장을 불러오는 중입니다." : "사용자를 선택하면 단어장이 시작됩니다.");
   const [error, setError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isWordLookupLoading, setIsWordLookupLoading] = useState(false);
@@ -155,6 +173,12 @@ export default function Home() {
     return quizQuestions[quizIndex] ?? quizEntries[0];
   }, [quizEntries, quizIndex, quizQuestions]);
 
+  const activeQuizDirection = quizDirection === "mixed" ? (quizIndex % 2 === 0 ? "en-to-ko" : "ko-to-en") : quizDirection;
+  const currentQuizPrompt = currentQuizEntry ? (activeQuizDirection === "en-to-ko" ? currentQuizEntry.english : currentQuizEntry.korean) : "";
+  const currentQuizAnswer = currentQuizEntry ? (activeQuizDirection === "en-to-ko" ? currentQuizEntry.korean : currentQuizEntry.english) : "";
+  const currentQuizPromptLabel = activeQuizDirection === "en-to-ko" ? "영어 표현" : "한국어 뜻";
+  const currentQuizAnswerLabel = activeQuizDirection === "en-to-ko" ? "한국어 뜻" : "영어 표현";
+
   async function loadUserEntries(user: UserId) {
     setIsBooting(true);
     setError("");
@@ -183,17 +207,50 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    const savedUser = localStorage.getItem("studylang_user") as UserId | null;
-    if (savedUser && (savedUser === "colly" || savedUser === "baebjji")) {
-      setCurrentUser(savedUser);
-      loadUserEntries(savedUser);
-    } else {
-      setIsBooting(false);
-      setIsUserModalOpen(true);
-      setStatus("사용자를 선택하면 단어장이 시작됩니다.");
+  async function syncEntriesToGithub(user: UserId) {
+    setError("");
+
+    try {
+      const response = await fetch(`/api/entries?user=${user}&sync=true`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error ?? "GitHub 동기화를 실패했습니다.");
+      }
+
+      setEntries(payload.entries ?? []);
+      setStatus("GitHub 저장소에 최신 상태를 자동 반영했습니다.");
+    } catch (syncError) {
+      setError(syncError instanceof Error ? syncError.message : "GitHub 동기화 중 오류가 발생했습니다.");
     }
-  }, []);
+  }
+
+  useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      void loadUserEntries(currentUser);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (!currentUser || quizEntries.length > 0) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      void syncEntriesToGithub(currentUser);
+    }, 250);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [currentUser, quizEntries.length]);
 
   function handleSelectUser(user: UserId) {
     localStorage.setItem("studylang_user", user);
@@ -400,6 +457,11 @@ export default function Home() {
     setQuizCount(nextCount);
     setQuizQuestions(getRandomEntries(scopeEntries, scopeEntries.length));
     setQuizIndex(0);
+    setShowAnswer(false);
+  }
+
+  function changeQuizDirection(direction: QuizDirection) {
+    setQuizDirection(direction);
     setShowAnswer(false);
   }
 
@@ -617,7 +679,13 @@ export default function Home() {
 
         {activeView === "quiz" && (
           <MagicSurface className="p-5 sm:p-8">
-            <SectionTitle icon={Dices} title="랜덤퀴즈" />
+            <div className="flex items-center justify-between gap-3">
+              <SectionTitle icon={Dices} title="랜덤퀴즈" />
+              <div className="inline-flex items-center gap-1 rounded-full border border-[var(--accent)]/30 bg-[#edf6ff] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[var(--accent)]">
+                <Sparkles className="h-3.5 w-3.5" />
+                cute mode
+              </div>
+            </div>
             <div className="mt-5 inline-flex rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-1" role="group" aria-label="퀴즈 범위 선택">
               {([
                 ["all", "전체"],
@@ -639,6 +707,25 @@ export default function Home() {
                 </button>
               ))}
             </div>
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              {quizDirectionOptions.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => changeQuizDirection(id)}
+                  aria-pressed={quizDirection === id}
+                  className={cn(
+                    "inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm font-extrabold transition",
+                    quizDirection === id
+                      ? "border-[var(--accent)] bg-[#edf6ff] text-[var(--accent)] shadow-sm"
+                      : "border-[var(--line)] bg-white text-[var(--muted-strong)] hover:border-[var(--accent)]/50 hover:text-[var(--accent)]",
+                  )}
+                >
+                  <Icon className="h-4 w-4" />
+                  {label}
+                </button>
+              ))}
+            </div>
             <label className="mt-4 flex w-fit items-center gap-3 text-sm font-extrabold text-[var(--muted-strong)]">
               문제 수 <span className="text-[var(--accent)]">{quizCount}개</span>
               <input
@@ -653,33 +740,50 @@ export default function Home() {
               />
             </label>
             {!currentQuizEntry ? (
-              <EmptyState
-                text={quizScope === "today" ? "오늘 추가하거나 복습한 항목이 없어 퀴즈를 만들 수 없습니다." : "저장된 항목이 생기면 바로 퀴즈를 만들 수 있습니다."}
-              />
+              <div className="mt-6 rounded-2xl border border-dashed border-[var(--accent)]/40 bg-[linear-gradient(135deg,#eff7ff,#fdf2f8)] p-5 text-center shadow-sm">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--accent)] shadow-sm">
+                  <Sparkles className="h-6 w-6" />
+                </div>
+                <p className="mt-4 text-lg font-extrabold text-[var(--accent)]">오늘의 문제는 모두 끝났어요</p>
+                <p className="mt-2 text-sm font-semibold text-[var(--muted-strong)]">
+                  {quizScope === "today"
+                    ? "오늘 추가하거나 복습한 항목이 없어 퀴즈를 만들 수 없습니다."
+                    : "저장된 항목이 생기면 바로 퀴즈를 만들 수 있고, 변경 내용은 GitHub 저장소로 자동 반영됩니다."}
+                </p>
+              </div>
             ) : (
               <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_320px]">
-                <div className="rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-6 shadow-sm">
+                <div className="rounded-[28px] border border-[var(--line)] bg-[linear-gradient(180deg,#ffffff,#f6faff)] p-6 shadow-[0_18px_42px_rgba(59,130,246,0.08)]">
                   <div className="flex items-center justify-between gap-3">
-                    <Badge>{currentQuizEntry.type === "word" ? "단어" : currentQuizEntry.type === "pattern" ? "문장 패턴" : "축약표현"}</Badge>
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#e0f2fe] text-[var(--accent)]">
+                        {quizDirection === "mixed" ? <Sparkles className="h-4 w-4" /> : quizDirection === "ko-to-en" ? <ArrowLeftRight className="h-4 w-4" /> : <Languages className="h-4 w-4" />}
+                      </div>
+                      <Badge>{currentQuizEntry.type === "word" ? "단어" : currentQuizEntry.type === "pattern" ? "문장 패턴" : "축약표현"}</Badge>
+                    </div>
                     <span className="text-sm font-extrabold text-[var(--muted)]">
                       {Math.min(quizIndex + 1, quizQuestions.length || 1)} / {Math.min(quizCount, quizEntries.length)}
                     </span>
                   </div>
-                  <p className="mt-5 font-serif text-4xl font-extrabold leading-tight">{currentQuizEntry.english}</p>
+                  <p className="mt-4 text-xs font-black uppercase tracking-[0.22em] text-[var(--muted)]">{currentQuizPromptLabel}</p>
+                  <p className="mt-2 font-serif text-4xl font-extrabold leading-tight text-[var(--ink)]">{currentQuizPrompt}</p>
                   {currentQuizEntry.pronunciation && (
                     <p className="mt-2 text-lg font-bold text-[var(--accent)]">
                       {currentQuizEntry.type === "contraction" && <span className="mr-1 text-base text-[var(--muted-strong)]">축약발음:</span>}
                       {currentQuizEntry.pronunciation}
                     </p>
                   )}
-                  <div className="mt-6 min-h-28 rounded-md border border-dashed border-[var(--line)] bg-[#eff7ff] p-4">
+                  <div className="mt-6 min-h-28 rounded-2xl border border-dashed border-[var(--line)] bg-[radial-gradient(circle_at_top,#eff7ff,#f6faff)] p-4">
                     {showAnswer ? (
                       <div className="grid gap-3">
-                        <p className="text-2xl font-extrabold">{currentQuizEntry.korean}</p>
+                        <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--muted)]">{currentQuizAnswerLabel}</p>
+                        <p className="text-2xl font-extrabold text-[var(--ink)]">{currentQuizAnswer}</p>
                         {currentQuizEntry.example && <ExampleText className="text-base font-semibold text-[var(--muted-strong)]" text={currentQuizEntry.example} />}
                       </div>
                     ) : (
-                      <p className="text-sm font-extrabold text-[var(--muted)]">뜻과 예문을 떠올린 뒤 정답을 확인하세요.</p>
+                      <p className="text-sm font-extrabold text-[var(--muted)]">
+                        {activeQuizDirection === "en-to-ko" ? "뜻과 예문을 떠올린 뒤 정답을 확인하세요." : "영어 표현을 떠올린 뒤 정답을 확인하세요."}
+                      </p>
                     )}
                   </div>
                   <div className="mt-5 flex flex-wrap gap-2">
@@ -697,7 +801,7 @@ export default function Home() {
                     </Button>
                   </div>
                 </div>
-                <div className="rounded-lg bg-[linear-gradient(160deg,#071a34,#123f80)] p-5 text-white shadow-[0_16px_48px_rgba(7,26,52,0.28)]">
+                <div className="rounded-[28px] bg-[linear-gradient(160deg,#071a34,#123f80)] p-5 text-white shadow-[0_16px_48px_rgba(7,26,52,0.28)]">
                   <p className="text-sm font-extrabold text-[#93c5fd]">오늘 7시 리마인드</p>
                   <p className="mt-3 text-3xl font-extrabold">{todaysEntries.length}개</p>
                   <p className="mt-3 text-sm font-semibold text-white/75">오늘 추가하거나 복습한 표현이 있으면 저녁 7시에 브라우저 알림과 앱 안 리마인드가 뜹니다.</p>
