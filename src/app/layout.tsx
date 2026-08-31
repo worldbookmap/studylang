@@ -17,6 +17,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "우리의 영어공부 | StudyLang",
   description: "콜리와 뱁찌의 영어 단어와 문장 패턴 학습장",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "우리의 영어공부",
     description: "콜리와 뱁찌의 영어 단어와 문장 패턴 학습장",
