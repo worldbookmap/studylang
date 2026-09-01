@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "What if we took him to a child psychologist or something?",
+      "korean": "아이를 아동 심리학자 같은 분에게 데려가 보면 어떨까요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-01T07:03:26.766Z",
+      "id": "8cea1c18-3be2-4ccd-bc55-cda4044c48b4",
+      "createdAt": "2026-09-01T07:03:29.421Z"
+    },
+    {
+      "type": "pattern",
       "english": "What are your thoughts on ~?",
       "korean": "특정 주제나 사안에 대해 상대방의 생각이나 의견을 매끄럽게 물어볼 때 쓰는 표현",
       "pronunciation": "",
