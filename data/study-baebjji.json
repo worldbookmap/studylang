@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Do you happen to know?",
+      "korean": "혹시 아세요?",
+      "pronunciation": "",
+      "example": "Do you happen to know where the nearest subway station is?",
+      "tags": [],
+      "reviewedAt": "2026-09-02T06:02:11.552Z",
+      "id": "c1980d1c-a60b-4ad3-80f2-dfa114f96cb1",
+      "createdAt": "2026-09-02T06:02:12.564Z"
+    },
+    {
+      "type": "pattern",
       "english": "What if we took him to a child psychologist or something?",
       "korean": "아이를 아동 심리학자 같은 분에게 데려가 보면 어떨까요?",
       "pronunciation": "",
