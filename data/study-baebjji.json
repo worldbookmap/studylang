@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "It takes time to get used to the new system.",
+      "korean": "새 시스템에 익숙해지는데 시간이 걸려요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-02T06:04:25.073Z",
+      "id": "73a9a7b7-2551-4c30-a981-40df1d6307de",
+      "createdAt": "2026-09-02T06:04:26.018Z"
+    },
+    {
+      "type": "pattern",
       "english": "Do you happen to know?",
       "korean": "혹시 아세요?",
       "pronunciation": "",
