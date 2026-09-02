@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Do you mind if I sit here?",
+      "korean": "제가 여기 앉아도 될까요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-02T06:06:26.606Z",
+      "id": "7a206bb3-c5ca-4610-81a2-826e495c841d",
+      "createdAt": "2026-09-02T06:06:27.596Z"
+    },
+    {
+      "type": "pattern",
       "english": "It takes time to get used to the new system.",
       "korean": "새 시스템에 익숙해지는데 시간이 걸려요.",
       "pronunciation": "",
