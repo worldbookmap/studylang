@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "out of the blue",
+      "korean": "갑자기",
+      "pronunciation": "",
+      "example": "Have you heard from Jake lately?\nYeah, he called me out of the blue.",
+      "tags": [],
+      "reviewedAt": "2026-09-06T14:57:44.049Z",
+      "id": "2cb17d84-8358-4750-97a1-480fc58454e9",
+      "createdAt": "2026-09-06T14:57:45.295Z"
+    },
+    {
       "type": "pattern",
       "english": "I'm beat",
       "korean": "녹초가 되었어",
