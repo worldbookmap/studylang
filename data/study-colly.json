@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "I can live with that",
+      "korean": "그정도면 괜찮아",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-06T23:45:52.480Z",
+      "id": "32cbe79c-16e8-4789-aa03-50dd56c1c2a1",
+      "createdAt": "2026-09-06T23:45:53.231Z"
+    },
+    {
       "type": "word",
       "english": "out of the blue",
       "korean": "갑자기",
