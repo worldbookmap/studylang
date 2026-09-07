@@ -1,4 +1,4 @@
-export type StudyEntryType = "word" | "pattern" | "contraction";
+export type StudyEntryType = "word" | "pattern" | "contraction" | "dialogue";
 
 export type UserId = "colly" | "baebjji";
 

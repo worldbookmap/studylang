@@ -13,6 +13,7 @@ import {
   Languages,
   Layers3,
   ListChecks,
+  MessageCircle,
   PenLine,
   Plus,
   RotateCw,
@@ -31,7 +32,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn, isSameLocalDay, todayKey } from "@/lib/utils";
 import { EntryInput, StudyEntry, StudyEntryType, UserId, USER_PROFILES } from "@/lib/types";
 
-type ActiveView = "input" | "quiz" | "calendar" | "list";
+type ActiveView = "input" | "dialogue" | "quiz" | "calendar" | "list";
 type QuizDirection = "en-to-ko" | "ko-to-en" | "mixed";
 
 type FormState = {
@@ -151,9 +152,9 @@ export default function Home() {
   }, [entries, query, listFilter]);
 
   const calendarEntries = useMemo(() => {
-    return entries.reduce<Record<string, { word: number; pattern: number; contraction: number; entries: StudyEntry[] }>>((acc, entry) => {
+    return entries.reduce<Record<string, { word: number; pattern: number; contraction: number; dialogue: number; entries: StudyEntry[] }>>((acc, entry) => {
       const key = localDateKey(new Date(entry.reviewedAt ?? entry.createdAt));
-      const current = acc[key] ?? { word: 0, pattern: 0, contraction: 0, entries: [] };
+      const current = acc[key] ?? { word: 0, pattern: 0, contraction: 0, dialogue: 0, entries: [] };
       current[entry.type] += 1;
       current.entries.push(entry);
       acc[key] = current;
@@ -377,7 +378,7 @@ export default function Home() {
       example: entry.example ?? "",
       tags: entry.tags.join(", "),
     });
-    setActiveView("input");
+    setActiveView(entry.type === "dialogue" ? "dialogue" : "input");
     setError("");
     setStatus("표현을 수정한 뒤 저장하세요.");
   }
@@ -473,6 +474,16 @@ export default function Home() {
     setShowAnswer(false);
   }
 
+  function changeView(view: ActiveView) {
+    setActiveView(view);
+    if (view === "input") {
+      setForm((current) => ({ ...current, type: current.type === "dialogue" ? "word" : current.type }));
+    }
+    if (view === "dialogue") {
+      setForm((current) => ({ ...current, type: "dialogue", pronunciation: "", example: "" }));
+    }
+  }
+
   if (isBooting && currentUser) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[linear-gradient(135deg,#f8fbff,#dbeafe_48%,#c7d2fe)] p-6">
@@ -532,11 +543,11 @@ export default function Home() {
                   key={item.id}
                   className={cn(
                     "flex h-10 items-center justify-center gap-2 rounded-md px-2.5 text-sm font-extrabold transition sm:h-11 sm:px-3",
-                    activeView === item.id
+                    (item.id === "input" ? activeView === "input" || activeView === "dialogue" : activeView === item.id)
                       ? "bg-[linear-gradient(135deg,#0b1f3a,#2563eb)] text-white shadow-[0_10px_28px_rgba(37,99,235,0.25)]"
                       : "text-[var(--muted-strong)] hover:bg-white/80",
                   )}
-                  onClick={() => setActiveView(item.id)}
+                  onClick={() => changeView(item.id)}
                   type="button"
                 >
                   <Icon className="h-4 w-4" />
@@ -566,51 +577,73 @@ export default function Home() {
           </div>
         )}
 
-        {activeView === "input" && (
+        {(activeView === "input" || activeView === "dialogue") && (
           <section className="grid gap-4 sm:gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.55fr)]">
             <MagicSurface className="p-4 sm:p-7">
-              <SectionTitle icon={PenLine} title={editingEntryId ? "표현 수정" : "단어 / 문장 패턴 / 축약표현 입력"} />
+              <SectionTitle icon={activeView === "dialogue" ? MessageCircle : PenLine} title={editingEntryId ? "표현 수정" : activeView === "dialogue" ? "대화 스크립트 입력" : "단어 / 문장 / 축약 입력"} />
               <form className="mt-5 grid gap-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-3 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
-                  {(["word", "pattern", "contraction"] as StudyEntryType[]).map((type) => (
+                {(activeView === "input" || activeView === "dialogue") && <div className="grid grid-cols-4 gap-2 rounded-md border border-[var(--line)] bg-[#edf6ff] p-1">
+                  {(["word", "pattern", "contraction", "dialogue"] as StudyEntryType[]).map((type) => (
                     <button
                       className={cn(
                         "h-10 rounded-md text-sm font-extrabold transition",
                         form.type === type ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
                       )}
                       key={type}
-                      onClick={() => setForm((current) => ({
-                        ...current,
-                        type,
-                        pronunciation: type === "pattern" ? "" : current.pronunciation,
-                      }))}
+                      onClick={() => {
+                        changeView(type === "dialogue" ? "dialogue" : "input");
+                        setForm((current) => ({
+                          ...current,
+                          type,
+                          pronunciation: type === "pattern" || type === "dialogue" ? "" : current.pronunciation,
+                          example: type === "dialogue" ? "" : current.example,
+                        }));
+                      }}
                       type="button"
                     >
-                      {type === "word" ? "영어 단어" : type === "pattern" ? "문장 패턴" : "축약표현"}
+                      {type === "word" ? "단어" : type === "pattern" ? "문장" : type === "contraction" ? "축약" : "대화"}
                     </button>
                   ))}
-                </div>
+                </div>}
                 <label className="grid gap-2 text-sm font-extrabold">
-                  영어 표현
-                  <Input
-                    value={form.english}
-                    onBlur={() => lookupWordDetails()}
-                    onChange={(event) => setForm((current) => {
-                      const english = event.target.value;
-                      const wordCount = english.trim().split(/\s+/).filter(Boolean).length;
+                  {activeView === "dialogue" ? "스크립트" : "영어 표현"}
+                  {activeView === "dialogue" ? (
+                    <Textarea
+                      value={form.english}
+                      onChange={(event) => setForm((current) => ({ ...current, english: event.target.value }))}
+                      placeholder="A: Are you free this evening?\nB: Sure, what's up?"
+                      required
+                    />
+                  ) : (
+                    <Input
+                      value={form.english}
+                      onBlur={() => lookupWordDetails()}
+                      onChange={(event) => setForm((current) => {
+                        const english = event.target.value;
+                        const wordCount = english.trim().split(/\s+/).filter(Boolean).length;
 
-                      return {
-                        ...current,
-                        english,
-                        type: current.type === "word" && wordCount >= 3 ? "pattern" : current.type,
-                        pronunciation: current.type === "word" && wordCount >= 3 ? "" : current.pronunciation,
-                      };
-                    })}
-                    placeholder="e.g. resilient / I tend to..."
-                    required
-                  />
+                        return {
+                          ...current,
+                          english,
+                          type: current.type === "word" && wordCount >= 3 ? "pattern" : current.type,
+                          pronunciation: current.type === "word" && wordCount >= 3 ? "" : current.pronunciation,
+                        };
+                      })}
+                      placeholder="e.g. resilient / I tend to..."
+                      required
+                    />
+                  )}
                 </label>
-                <div className="grid gap-4 sm:grid-cols-[1fr_180px]">
+                {activeView === "dialogue" ? (
+                  <label className="grid gap-2 text-sm font-extrabold">
+                    설명
+                    <Textarea
+                      value={form.korean}
+                      onChange={(event) => setForm((current) => ({ ...current, korean: event.target.value }))}
+                      placeholder="상황이나 대화에서 기억할 포인트를 적어주세요."
+                    />
+                  </label>
+                ) : <div className="grid gap-4 sm:grid-cols-[1fr_180px]">
                   <label className="grid gap-2 text-sm font-extrabold">
                     뜻 / 메모
                     <Input
@@ -629,15 +662,15 @@ export default function Home() {
                       placeholder={form.type === "pattern" ? "문장 패턴은 발음기호를 사용하지 않습니다" : form.type === "contraction" ? "빠르게 말할 때의 발음" : isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
                     />
                   </label>
-                </div>
-                <label className="grid gap-2 text-sm font-extrabold">
+                </div>}
+                {activeView === "input" && <label className="grid gap-2 text-sm font-extrabold">
                   예문
                   <Textarea
                     value={form.example}
                     onChange={(event) => setForm((current) => ({ ...current, example: event.target.value }))}
                     placeholder="I tend to write new phrases down before I forget them."
                   />
-                </label>
+                </label>}
                 <label className="grid gap-2 text-sm font-extrabold">
                   태그
                   <Input
@@ -656,7 +689,7 @@ export default function Home() {
                       취소
                     </Button>
                   )}
-                  <Button disabled={form.type !== "word" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
+                  <Button disabled={activeView !== "input" || form.type !== "word" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <Search className="h-4 w-4" />
                     뜻/발음 찾기
                   </Button>
@@ -759,7 +792,7 @@ export default function Home() {
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#e0f2fe] text-[var(--accent)]">
                         {quizDirection === "mixed" ? <Sparkles className="h-4 w-4" /> : quizDirection === "ko-to-en" ? <ArrowLeftRight className="h-4 w-4" /> : <Languages className="h-4 w-4" />}
                       </div>
-                      <Badge>{currentQuizEntry.type === "word" ? "단어" : currentQuizEntry.type === "pattern" ? "문장 패턴" : "축약표현"}</Badge>
+                      <Badge>{currentQuizEntry.type === "word" ? "단어" : currentQuizEntry.type === "pattern" ? "문장" : currentQuizEntry.type === "contraction" ? "축약" : "대화"}</Badge>
                     </div>
                     <span className="text-sm font-extrabold text-[var(--muted)]">
                       {Math.min(quizIndex + 1, quizQuestions.length || 1)} / {Math.min(quizCount, quizEntries.length)}
@@ -823,7 +856,7 @@ export default function Home() {
               ))}
               {getMonthDays().map((day) => {
                 const key = localDateKey(day);
-                const dayEntries = calendarEntries[key] ?? { word: 0, pattern: 0, entries: [] };
+                      const dayEntries = calendarEntries[key] ?? { word: 0, pattern: 0, contraction: 0, dialogue: 0, entries: [] };
                 const count = dayEntries.entries.length;
                 return (
                   <button
@@ -843,6 +876,7 @@ export default function Home() {
                         {dayEntries.word > 0 && <span><span className="sm:hidden">단 </span><span className="hidden sm:inline">단어 </span>{dayEntries.word}</span>}
                         {dayEntries.pattern > 0 && <span><span className="sm:hidden">패 </span><span className="hidden sm:inline">패턴 </span>{dayEntries.pattern}</span>}
                         {dayEntries.contraction > 0 && <span><span className="sm:hidden">축 </span><span className="hidden sm:inline">축약 </span>{dayEntries.contraction}</span>}
+                        {dayEntries.dialogue > 0 && <span><span className="sm:hidden">대 </span><span className="hidden sm:inline">대화 </span>{dayEntries.dialogue}</span>}
                       </div>
                     )}
                   </button>
@@ -886,7 +920,7 @@ export default function Home() {
                       listFilter === "pattern" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
                     )}
                   >
-                    문장 패턴
+                    문장
                   </button>
                   <button
                     type="button"
@@ -896,7 +930,17 @@ export default function Home() {
                       listFilter === "contraction" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
                     )}
                   >
-                    축약표현
+                    축약
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setListFilter("dialogue")}
+                    className={cn(
+                      "px-3 py-1.5 text-xs sm:text-sm font-extrabold rounded-md transition",
+                      listFilter === "dialogue" ? "bg-white text-[var(--accent)] shadow-sm" : "text-[var(--muted-strong)]",
+                    )}
+                  >
+                    대화
                   </button>
                 </div>
                 <div className="w-full sm:w-64">
@@ -1110,7 +1154,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
   return (
     <div className="rounded-md bg-white/70 p-3 motion-safe:animate-rise-in motion-safe:transition-transform motion-safe:hover:-translate-y-0.5">
       <div className="flex flex-wrap items-center gap-2">
-        <Badge>{entry.type === "word" ? "단어" : "패턴"}</Badge>
+        <Badge>{entry.type === "word" ? "단어" : entry.type === "pattern" ? "문장" : entry.type === "contraction" ? "축약" : "대화"}</Badge>
         {entry.tags.map((tag) => <Badge key={tag}>#{tag}</Badge>)}
       </div>
       <div className="mt-3 flex items-center gap-1.5">
