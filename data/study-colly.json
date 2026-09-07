@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "get a coffee",
+      "korean": "커피 주문시",
+      "pronunciation": "",
+      "example": "I'd like to get a coffee with ice.\nI'd like to get a coffee without sugar.\nI'd like to get a coffee for here.\nI need to get a coffee to go.\nCan I get a coffee?",
+      "tags": [],
+      "reviewedAt": "2026-09-07T02:14:57.438Z",
+      "id": "7f95900f-05bb-4d95-b62f-b57eac93840b",
+      "createdAt": "2026-09-07T02:14:58.205Z"
+    },
+    {
+      "type": "pattern",
       "english": "Leave it at that",
       "korean": "그쯤에서 끝내자, 그 정도로 해두자.",
       "pronunciation": "",
