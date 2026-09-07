@@ -68,7 +68,7 @@ const quizDirectionOptions: { id: QuizDirection; label: string; icon: LucideIcon
 
 function normalizeTags(tags: string) {
   return tags
-    .split(",")
+    .split(/[\n,]/)
     .map((tag) => tag.trim())
     .filter(Boolean);
 }
@@ -615,7 +615,7 @@ export default function Home() {
                       required
                     />
                   ) : (
-                    <Input
+                    <Textarea
                       value={form.english}
                       onBlur={() => lookupWordDetails()}
                       onChange={(event) => setForm((current) => {
@@ -629,6 +629,7 @@ export default function Home() {
                           pronunciation: current.type === "word" && wordCount >= 3 ? "" : current.pronunciation,
                         };
                       })}
+                      className="min-h-11"
                       placeholder="e.g. resilient / I tend to..."
                       required
                     />
@@ -646,19 +647,21 @@ export default function Home() {
                 ) : <div className="grid gap-4 sm:grid-cols-[1fr_180px]">
                   <label className="grid gap-2 text-sm font-extrabold">
                     뜻 / 메모
-                    <Input
+                    <Textarea
                       value={form.korean}
                       onChange={(event) => setForm((current) => ({ ...current, korean: event.target.value }))}
+                      className="min-h-11"
                       placeholder="회복력 있는, 쉽게 포기하지 않는"
                       required
                     />
                   </label>
                   <label className="grid gap-2 text-sm font-extrabold">
                     {form.type === "contraction" ? "축약발음" : "발음기호"}
-                    <Input
+                    <Textarea
                       disabled={form.type === "pattern"}
                       value={form.pronunciation}
                       onChange={(event) => setForm((current) => ({ ...current, pronunciation: event.target.value }))}
+                      className="min-h-11"
                       placeholder={form.type === "pattern" ? "문장 패턴은 발음기호를 사용하지 않습니다" : form.type === "contraction" ? "빠르게 말할 때의 발음" : isWordLookupLoading ? "찾는 중..." : "/rɪˈzɪliənt/"}
                     />
                   </label>
@@ -673,10 +676,11 @@ export default function Home() {
                 </label>}
                 <label className="grid gap-2 text-sm font-extrabold">
                   태그
-                  <Input
+                  <Textarea
                     value={form.tags}
                     onChange={(event) => setForm((current) => ({ ...current, tags: event.target.value }))}
-                    placeholder="business, speaking, daily"
+                    className="min-h-11"
+                    placeholder="business, speaking, daily 또는 줄바꿈"
                   />
                 </label>
                 <div className="flex flex-wrap gap-2">
