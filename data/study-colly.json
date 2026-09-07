@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "dialogue",
+      "english": "Hm, training is still not confirmed yet. \nWe're still short on participants, so it hasn't been confirmed yet. \nOnce it's confirmed we'll let you know by email.",
+      "korean": "전화로 트레이닝 확정되었는지 문의에 대한 대답",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "businedss"
+      ],
+      "reviewedAt": "2026-09-07T09:01:58.117Z",
+      "id": "f2771354-fd81-4848-b92a-f8d470a73d44",
+      "createdAt": "2026-09-07T09:01:58.879Z"
+    },
+    {
       "type": "pattern",
       "english": "get a coffee",
       "korean": "커피 주문시",
