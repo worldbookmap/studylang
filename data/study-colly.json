@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "Haven't I seen you before?",
+      "korean": "우리 본적있지 않아요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-07T23:05:16.478Z",
+      "id": "a143a7f8-31dc-490b-9792-9dcda09c99fc",
+      "createdAt": "2026-09-07T23:05:17.284Z"
+    },
+    {
       "type": "dialogue",
       "english": "Hm, training is still not confirmed yet. \nWe're still short on participants, so it hasn't been confirmed yet. \nOnce it's confirmed we'll let you know by email.",
       "korean": "전화로 트레이닝 확정되었는지 문의에 대한 대답",
