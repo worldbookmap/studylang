@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I don't wanna get personal.",
+      "korean": "개인적인 이야기까지 하고 싶진 않아.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-07T23:06:43.607Z",
+      "id": "e6f6d9ab-1e35-4b1a-b082-07f3b1855841",
+      "createdAt": "2026-09-07T23:06:44.483Z"
+    },
+    {
+      "type": "pattern",
       "english": "Haven't I seen you before?",
       "korean": "우리 본적있지 않아요?",
       "pronunciation": "",
