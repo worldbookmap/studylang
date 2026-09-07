@@ -803,7 +803,7 @@ export default function Home() {
                     </span>
                   </div>
                   <p className="mt-4 text-xs font-black uppercase tracking-[0.22em] text-[var(--muted)]">{currentQuizPromptLabel}</p>
-                  <p className="mt-2 font-serif text-4xl font-extrabold leading-tight text-[var(--ink)]">{currentQuizPrompt}</p>
+                  <p className="mt-2 whitespace-pre-wrap font-serif text-4xl font-extrabold leading-tight text-[var(--ink)]">{currentQuizPrompt}</p>
                   {currentQuizEntry.pronunciation && (
                     <p className="mt-2 text-lg font-bold text-[var(--accent)]">
                       {currentQuizEntry.type === "contraction" && <span className="mr-1 text-base text-[var(--muted-strong)]">축약발음:</span>}
@@ -814,7 +814,7 @@ export default function Home() {
                     {showAnswer ? (
                       <div className="grid gap-3">
                         <p className="text-xs font-black uppercase tracking-[0.22em] text-[var(--muted)]">{currentQuizAnswerLabel}</p>
-                        <p className="text-2xl font-extrabold text-[var(--ink)]">{currentQuizAnswer}</p>
+                        <p className="whitespace-pre-wrap text-2xl font-extrabold text-[var(--ink)]">{currentQuizAnswer}</p>
                         {currentQuizEntry.example && <ExampleText className="text-base font-semibold text-[var(--muted-strong)]" text={currentQuizEntry.example} />}
                       </div>
                     ) : (
@@ -1162,7 +1162,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
         {entry.tags.map((tag) => <Badge key={tag}>#{tag}</Badge>)}
       </div>
       <div className="mt-3 flex items-center gap-1.5">
-        <p className="text-lg font-extrabold">{entry.english}</p>
+        <p className="whitespace-pre-wrap text-lg font-extrabold">{entry.english}</p>
         <Button
           aria-label={`${entry.english} 듣기`}
           className="h-5 w-5 text-[9px]"
@@ -1180,7 +1180,7 @@ function EntryRow({ entry }: { entry: StudyEntry }) {
           {entry.pronunciation}
         </p>
       )}
-      <p className="mt-1 text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</p>
+      <p className="mt-1 whitespace-pre-wrap text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</p>
       {entry.example && <ExampleText className="mt-2 text-sm text-[var(--muted)]" text={entry.example} />}
     </div>
   );
