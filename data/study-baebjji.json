@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Did I bring up something uncomfortable?",
+      "korean": "내가 뭔가 불편한 이야기를 꺼냈나요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T05:16:28.212Z",
+      "id": "82e964a7-2e0d-40c6-827b-9fefe5903031",
+      "createdAt": "2026-09-08T05:16:29.526Z"
+    },
+    {
+      "type": "pattern",
       "english": "He brought up an interesting point during the meeting.",
       "korean": "그는 회의 중에 흥미로운 주제를 언급했다/꺼냈다.",
       "pronunciation": "",
