@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Who are you here with?",
+      "korean": "누구랑 같이 왔어?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:59:17.329Z",
+      "id": "0bc9d963-1515-4289-8744-4197f389b82e",
+      "createdAt": "2026-09-08T01:59:18.372Z"
+    },
+    {
+      "type": "pattern",
       "english": "Come here often?",
       "korean": "여기 자주 오세요?",
       "pronunciation": "",
