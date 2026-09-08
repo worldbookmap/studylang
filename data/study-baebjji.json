@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Are you enjoying yourself?",
+      "korean": "재밌게 보내고 계세요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T02:02:33.649Z",
+      "id": "239f8408-2a8c-4ea8-9939-0c25c5186aa7",
+      "createdAt": "2026-09-08T02:02:34.578Z"
+    },
+    {
+      "type": "pattern",
       "english": "I didn't catch your name.",
       "korean": "이름을 못들었어요.",
       "pronunciation": "",
