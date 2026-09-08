@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Come to think of it, that makes sense.",
+      "korean": "돌이켜보니 그거 일리가 있네요",
+      "pronunciation": "",
+      "example": "생각해 보니 / 돌이켜보니",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:57:04.576Z",
+      "id": "e1d4c0e5-5566-4c3e-a479-cca3a25f0abe",
+      "createdAt": "2026-09-08T01:57:05.553Z"
+    },
+    {
+      "type": "pattern",
       "english": "Do you mind if I sit here?",
       "korean": "제가 여기 앉아도 될까요?",
       "pronunciation": "",
