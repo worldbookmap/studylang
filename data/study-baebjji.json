@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I don't believe we've met.",
+      "korean": "우리 초면이죠?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:59:43.003Z",
+      "id": "e47a3b57-b25a-4da3-80f2-4d5f66c53e39",
+      "createdAt": "2026-09-08T01:59:43.900Z"
+    },
+    {
+      "type": "pattern",
       "english": "Who are you here with?",
       "korean": "누구랑 같이 왔어?",
       "pronunciation": "",
