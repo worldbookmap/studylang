@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Where did you get it?",
+      "korean": "어디서 났어?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:26:27.189Z",
+      "id": "c974b952-5c07-4c38-af4d-c523dd815ffa",
+      "createdAt": "2026-09-08T01:26:28.485Z"
+    },
+    {
+      "type": "pattern",
       "english": "You've actually never been to a real shool befor?",
       "korean": "진짜 학교에 가본적이 한번도 없다는거야?",
       "pronunciation": "",
