@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Sorry to interrupt.",
+      "korean": "말씀중에 끼어들어 죄송하지만,",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T02:01:28.654Z",
+      "id": "e40b9263-f1cf-45fc-8bda-b89746c14988",
+      "createdAt": "2026-09-08T02:01:29.694Z"
+    },
+    {
+      "type": "pattern",
       "english": "Don't let me keep you.",
       "korean": "제가 붙잡고 있었네요.",
       "pronunciation": "",
