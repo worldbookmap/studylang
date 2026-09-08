@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Can I get you a drink?",
+      "korean": "마실것 가져다 드릴까요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T02:00:19.815Z",
+      "id": "714ff091-c6da-4f22-b2ed-ed69bd73ecee",
+      "createdAt": "2026-09-08T02:00:20.878Z"
+    },
+    {
+      "type": "pattern",
       "english": "I don't believe we've met.",
       "korean": "우리 초면이죠?",
       "pronunciation": "",
