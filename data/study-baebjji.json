@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I didn't catch your name.",
+      "korean": "이름을 못들었어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T02:02:09.467Z",
+      "id": "df8cd61a-2951-42aa-89e0-95a359b37780",
+      "createdAt": "2026-09-08T02:02:10.489Z"
+    },
+    {
+      "type": "pattern",
       "english": "Sorry to interrupt.",
       "korean": "말씀중에 끼어들어 죄송하지만,",
       "pronunciation": "",
