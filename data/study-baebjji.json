@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Come here often?",
+      "korean": "여기 자주 오세요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:58:43.324Z",
+      "id": "5cd9ff48-d1c2-4310-9aeb-504b9cd8cda7",
+      "createdAt": "2026-09-08T01:58:44.314Z"
+    },
+    {
+      "type": "pattern",
       "english": "Have we met before?",
       "korean": "우리 전에 만난적 있나요?",
       "pronunciation": "",
