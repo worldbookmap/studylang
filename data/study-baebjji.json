@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I turned down the job in LA.",
+      "korean": "나는 LA에서의 일자리를 거절했어.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T05:19:07.798Z",
+      "id": "90a6cbd1-7882-4609-86d5-21f2d4795b8b",
+      "createdAt": "2026-09-08T05:19:09.150Z"
+    },
+    {
+      "type": "pattern",
       "english": "Eventually my watch turned up in a coat pocket.",
       "korean": "마침내 내 손목시계가 코트 주머니에서 나타났어",
       "pronunciation": "",
