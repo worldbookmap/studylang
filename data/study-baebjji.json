@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I'm not from around here.",
+      "korean": "저 여기 사람 아니에요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T02:03:33.749Z",
+      "id": "72596405-4355-44e9-ad58-b6b92d564ec9",
+      "createdAt": "2026-09-08T02:03:34.713Z"
+    },
+    {
+      "type": "pattern",
       "english": "Are you enjoying yourself?",
       "korean": "재밌게 보내고 계세요?",
       "pronunciation": "",
