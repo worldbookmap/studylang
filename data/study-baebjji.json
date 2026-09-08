@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Do you live nearby?",
+      "korean": "근처사나요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T03:51:51.064Z",
+      "id": "4e7bc91a-be37-4bb7-ac02-3afec04e8ad5",
+      "createdAt": "2026-09-08T03:51:52.984Z"
+    },
+    {
+      "type": "pattern",
       "english": "I'm not from around here.",
       "korean": "저 여기 사람 아니에요.",
       "pronunciation": "",
