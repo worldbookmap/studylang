@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I carried on working.",
+      "korean": "나는 피곤했지만 계속해서 일했다.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T05:17:35.945Z",
+      "id": "79d7c74c-1f10-4ced-80fd-4f4dcc03691d",
+      "createdAt": "2026-09-08T05:17:37.326Z"
+    },
+    {
+      "type": "pattern",
       "english": "Did I bring up something uncomfortable?",
       "korean": "내가 뭔가 불편한 이야기를 꺼냈나요?",
       "pronunciation": "",
