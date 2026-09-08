@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Have we met before?",
+      "korean": "우리 전에 만난적 있나요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:58:20.794Z",
+      "id": "ce67e0a7-6ac4-4245-8b30-527f40e9ca2d",
+      "createdAt": "2026-09-08T01:58:21.779Z"
+    },
+    {
+      "type": "pattern",
       "english": "Come to think of it, that makes sense.",
       "korean": "돌이켜보니 그거 일리가 있네요",
       "pronunciation": "",
