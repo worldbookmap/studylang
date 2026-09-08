@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "You've actually never been to a real shool befor?",
+      "korean": "진짜 학교에 가본적이 한번도 없다는거야?",
+      "pronunciation": "",
+      "example": "have been to\nhave never been to\nhave actually never been to",
+      "tags": [],
+      "reviewedAt": "2026-09-08T01:25:12.912Z",
+      "id": "bc026b10-5dd3-4f50-937d-d0f13d7ac245",
+      "createdAt": "2026-09-08T01:25:13.702Z"
+    },
+    {
+      "type": "pattern",
       "english": "I don't wanna get personal.",
       "korean": "개인적인 이야기까지 하고 싶진 않아.",
       "pronunciation": "",
