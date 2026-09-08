@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "He brought up an interesting point during the meeting.",
+      "korean": "그는 회의 중에 흥미로운 주제를 언급했다/꺼냈다.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "Bring up (주제나 이야기를 꺼내다 / 아이를 양육하다"
+      ],
+      "reviewedAt": "2026-09-08T05:16:02.527Z",
+      "id": "02220a91-4fb3-45c7-a8a0-7bb70a2d2036",
+      "createdAt": "2026-09-08T05:16:05.090Z"
+    },
+    {
+      "type": "pattern",
       "english": "Do you live nearby?",
       "korean": "근처사나요?",
       "pronunciation": "",
