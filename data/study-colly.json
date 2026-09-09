@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "tally",
+      "korean": "집계결과",
+      "pronunciation": "/ˈtæli/",
+      "example": "1. 의미: Target sighted.\n   예문: (Air Traffic Control): Speedbird 123, New York, traffic at two o’clock, seven miles, a Boeing 737, west-bound, at 4000 feet.”\n\nLet's check the final tally and see who won.\n2. 의미: (by extension) One of two books, sheets of paper, etc., on which corresponding accounts were kept.",
+      "tags": [],
+      "reviewedAt": "2026-09-09T23:45:43.623Z",
+      "id": "f159f005-4b0f-43ed-955d-7776d395a9ef",
+      "createdAt": "2026-09-09T23:45:44.221Z"
+    },
+    {
       "type": "pattern",
       "english": "Where did you get it?",
       "korean": "어디서 났어?",
