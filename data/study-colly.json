@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "I thought you'd -",
+      "korean": "- 할줄알았는데",
+      "pronunciation": "",
+      "example": "I thought you'd open today.\nI thought you'd know the way.",
+      "tags": [],
+      "reviewedAt": "2026-09-11T00:07:01.533Z",
+      "id": "00c374c8-29d5-49a3-a315-f7eed874d0f1",
+      "createdAt": "2026-09-11T00:07:04.284Z"
+    },
+    {
       "type": "word",
       "english": "tally",
       "korean": "집계결과",
