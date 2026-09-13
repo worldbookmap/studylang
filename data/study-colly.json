@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "It's not that simple.",
+      "korean": "그렇게 간단한게 아냐",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-13T14:45:29.334Z",
+      "id": "06a02122-0dab-42f4-a4a7-c527bc9f55ba",
+      "createdAt": "2026-09-13T14:45:32.126Z"
+    },
+    {
+      "type": "pattern",
       "english": "Let's go with this one then.",
       "korean": "그럼 이걸로 하자",
       "pronunciation": "",
