@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "something about that doesn't feel\nright to me.",
+      "korean": "뭔가 그게 좀 이상하다고 느껴져.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-13T14:48:14.611Z",
+      "id": "7849cf23-3da5-47ab-bb78-03373a6eec04",
+      "createdAt": "2026-09-13T14:48:17.466Z"
+    },
+    {
+      "type": "pattern",
       "english": "I'm gonna look somewhere else.",
       "korean": "다른델 알아벌게",
       "pronunciation": "",
