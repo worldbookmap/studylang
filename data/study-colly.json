@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I'm gonna look somewhere else.",
+      "korean": "다른델 알아벌게",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-13T14:46:52.251Z",
+      "id": "298b4d1f-9e69-431b-94f3-00ed53cbcc98",
+      "createdAt": "2026-09-13T14:46:55.174Z"
+    },
+    {
+      "type": "pattern",
       "english": "It's not that simple.",
       "korean": "그렇게 간단한게 아냐",
       "pronunciation": "",
