@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Let's go with this one then.",
+      "korean": "그럼 이걸로 하자",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-13T14:44:57.387Z",
+      "id": "a404179e-a9f3-418d-ba57-04b0e0c62434",
+      "createdAt": "2026-09-13T14:45:00.147Z"
+    },
+    {
+      "type": "pattern",
       "english": "I thought you'd -",
       "korean": "- 할줄알았는데",
       "pronunciation": "",
