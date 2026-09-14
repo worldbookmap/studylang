@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "You don't want to mess with me.",
+      "korean": "나랑 엮이지마.( 나 건드리면 후회할거야)",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-14T23:55:38.439Z",
+      "id": "662d8a5c-0754-47a6-a7a8-8264333d965e",
+      "createdAt": "2026-09-14T23:55:39.211Z"
+    },
+    {
+      "type": "pattern",
       "english": "Stay out of my business.",
       "korean": "내 일에서 빠져.",
       "pronunciation": "",
