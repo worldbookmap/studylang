@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "You'll regret this.",
+      "korean": "넌 후회하게 될거야.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-14T23:52:45.167Z",
+      "id": "50b91c31-84ce-41cb-932c-870abc76b77c",
+      "createdAt": "2026-09-14T23:52:45.991Z"
+    },
+    {
+      "type": "pattern",
       "english": "well done, Emily.",
       "korean": "잘했어요. 에밀리",
       "pronunciation": "",
