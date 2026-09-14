@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I'm off coffee.",
+      "korean": "나 커피 끊었어.",
+      "pronunciation": "",
+      "example": "I'm off work.\nI'm off sugar.",
+      "tags": [],
+      "reviewedAt": "2026-09-14T23:48:30.952Z",
+      "id": "eebb1ef6-c277-4ae3-b057-ce4c48a9f187",
+      "createdAt": "2026-09-14T23:48:31.700Z"
+    },
+    {
+      "type": "pattern",
       "english": "I turned down the job in LA.",
       "korean": "나는 LA에서의 일자리를 거절했어.",
       "pronunciation": "",
