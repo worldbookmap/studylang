@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I'm going to get you help.",
+      "korean": "내가 도와줄게",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-14T23:56:35.139Z",
+      "id": "52f89e16-2f47-40ce-9341-35b8ea5fb8bf",
+      "createdAt": "2026-09-14T23:56:35.926Z"
+    },
+    {
+      "type": "pattern",
       "english": "You don't want to mess with me.",
       "korean": "나랑 엮이지마.( 나 건드리면 후회할거야)",
       "pronunciation": "",
