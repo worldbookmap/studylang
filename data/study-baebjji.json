@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "well done, Emily.",
+      "korean": "잘했어요. 에밀리",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-14T23:51:15.594Z",
+      "id": "83c6e4ac-1b2d-49a6-808b-0d17a0e640f8",
+      "createdAt": "2026-09-14T23:51:16.614Z"
+    },
+    {
+      "type": "pattern",
       "english": "I'm off coffee.",
       "korean": "나 커피 끊었어.",
       "pronunciation": "",
