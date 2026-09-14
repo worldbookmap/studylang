@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Stay out of my business.",
+      "korean": "내 일에서 빠져.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-14T23:54:26.339Z",
+      "id": "d7022d91-4ef7-4456-92f1-58a1e1bdef4a",
+      "createdAt": "2026-09-14T23:54:27.135Z"
+    },
+    {
+      "type": "pattern",
       "english": "You'll regret this.",
       "korean": "넌 후회하게 될거야.",
       "pronunciation": "",
