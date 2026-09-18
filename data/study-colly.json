@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "just around the corner",
+      "korean": "곧 다가온다",
+      "pronunciation": "",
+      "example": "Graduation is just around the corner.",
+      "tags": [],
+      "reviewedAt": "2026-09-18T13:07:13.418Z",
+      "id": "17109752-38b1-4c69-a87c-b01ab5d9a32c",
+      "createdAt": "2026-09-18T13:07:14.343Z"
+    },
+    {
+      "type": "pattern",
       "english": "something about that doesn't feel\nright to me.",
       "korean": "뭔가 그게 좀 이상하다고 느껴져.",
       "pronunciation": "",
