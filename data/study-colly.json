@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "advocacy",
+      "korean": "변호\npublic support for or recommendation of a particular cause or policy",
+      "pronunciation": "l'advakase |",
+      "example": "their advocacy of traditional family values.",
+      "tags": [],
+      "reviewedAt": "2026-09-20T07:08:01.601Z",
+      "id": "c3f60cd3-a6e1-4ab0-901e-5c01b04a9d96",
+      "createdAt": "2026-09-20T07:08:02.309Z"
+    },
+    {
       "type": "pattern",
       "english": "just around the corner",
       "korean": "곧 다가온다",
