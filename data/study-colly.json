@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "condemn",
+      "korean": "비난하다.\nexpress complete disapproval of, typically in public; censure: fair-minded people declined to condemn her on mere suspicion.",
+      "pronunciation": "kan'dem",
+      "example": "1.[condemn+<목>/condemn+<목〉+(전치사) +[명사)/condemn+<목>+as〈보>] 사람•행위 를> (...하다고) 비난[책망]하다 (or ...) (*blame은 「어떤 사건의 책임을 물으며 사람•행위를 비난하다」 의 뜻)\n• condemn a person's error\n남의 과실을 책망하다\n• condemn a person for his error\n그의 과실에 대해 남을 책망하다\n• condemn violence as evil\n폭력은 나쁘다고 비난하다\n2.<표정•말 등이> ...을 비난할 근거가 되다",
+      "tags": [],
+      "reviewedAt": "2026-09-20T07:12:09.802Z",
+      "id": "70bcef88-4684-45fb-82cf-20704c037bf9",
+      "createdAt": "2026-09-20T07:12:10.466Z"
+    },
+    {
+      "type": "word",
       "english": "advocacy",
       "korean": "변호\npublic support for or recommendation of a particular cause or policy",
       "pronunciation": "l'advakase |",
