@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "confiscate",
+      "korean": "1. <재산 등을> ( 벌로서) ...으로부터) 몰수[압수]하다, 징발하다(from ...).\n2... (직권으로) 압류하다, ...을 ( 잠정적으로) 거두어들이다, 압수하다.",
+      "pronunciation": "kánfaskèit",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-20T07:14:35.283Z",
+      "id": "017c20af-e320-4626-9787-7da02f3a7408",
+      "createdAt": "2026-09-20T07:14:35.888Z"
+    },
+    {
+      "type": "word",
       "english": "condemn",
       "korean": "비난하다.\nexpress complete disapproval of, typically in public; censure: fair-minded people declined to condemn her on mere suspicion.",
       "pronunciation": "kan'dem",
