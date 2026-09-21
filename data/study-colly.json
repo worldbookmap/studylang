@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "traitor",
+      "korean": "배신자\na person who is not loyal or stops being loyal to their own country, social class, beliefs, etc.:",
+      "pronunciation": "",
+      "example": "We have traitors in the house.(조직내에 배신자가 있습니다.)",
+      "tags": [],
+      "reviewedAt": "2026-09-21T05:10:47.924Z",
+      "id": "c5ea6753-bda6-4531-bab2-f2da21801bf3",
+      "createdAt": "2026-09-21T05:10:48.594Z"
+    },
+    {
       "type": "pattern",
       "english": "I don't want this unless you want it too.",
       "korean": "당신이 원하지 않으면 나도 원하지 않아.",
