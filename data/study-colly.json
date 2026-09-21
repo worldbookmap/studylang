@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "ended up",
+      "korean": "결국 (뜻하지 않게) ~하게 되다",
+      "pronunciation": "",
+      "example": "I was planning taking a rest last weekend, but I ended up meeting my friend.\nI ended up working all night. (나는 결국 밤새워 일하게 되었다.)\nHow did I end up here? (내가 어떻게 여기 오게 된 거지?)\nWe ended up in Paris. (우리는 결국 파리에 있게 되었다.)",
+      "tags": [],
+      "reviewedAt": "2026-09-21T02:26:18.940Z",
+      "id": "99d134a5-189d-4655-9532-e2e83490ced5",
+      "createdAt": "2026-09-21T02:26:19.462Z"
+    },
+    {
+      "type": "word",
       "english": "confiscate",
       "korean": "1. <재산 등을> ( 벌로서) ...으로부터) 몰수[압수]하다, 징발하다(from ...).\n2... (직권으로) 압류하다, ...을 ( 잠정적으로) 거두어들이다, 압수하다.",
       "pronunciation": "kánfaskèit",
