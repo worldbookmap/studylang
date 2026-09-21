@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "It should have been you.",
+      "korean": "그것은 당신이었어야만 해.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-21T04:41:34.645Z",
+      "id": "f3a6c033-a6d9-4a97-8725-16b8e6379879",
+      "createdAt": "2026-09-21T04:41:36.166Z"
+    },
+    {
       "type": "word",
       "english": "ended up",
       "korean": "결국 (뜻하지 않게) ~하게 되다",
