@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I was wondering if I could talk to you for a minute.",
+      "korean": "너랑 잠깐 얘기 좀 할 수 있을까 해서.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-21T06:46:11.511Z",
+      "id": "e47c00d2-f364-479a-b4b4-4195ccaf27b9",
+      "createdAt": "2026-09-21T06:46:13.652Z"
+    },
+    {
+      "type": "pattern",
       "english": "I'm going to get you help.",
       "korean": "내가 도와줄게",
       "pronunciation": "",
