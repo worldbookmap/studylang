@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "regime",
+      "korean": "a particular government or a system or method of government:",
+      "pronunciation": "/reɪˈʒiːm/",
+      "example": "The objective of this war is not to bring about regime change.",
+      "tags": [],
+      "reviewedAt": "2026-09-21T07:11:16.226Z",
+      "id": "c70e9904-b426-4819-804b-52b31ed38034",
+      "createdAt": "2026-09-21T07:11:19.118Z"
+    },
+    {
+      "type": "word",
       "english": "brutal",
       "korean": "cruel, violent, and completely without feelings:",
       "pronunciation": "/ˈbruː.t̬əl/",
