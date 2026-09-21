@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "envoy",
+      "korean": "a messenger or representative, especially one on a diplomatic mission",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-21T12:15:21.564Z",
+      "id": "dcd340e0-1f17-4c98-a175-c0a2147b0dec",
+      "createdAt": "2026-09-21T12:15:22.698Z"
+    },
+    {
       "type": "contraction",
       "english": "If it is",
       "korean": "만약 그것이",
