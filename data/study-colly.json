@@ -3,6 +3,19 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I don't want this unless you want it too.",
+      "korean": "당신잉 ㅝㄴ하지 않으면 나도 원하지 않아.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "외교관"
+      ],
+      "reviewedAt": "2026-09-21T04:45:03.927Z",
+      "id": "82862ecb-5f99-4787-825f-1d325de2c2dc",
+      "createdAt": "2026-09-21T04:45:04.586Z"
+    },
+    {
+      "type": "pattern",
       "english": "You got the wrong.",
       "korean": "당신은 잘못했어요.",
       "pronunciation": "",
