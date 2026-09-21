@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "anxiety",
+      "korean": "fear or nervousness about what might happen",
+      "pronunciation": "/ˌæŋ(ɡ)ˈzaɪ.ə.ti/",
+      "example": "1. 의미: An unpleasant state of mental uneasiness, nervousness, apprehension and obsession or concern about some uncertain event.\n\n2. 의미: An uneasy or distressing desire (for something).",
+      "tags": [],
+      "reviewedAt": "2026-09-21T12:58:45.886Z",
+      "id": "428fac90-1013-4011-8c84-fd2e0ac18721",
+      "createdAt": "2026-09-21T12:58:46.615Z"
+    },
+    {
+      "type": "word",
       "english": "spill it out",
       "korean": "솔직하게 털어놔봐",
       "pronunciation": "",
