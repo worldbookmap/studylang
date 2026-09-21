@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "deploy",
+      "korean": "to use something or someone, especially in an effective way:",
+      "pronunciation": "/dɪˈplɔɪ/",
+      "example": "If Severus is deployed as intended, thousands of innocent people wil die.\nWhat is important is how a school deploys its teaching staff.\nMy job doesn't really allow me fully to deploy my skills.\nThe firefighters were deployed to the scene of the wildfire.(소방관들이 산불 현장에 투입되었습니다.)\nNew security measures will be deployed at the airport nex month.(새로운 보안 조치가 다음달에 공항에 도입될 예정입니다.)",
+      "tags": [],
+      "reviewedAt": "2026-09-21T07:16:00.636Z",
+      "id": "11b694e5-491f-464a-8e17-c26d65321243",
+      "createdAt": "2026-09-21T07:16:03.398Z"
+    },
+    {
+      "type": "word",
       "english": "regime",
       "korean": "a particular government or a system or method of government:",
       "pronunciation": "/reɪˈʒiːm/",
