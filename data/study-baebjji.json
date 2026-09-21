@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I was wondering if you wanted to get a glass of wine or something.",
+      "korean": "혹시 와인이나 한잔 하고 싶지 않을까 해서.",
+      "pronunciation": "",
+      "example": "혹시 와인 한잔 하고싶은지 해서.",
+      "tags": [],
+      "reviewedAt": "2026-09-21T06:56:44.202Z",
+      "id": "495e74e6-c1bd-43b8-901b-b77462d9aeb3",
+      "createdAt": "2026-09-21T06:56:46.412Z"
+    },
+    {
+      "type": "pattern",
       "english": "I was wondering if I could ask you a couple of questions.",
       "korean": "제가 몇가지 질문 좀 드려도 될까 해서요.",
       "pronunciation": "",
