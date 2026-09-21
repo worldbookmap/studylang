@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "rebellion",
+      "korean": "violent action organized by a group of people who are trying to change the political system in their country:",
+      "pronunciation": "/rɪˈbel.i.ən/",
+      "example": "The government has brutally crushed the rebellion.",
+      "tags": [],
+      "reviewedAt": "2026-09-21T07:08:59.700Z",
+      "id": "db536c5b-5133-4e77-8238-7dd70d331292",
+      "createdAt": "2026-09-21T07:09:02.666Z"
+    },
+    {
+      "type": "word",
       "english": "traitor",
       "korean": "배신자\na person who is not loyal or stops being loyal to their own country, social class, beliefs, etc.:",
       "pronunciation": "",
