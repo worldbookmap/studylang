@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "contraction",
+      "english": "If it is",
+      "korean": "만약 그것이",
+      "pronunciation": "퓨릿스",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-21T07:30:23.803Z",
+      "id": "f485184b-316e-47e3-ad91-dd5690caacd3",
+      "createdAt": "2026-09-21T07:30:27.056Z"
+    },
+    {
       "type": "word",
       "english": "as intended",
       "korean": "계획하거나 의도한대로",
