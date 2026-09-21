@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "brutal",
+      "korean": "cruel, violent, and completely without feelings:",
+      "pronunciation": "/ˈbruː.t̬əl/",
+      "example": "He had presided over a brutal regime in which thousands of people had \"disappeared\".",
+      "tags": [],
+      "reviewedAt": "2026-09-21T07:10:17.831Z",
+      "id": "6f628531-7ffd-4a53-85c5-3778b79829f5",
+      "createdAt": "2026-09-21T07:10:20.555Z"
+    },
+    {
+      "type": "word",
       "english": "rebellion",
       "korean": "violent action organized by a group of people who are trying to change the political system in their country:",
       "pronunciation": "/rɪˈbel.i.ən/",
