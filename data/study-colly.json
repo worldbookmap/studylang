@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "as intended",
+      "korean": "계획하거나 의도한대로",
+      "pronunciation": "",
+      "example": "The medicine worked as intended and cured his headache.\nIf everything goes as intended, we will finish the project by Friday.",
+      "tags": [],
+      "reviewedAt": "2026-09-21T07:18:10.607Z",
+      "id": "b7530766-5b56-48c8-b7c8-939cba1da6a5",
+      "createdAt": "2026-09-21T07:18:13.059Z"
+    },
+    {
+      "type": "word",
       "english": "deploy",
       "korean": "to use something or someone, especially in an effective way:",
       "pronunciation": "/dɪˈplɔɪ/",
