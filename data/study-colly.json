@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "initiative",
+      "korean": "이니셔티브",
+      "pronunciation": "/ɪˈnɪʃətɪv/",
+      "example": "1. 의미: A beginning; a first move.\n\n2. 의미: A new development; a fresh approach to something; a new way of dealing with a problem.\n\n1.\t(특정한 문제 해결·목적 달성을 위한 새로운) 계획\na United Nations peace initiative 유엔의 평화 계획\n2.\t진취성; 결단력, 자주성\nYou won’t get much help. You’ll have to use your initiative. \n당신이 많은 도움을 받지는 못할 거예요. 스스로 진취성을 발휘해야 할 겁니다.\n\n3.\t주도권, 주도\nIt was up to the US to take the initiative in repairing relations. \n관계 개선의 주도권은 미국이 쥐고 있었다.",
+      "tags": [],
+      "reviewedAt": "2026-09-22T07:07:39.170Z",
+      "id": "acef05aa-60dc-47e2-a484-2fd519903459",
+      "createdAt": "2026-09-22T07:07:39.811Z"
+    },
+    {
+      "type": "word",
       "english": "attribute to",
       "korean": "~의 덕분으로 돌리다",
       "pronunciation": "",
