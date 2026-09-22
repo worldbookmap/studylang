@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "dialogue",
+      "english": "Nowadays, AI can find vulnerabilities better than humans, so we're finding a lot more vulnerabilities with AI models. But there's a big difference between finding a bug and actually weaponizing it. Only a very small number of AI-found bugs are actually weaponized, maybe around 1–2 percent. Also, patching vulnerabilities properly is still difficult for AI. AI can successfully patch and fix about 50% of vulnerabilities.",
+      "korean": "https://www.theregister.com/security/2026/09/21/anthropic-linked-cves-pile-up-attackers-mostly-shrug/5298018\n읽고 짧게 말해봄",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "신문기사요약"
+      ],
+      "reviewedAt": "2026-09-22T07:45:35.971Z",
+      "id": "6b72d676-6c1d-480b-9f71-29123f9c8f7b",
+      "createdAt": "2026-09-22T07:45:37.308Z"
+    },
+    {
       "type": "word",
       "english": "surpass",
       "korean": "능가하다",
