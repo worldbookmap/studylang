@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "prowess",
+      "korean": "(절묘한) 기량[솜씨]",
+      "pronunciation": "ˈpraʊəs",
+      "example": "technological prowess",
+      "tags": [],
+      "reviewedAt": "2026-09-22T03:37:25.157Z",
+      "id": "09f8fb82-dc69-4745-bb03-17b08ce349e8",
+      "createdAt": "2026-09-22T03:37:25.837Z"
+    },
+    {
+      "type": "word",
       "english": "afford",
       "korean": "여유가 있다\nTo incur, stand, or bear without serious detriment, as an act which might under other circumstances be injurious;—with an auxiliary, as can, could, might, etc.; to be able or rich enough.",
       "pronunciation": "/əˈfɔːd/",
