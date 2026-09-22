@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Are you feeling OK?",
+      "korean": "너 몸 좀 괜찮아?",
+      "pronunciation": "",
+      "example": "Are you sick? 은 병에 걸렸냐고 물어보는 것이니 사용하지 말 것\n\n사용 가능 표현:\nYou don't look well.\nIs everything alright?",
+      "tags": [],
+      "reviewedAt": "2026-09-22T06:44:28.268Z",
+      "id": "6e9f688c-b214-41fd-9b7d-d439f4bf8adb",
+      "createdAt": "2026-09-22T06:44:29.089Z"
+    },
+    {
+      "type": "pattern",
       "english": "It's on me.",
       "korean": "내가 살게.",
       "pronunciation": "",
