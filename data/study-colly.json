@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "sick",
+      "korean": "아픈",
+      "pronunciation": "/sɪk/",
+      "example": "I'm sick as a dog (몸이 매우 안좋아) /암씩애저 덕/\nI called in sick (나는 평가를 냈어) /아콜딘 씨크/\nI have been sick with flue for a week (나는 한주 동안 독감으로 아팠어)\nI'm sick of it. (나는 짜증나)\nI'm sick of waiting.\n\nThat is so sick. (정말 멋지다.)",
+      "tags": [],
+      "reviewedAt": "2026-09-22T06:49:44.635Z",
+      "id": "76d4b327-28ff-4736-867a-3410ca585594",
+      "createdAt": "2026-09-22T06:49:45.391Z"
+    },
+    {
       "type": "pattern",
       "english": "Are you feeling OK?",
       "korean": "너 몸 좀 괜찮아?",
