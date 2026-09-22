@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "attribute to",
+      "korean": "~의 덕분으로 돌리다",
+      "pronunciation": "",
+      "example": "I don’t get palate fatigue, which I attribute to drinking up to five liters of water a day.",
+      "tags": [],
+      "reviewedAt": "2026-09-22T07:04:49.291Z",
+      "id": "92cf6bd3-6e12-4126-be10-2a36d3b1c8c8",
+      "createdAt": "2026-09-22T07:04:50.001Z"
+    },
+    {
+      "type": "word",
       "english": "sick",
       "korean": "아픈",
       "pronunciation": "/sɪk/",
