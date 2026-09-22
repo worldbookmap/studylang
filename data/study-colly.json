@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "Help yourself",
+      "korean": "식사 맛있게 드세요.",
+      "pronunciation": "",
+      "example": "Make yourself 도 마찬가지.\nEat up. (많이 먹어)\nEnjoy your meal은 웨이터가 손님에게 하는 소리이므로 사용하지 말자.",
+      "tags": [],
+      "reviewedAt": "2026-09-22T06:39:59.254Z",
+      "id": "2a001f94-a3e2-4263-b97e-922da081a021",
+      "createdAt": "2026-09-22T06:39:59.947Z"
+    },
+    {
       "type": "word",
       "english": "prowess",
       "korean": "(절묘한) 기량[솜씨]\nskill or expertise in a particular activity or field",
