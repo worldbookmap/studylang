@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "scoot over",
+      "korean": "옆으로 좀 가봐",
+      "pronunciation": "",
+      "example": "move over는 옆으로 그냥 움직이는 느낌\nscoop over는 앉아있거나 누워있는 상태에서 몸을 살짝 밀어 옆으로 가는 느낌",
+      "tags": [],
+      "reviewedAt": "2026-09-23T01:14:51.608Z",
+      "id": "c97fff21-6f04-499f-a32e-5de99324d4a5",
+      "createdAt": "2026-09-23T01:14:52.327Z"
+    },
+    {
+      "type": "pattern",
       "english": "What's cooking?",
       "korean": "잘 지내?",
       "pronunciation": "",
