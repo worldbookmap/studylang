@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "retract",
+      "korean": "철회하다, \nwithdraw (a statement or accusation) as untrue or unjustified\n뒤로 끌다\ndraw back",
+      "pronunciation": "",
+      "example": "he retracted his allegations\nshe retracted her hand as if she'd been burnt.",
+      "tags": [],
+      "reviewedAt": "2026-09-23T01:59:58.105Z",
+      "id": "2bc0b400-b324-4ed7-b9a6-8e840c1088bd",
+      "createdAt": "2026-09-23T01:59:58.786Z"
+    },
+    {
       "type": "pattern",
       "english": "scoot over",
       "korean": "옆으로 좀 가봐",
