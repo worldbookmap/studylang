@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "bribery",
+      "korean": "the act or crime of giving or accepting a bribe (뇌물 수수)",
+      "pronunciation": "/ˈbraɪbəri/",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-23T02:16:07.036Z",
+      "id": "eee6de81-b43a-4499-b8d9-89ea85505879",
+      "createdAt": "2026-09-23T02:16:07.663Z"
+    },
+    {
+      "type": "word",
       "english": "extortion",
       "korean": "the practice of obtaining something, especially money, through force or threats (강요, 강탈)",
       "pronunciation": "ɪkˈstɔːʃn",
