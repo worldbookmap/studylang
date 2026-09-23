@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "allegation",
+      "korean": "a statement saying that someone has done something wrong or illegal",
+      "pronunciation": "/ˌælɪˈgeɪʃən/",
+      "example": "The police are investigating allegations that the mayor has accepted bribes.",
+      "tags": [],
+      "reviewedAt": "2026-09-23T02:06:19.241Z",
+      "id": "a45b0240-5400-4f0f-8f8f-2f2294d6e9ae",
+      "createdAt": "2026-09-23T02:06:19.999Z"
+    },
+    {
+      "type": "word",
       "english": "substantial",
       "korean": "1. of considerable importance, size, or worth (상당한)\n2. concerning the essentials of something (중요한)\n3.\treal and tangible rather than imaginary (현실의)",
       "pronunciation": "",
