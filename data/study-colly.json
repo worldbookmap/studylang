@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "substantial",
+      "korean": "1. of considerable importance, size, or worth (상당한)\n2. concerning the essentials of something (중요한)\n3.\treal and tangible rather than imaginary (현실의)",
+      "pronunciation": "",
+      "example": "We want the FBI to correct or retract their statements they made, which included substantial false allegations",
+      "tags": [],
+      "reviewedAt": "2026-09-23T02:05:06.478Z",
+      "id": "85de152f-90b2-4567-a1ac-6390101b3681",
+      "createdAt": "2026-09-23T02:05:07.286Z"
+    },
+    {
+      "type": "word",
       "english": "retract",
       "korean": "철회하다, \nwithdraw (a statement or accusation) as untrue or unjustified\n뒤로 끌다\ndraw back",
       "pronunciation": "",
