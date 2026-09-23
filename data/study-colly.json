@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "dialogue",
+      "english": "ShinyHunters hacked the FBI's recruiting website, and then they moved laterally to other FBI servers. They downloaded a lot of data, including information about former, current, and prospective employees. They claimed they did it to make the FBI change its previous claims about ShinyHunters' past hacking activities.",
+      "korean": "https://www.theregister.com/security/2026/09/22/shinyhunters-claims-fbi-hack-this-is-not-financially-motivated/5298385\n읽고 바로 요약",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-23T02:30:00.510Z",
+      "id": "8fc74073-765a-42b4-aed9-c7ef8119ab38",
+      "createdAt": "2026-09-23T02:30:01.932Z"
+    },
+    {
       "type": "word",
       "english": "embarrassing",
       "korean": "causing embarrassment(난처하게 하는)",
