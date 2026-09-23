@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I wanted to let you catch up",
+      "korean": "밀린 이야기를 나누고 싶었어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-23T03:25:01.492Z",
+      "id": "4ea3737a-18bc-4b1c-b620-063cf2656973",
+      "createdAt": "2026-09-23T03:25:02.839Z"
+    },
+    {
+      "type": "pattern",
       "english": "Please do me one favor.",
       "korean": "부탁 하나만 들어줘요",
       "pronunciation": "",
