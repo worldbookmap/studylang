@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "humiliation",
+      "korean": "굴욕",
+      "pronunciation": "/hjuːˌmɪliˈeɪʃn/",
+      "example": "She suffered the humiliation of being criticized in public.",
+      "tags": [],
+      "reviewedAt": "2026-09-23T03:31:03.282Z",
+      "id": "8dda816b-9d00-43e5-9518-d70878ceaea6",
+      "createdAt": "2026-09-23T03:31:03.921Z"
+    },
+    {
       "type": "pattern",
       "english": "I wanted to let you catch up",
       "korean": "밀린 이야기를 나누고 싶었어요.",
