@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "Please do me one favor.",
+      "korean": "부탁 하나만 들어줘요",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-23T03:07:01.599Z",
+      "id": "c2f3c0f3-b314-45d1-952e-4aca369f296a",
+      "createdAt": "2026-09-23T03:07:03.066Z"
+    },
+    {
       "type": "dialogue",
       "english": "ShinyHunters hacked the FBI's recruiting website, and then they moved laterally to other FBI servers. They downloaded a lot of data, including information about former, current, and prospective employees. They claimed they did it to make the FBI change its previous claims about ShinyHunters' past hacking activities.",
       "korean": "https://www.theregister.com/security/2026/09/22/shinyhunters-claims-fbi-hack-this-is-not-financially-motivated/5298385\n읽고 바로 요약",
