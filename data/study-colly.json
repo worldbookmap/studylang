@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "She's giving me the boot, isn't she?",
+      "korean": "그녀가 날 쫓아 내려는거지? 그렇지?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-23T04:46:34.087Z",
+      "id": "63457911-949b-472a-abb6-1b7fa2ee13b1",
+      "createdAt": "2026-09-23T04:46:35.833Z"
+    },
+    {
       "type": "word",
       "english": "humiliation",
       "korean": "굴욕",
