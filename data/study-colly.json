@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "allege",
+      "korean": "to state without definite proof that someone has done something wrong or illegal (증거없이 혐의를 제기하다)",
+      "pronunciation": "/ əˈlɛʤ /",
+      "example": "He alleged that the mayor has accepted bribes.",
+      "tags": [],
+      "reviewedAt": "2026-09-23T02:18:56.450Z",
+      "id": "743ece0c-47ec-443c-97fc-1fdda9a0f1be",
+      "createdAt": "2026-09-23T02:18:57.170Z"
+    },
+    {
+      "type": "word",
       "english": "bribery",
       "korean": "the act or crime of giving or accepting a bribe (뇌물 수수)",
       "pronunciation": "/ˈbraɪbəri/",
