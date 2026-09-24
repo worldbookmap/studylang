@@ -2,6 +2,19 @@
   "version": 1,
   "entries": [
     {
+      "type": "dialogue",
+      "english": "Let’s see. Recently, President Trump and President Xi Jinping met in the U.S. This was the first visit by a Chinese president to the U.S. in about a decade. They talked about AI guidelines and security, Iran, tariffs, and Taiwan. But the meeting produced only a few small deliverables.",
+      "korean": "https://abcnews-com.cdn.ampproject.org/c/s/abcnews.com/amp/Politics/trump-xi-meeting-amid-tensions-iran-taiwan-trade/story?id=136650648",
+      "pronunciation": "",
+      "example": "",
+      "tags": [
+        "1일1요약"
+      ],
+      "reviewedAt": "2026-09-24T04:12:29.544Z",
+      "id": "733245ca-d12f-430c-be74-c8bbccdee4d7",
+      "createdAt": "2026-09-24T04:12:30.298Z"
+    },
+    {
       "type": "pattern",
       "english": "She's giving me the boot, isn't she?",
       "korean": "그녀가 날 쫓아 내려는거지? 그렇지?",
