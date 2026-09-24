@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "artifact",
+      "korean": "인공물",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-24T04:29:12.198Z",
+      "id": "6b6b915a-9fb6-4f3c-b36f-cd38c41e4c69",
+      "createdAt": "2026-09-24T04:29:12.694Z"
+    },
+    {
       "type": "dialogue",
       "english": "Let’s see. Recently, President Trump and President Xi Jinping met in the U.S. This was the first visit by a Chinese president to the U.S. in about a decade. They talked about AI guidelines and security, Iran, tariffs, and Taiwan. But the meeting produced only a few small deliverables.",
       "korean": "https://abcnews-com.cdn.ampproject.org/c/s/abcnews.com/amp/Politics/trump-xi-meeting-amid-tensions-iran-taiwan-trade/story?id=136650648",
