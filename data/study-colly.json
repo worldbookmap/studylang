@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "courageous",
+      "korean": "very brave; having or showing courage",
+      "pronunciation": "/kəˈreɪʤəs/",
+      "example": "a courageous soldier",
+      "tags": [],
+      "reviewedAt": "2026-09-24T23:15:22.950Z",
+      "id": "9cd84f60-77b3-4383-802b-e4454342399c",
+      "createdAt": "2026-09-24T23:15:24.039Z"
+    },
+    {
+      "type": "word",
       "english": "contradiction",
       "korean": "a combination of statements, ideas, or features which are opposed to one another",
       "pronunciation": "ˌkɒntrəˈdɪkʃn",
