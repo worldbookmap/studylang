@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "contradiction",
+      "korean": "a combination of statements, ideas, or features which are opposed to one another",
+      "pronunciation": "ˌkɒntrəˈdɪkʃn",
+      "example": "the proposed new system suffers from a set of internal contradictions",
+      "tags": [],
+      "reviewedAt": "2026-09-24T23:13:30.795Z",
+      "id": "591455c6-553b-4195-80b3-ae0a7860feb9",
+      "createdAt": "2026-09-24T23:13:31.536Z"
+    },
+    {
+      "type": "word",
       "english": "artifact",
       "korean": "인공물",
       "pronunciation": "",
