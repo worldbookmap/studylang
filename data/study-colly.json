@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "courteous",
+      "korean": "very polite in a way that shows respect opposite\n예의 바른",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-26T16:03:46.686Z",
+      "id": "51d50f72-49b9-4015-8cff-7f8368c5ac67",
+      "createdAt": "2026-09-26T16:03:47.209Z"
+    },
+    {
+      "type": "word",
       "english": "courageous",
       "korean": "very brave; having or showing courage",
       "pronunciation": "/kəˈreɪʤəs/",
