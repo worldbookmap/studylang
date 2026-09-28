@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "prejudice",
+      "korean": "편견",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-28T13:36:21.646Z",
+      "id": "579895c1-3949-49a3-84ba-211f483bf0d0",
+      "createdAt": "2026-09-28T13:36:22.163Z"
+    },
+    {
+      "type": "word",
       "english": "consensus",
       "korean": "a general agreement about something; an idea or opinion that is shared by all the people in a group",
       "pronunciation": "",
