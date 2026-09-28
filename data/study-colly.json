@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "liberal",
+      "korean": "아끼지 않는, 많은,\n편견이 없는(반대: prejudice, biased)\n자유주의자",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-28T14:23:39.634Z",
+      "id": "fb4456af-503c-4160-b74f-bbb7f3418579",
+      "createdAt": "2026-09-28T14:23:40.307Z"
+    },
+    {
+      "type": "word",
       "english": "conservative",
       "korean": "보수적인\n보수주의자",
       "pronunciation": "",
