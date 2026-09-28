@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "run into",
+      "korean": "(예상치 못한 장소에서) 우연히 만나다",
+      "pronunciation": "",
+      "example": "I ran into an old friend at the supermarket",
+      "tags": [],
+      "reviewedAt": "2026-09-28T00:44:03.004Z",
+      "id": "7cee80c0-b1d8-42dc-98ac-7f8ec27a14bf",
+      "createdAt": "2026-09-28T00:42:57.912Z"
+    },
+    {
+      "type": "word",
       "english": "courteous",
       "korean": "very polite in a way that shows respect opposite\n예의 바른",
       "pronunciation": "",
