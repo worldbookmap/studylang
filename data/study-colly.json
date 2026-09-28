@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "consensus",
+      "korean": "a general agreement about something; an idea or opinion that is shared by all the people in a group",
+      "pronunciation": "",
+      "example": "The (general) consensus (of the group) was to go ahead with the plan. \n\nScientists have not reached a consensus on the cause of the disease. [=scientists do not yet agree about the cause of the disease]",
+      "tags": [],
+      "reviewedAt": "2026-09-28T07:21:53.259Z",
+      "id": "9c04de5d-5898-4fa0-93cd-ff1e0c2ee5fa",
+      "createdAt": "2026-09-28T07:21:54.094Z"
+    },
+    {
+      "type": "word",
       "english": "run into",
       "korean": "(예상치 못한 장소에서) 우연히 만나다",
       "pronunciation": "",
