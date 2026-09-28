@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "conservative",
+      "korean": "보수적인\n보수주의자",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-28T14:21:42.046Z",
+      "id": "5fd7087a-068b-4bfe-b70e-c55a52b0abd3",
+      "createdAt": "2026-09-28T14:21:42.881Z"
+    },
+    {
+      "type": "word",
       "english": "incompetence",
       "korean": "lack of the ability to do something well; the quality or state of not being competent opposite COMPETENCE\n무능",
       "pronunciation": "",
