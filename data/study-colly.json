@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "close to",
+      "korean": "almost or nearly",
+      "pronunciation": "",
+      "example": "They spent close to half a million dollars on the project. \nOur company employs close to a thousand workers.",
+      "tags": [],
+      "reviewedAt": "2026-09-28T14:28:47.193Z",
+      "id": "d30816fe-9e7f-4e25-872d-ebdfac465134",
+      "createdAt": "2026-09-28T14:28:47.697Z"
+    },
+    {
+      "type": "word",
       "english": "liberal",
       "korean": "아끼지 않는, 많은,\n편견이 없는(반대: prejudice, biased)\n자유주의자",
       "pronunciation": "",
