@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "incompetence",
+      "korean": "lack of the ability to do something well; the quality or state of not being competent opposite COMPETENCE\n무능",
+      "pronunciation": "",
+      "example": "Because of his incompetence, we won't make our deadline.",
+      "tags": [],
+      "reviewedAt": "2026-09-28T13:37:03.783Z",
+      "id": "5e01feae-ac9c-47ca-9d9f-0454dcb7f790",
+      "createdAt": "2026-09-28T13:37:04.468Z"
+    },
+    {
+      "type": "word",
       "english": "prejudice",
       "korean": "편견",
       "pronunciation": "",
