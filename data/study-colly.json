@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "shovel",
+      "korean": "진입로",
+      "pronunciation": "",
+      "example": "My mom has to shovel the driveway.",
+      "tags": [],
+      "reviewedAt": "2026-09-29T08:26:52.867Z",
+      "id": "177ffb27-b7c8-4e02-b0a9-7d1c80ef0e40",
+      "createdAt": "2026-09-29T08:26:53.586Z"
+    },
+    {
+      "type": "word",
       "english": "close to",
       "korean": "almost or nearly",
       "pronunciation": "",
