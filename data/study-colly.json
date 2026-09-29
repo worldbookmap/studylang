@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "mittens",
+      "korean": "벙어리 장갑",
+      "pronunciation": "",
+      "example": "I put on my hat and mittens.",
+      "tags": [],
+      "reviewedAt": "2026-09-29T08:34:49.597Z",
+      "id": "58d31046-1df9-48d6-8c8f-059b7b6357ce",
+      "createdAt": "2026-09-29T08:34:50.119Z"
+    },
+    {
+      "type": "word",
       "english": "shovel",
       "korean": "진입로",
       "pronunciation": "",
