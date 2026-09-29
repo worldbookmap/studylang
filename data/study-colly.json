@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "grant",
+      "korean": "장학금",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-29T08:44:39.524Z",
+      "id": "63d6e98d-93f2-4ab6-a9c5-9a82ecdae66c",
+      "createdAt": "2026-09-29T08:44:40.042Z"
+    },
+    {
+      "type": "word",
       "english": "mittens",
       "korean": "벙어리 장갑",
       "pronunciation": "",
