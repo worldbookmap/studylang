@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "You'd better not drive then!",
+      "korean": "그럼 운전하지 않는 것이 좋겠어요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-09-30T09:25:49.916Z",
+      "id": "86b70a0d-dff2-49ef-a2e0-42f8664947ca",
+      "createdAt": "2026-09-30T09:25:51.256Z"
+    },
+    {
+      "type": "pattern",
       "english": "As a matter of fact",
       "korean": "사실은\n(앞서 언급한 사실에 대해 더 자세히 설명하거나 반대되는 주장을 강조할 때 활용)",
       "pronunciation": "",
