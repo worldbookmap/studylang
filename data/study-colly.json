@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "As a matter of fact",
+      "korean": "사실은\n(앞서 언급한 사실에 대해 더 자세히 설명하거나 반대되는 주장을 강조할 때 활용)",
+      "pronunciation": "",
+      "example": "As a matter of fact, I'm going that way myself. (사실 저도 그쪽으로 가는 중이에요.)\nAs a matter of fact, math is the hardest subject.(사실은 수학이 가장 어려운 과목이죠.)\nAs a matter of fact, I think we all need to learn English.(사실은 우리 모두가 영어를 배워야 한다고 생각합니다.)",
+      "tags": [],
+      "reviewedAt": "2026-09-30T08:54:30.096Z",
+      "id": "68739fcf-fc91-414f-a736-b78d9e1b3087",
+      "createdAt": "2026-09-30T08:54:30.735Z"
+    },
+    {
       "type": "word",
       "english": "grant",
       "korean": "장학금",
