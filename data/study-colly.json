@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "literally",
+      "korean": "비유나 과장이 아닌 실제로 그렇다는 의미의 '실제로'",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T03:39:30.222Z",
+      "id": "22d4ed08-aedf-4eec-8be6-e14fed0bacc4",
+      "createdAt": "2026-10-01T03:39:30.693Z"
+    },
+    {
       "type": "pattern",
       "english": "I guess if you're lazy no one else is allowed to be!",
       "korean": "네가 게으르면 다른 사람은 게으르면 안 되는 거네?",
