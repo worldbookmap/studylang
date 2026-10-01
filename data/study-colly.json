@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I'll get you one.",
+      "korean": "하나 가져다 줄게.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T03:33:57.295Z",
+      "id": "c8b1b62a-98b0-454a-b48d-7168efb7369b",
+      "createdAt": "2026-10-01T03:33:58.711Z"
+    },
+    {
+      "type": "pattern",
       "english": "Have a great day, and get to work safely. See you later!",
       "korean": "오늘도 좋은 하루 보내고, 조심히 출근해요. 이따 봐요.",
       "pronunciation": "",
