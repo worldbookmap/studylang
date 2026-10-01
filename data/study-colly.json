@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "at their own accord",
+      "korean": "누군가의 지시나 강요없이 스스로 행동한다는 의미",
+      "pronunciation": "",
+      "example": "The children went home of their own accord when it started getting dark.\nShe apologized of her own accord, without anyone asking her to.",
+      "tags": [],
+      "reviewedAt": "2026-10-01T08:41:47.944Z",
+      "id": "41983adc-8658-4560-886e-ef6656a4663e",
+      "createdAt": "2026-10-01T08:41:49.291Z"
+    },
+    {
+      "type": "pattern",
       "english": "She seems to be determined enough",
       "korean": "그녀는 결단력이 충분한거 같아요.",
       "pronunciation": "",
