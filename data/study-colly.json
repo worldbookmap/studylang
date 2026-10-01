@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "Not if you don't run into any government delays.",
+      "korean": "정부 지연사항이 없으면 그렇지 않습니다.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T04:33:30.437Z",
+      "id": "20342b60-ac9e-4c9f-8d92-2dd3524723e2",
+      "createdAt": "2026-10-01T04:33:31.367Z"
+    },
+    {
       "type": "word",
       "english": "fill out",
       "korean": "채워 넣다.",
