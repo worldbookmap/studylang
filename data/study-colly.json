@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "of their own volition",
+      "korean": "누군가의 지시나 강요없이 스스로 결정해서 행동한다는 의미",
+      "pronunciation": "",
+      "example": "She shared the information of her own volition, not because her manager pressured her.",
+      "tags": [],
+      "reviewedAt": "2026-10-01T08:50:24.452Z",
+      "id": "d6a0bb52-c420-403a-9483-04de03110ce5",
+      "createdAt": "2026-10-01T08:50:25.215Z"
+    },
+    {
       "type": "word",
       "english": "carry out",
       "korean": "계획이나 행동을 실제로 실행하거나 수행한다는 의미",
