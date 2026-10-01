@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Let him get the ball rolling.",
+      "korean": "어떤 일이나 대화를 시작하다.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T06:00:59.221Z",
+      "id": "1a053229-8ba5-4f96-8c2e-4c90599f9cee",
+      "createdAt": "2026-10-01T06:01:00.682Z"
+    },
+    {
+      "type": "pattern",
       "english": "Not if you don't run into any government delays.",
       "korean": "정부 지연사항이 없으면 그렇지 않습니다.",
       "pronunciation": "",
