@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "This pay phone might be out of order.",
+      "korean": "이 공중전화가 고장났을지도 몰라.",
+      "pronunciation": "",
+      "example": "pay phone: 공중전화\nout of order: 고장난",
+      "tags": [],
+      "reviewedAt": "2026-10-01T03:49:39.948Z",
+      "id": "5fb67172-d7dc-4ff2-8492-55331dde79fb",
+      "createdAt": "2026-10-01T03:49:41.168Z"
+    },
+    {
       "type": "word",
       "english": "literally",
       "korean": "비유나 과장이 아닌 실제로 그렇다는 의미의 '실제로'",
