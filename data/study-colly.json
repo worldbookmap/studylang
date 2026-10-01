@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "She seems to be determined enough",
+      "korean": "그녀는 결단력이 충분한거 같아요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T07:23:29.239Z",
+      "id": "6f1ea6d3-8ced-4fc5-a8f9-92d1a06d2284",
+      "createdAt": "2026-10-01T07:23:30.544Z"
+    },
+    {
+      "type": "pattern",
       "english": "Let him get the ball rolling.",
       "korean": "어떤 일이나 대화를 시작하다.",
       "pronunciation": "",
