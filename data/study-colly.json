@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "You should get in touch with the phone company.",
+      "korean": "넌 전화회사에 연락해봐야해.",
+      "pronunciation": "",
+      "example": "get in touch:  연락하다.",
+      "tags": [],
+      "reviewedAt": "2026-10-01T04:25:52.867Z",
+      "id": "2b1cc1c8-2185-4d74-be0b-2f88237b8429",
+      "createdAt": "2026-10-01T04:25:54.342Z"
+    },
+    {
+      "type": "pattern",
       "english": "This pay phone might be out of order.",
       "korean": "이 공중전화가 고장났을지도 몰라.",
       "pronunciation": "",
