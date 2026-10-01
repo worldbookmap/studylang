@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Have a great day, and get to work safely. See you later!",
+      "korean": "오늘도 좋은 하루 보내고, 조심히 출근해요. 이따 봐요.",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T02:35:14.632Z",
+      "id": "fdd21f9f-0983-4546-a0ea-41d6dadd4383",
+      "createdAt": "2026-10-01T02:35:16.028Z"
+    },
+    {
+      "type": "pattern",
       "english": "Do you want your coffee iced or hot today?",
       "korean": "오늘 커피는 아이스로 할래, 따뜻한 걸로 할래?",
       "pronunciation": "",
