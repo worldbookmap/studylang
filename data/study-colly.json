@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "Do you want your coffee iced or hot today?",
+      "korean": "오늘 커피는 아이스로 할래, 따뜻한 걸로 할래?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T01:39:30.402Z",
+      "id": "9a6f6964-d59d-427b-8675-fc969eee3a15",
+      "createdAt": "2026-10-01T01:39:30.730Z"
+    },
+    {
+      "type": "pattern",
       "english": "You'd better not drive then!",
       "korean": "그럼 운전하지 않는 것이 좋겠어요.",
       "pronunciation": "",
