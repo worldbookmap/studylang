@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "pattern",
+      "english": "I guess if you're lazy no one else is allowed to be!",
+      "korean": "네가 게으르면 다른 사람은 게으르면 안 되는 거네?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-01T03:36:26.037Z",
+      "id": "3d4739cb-464b-4ff9-b0b9-e6b02a1f4500",
+      "createdAt": "2026-10-01T03:36:26.724Z"
+    },
+    {
+      "type": "pattern",
       "english": "I'll get you one.",
       "korean": "하나 가져다 줄게.",
       "pronunciation": "",
