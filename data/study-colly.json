@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "What was your last straw?",
+      "korean": "결국 참다못해 폭발하게 된 결정적인 계기는 무엇이었나요?",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-02T01:30:32.123Z",
+      "id": "ee0096c3-c761-4775-b0eb-0049402715de",
+      "createdAt": "2026-10-02T01:30:32.839Z"
+    },
+    {
       "type": "word",
       "english": "come across",
       "korean": "우연히 만나다.",
