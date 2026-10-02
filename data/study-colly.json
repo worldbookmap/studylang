@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "immature",
+      "korean": "미성숙한, 철없는",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-02T08:10:56.119Z",
+      "id": "fdec21f7-9bd9-4621-bd9f-fd009065faf7",
+      "createdAt": "2026-10-02T08:10:56.705Z"
+    },
+    {
       "type": "pattern",
       "english": "What was your last straw?",
       "korean": "결국 참다못해 폭발하게 된 결정적인 계기는 무엇이었나요?",
