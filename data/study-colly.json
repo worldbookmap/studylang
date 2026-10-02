@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "come across",
+      "korean": "우연히 만나다.",
+      "pronunciation": "",
+      "example": "I recently came across this Reddit thread where u/justtoaskthisq asked",
+      "tags": [],
+      "reviewedAt": "2026-10-02T01:27:33.967Z",
+      "id": "bcc73eb7-9aa3-40c3-9437-e5f6081c92ef",
+      "createdAt": "2026-10-02T01:27:34.237Z"
+    },
+    {
       "type": "pattern",
       "english": "of their own volition",
       "korean": "누군가의 지시나 강요없이 스스로 결정해서 행동한다는 의미",
