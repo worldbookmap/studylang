@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "make it",
+      "korean": "참여하다",
+      "pronunciation": "",
+      "example": "I came here by myself, my family couldn't make it",
+      "tags": [],
+      "reviewedAt": "2026-10-04T00:06:04.493Z",
+      "id": "11a4075d-0a19-4864-90ae-f7bfeadc52db",
+      "createdAt": "2026-10-04T00:06:05.333Z"
+    },
+    {
+      "type": "word",
       "english": "immature",
       "korean": "미성숙한, 철없는",
       "pronunciation": "",
