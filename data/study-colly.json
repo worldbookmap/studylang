@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "Swing and a miss",
+      "korean": "야구에서 타자가 공을 치려고 배트를 휘둘렀으나 맞히지 못한 헛스윙을 뜻하며, 일상에서는 시도했지만 실패한 일을 비유적으로 이르는 영어 관용구",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-06T07:12:31.600Z",
+      "id": "83300ec2-cd08-49ed-b322-2c16265a8e94",
+      "createdAt": "2026-10-06T07:12:32.337Z"
+    },
+    {
       "type": "word",
       "english": "cheat on",
       "korean": "주로 연인이나 배우자에게 바람을 피우다(부정행위를 하다)",
