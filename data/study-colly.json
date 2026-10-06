@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "Walk-in",
+      "korean": "첩보(스파이) 세계에서 '워크인(Walk-in)'은 자발적으로 적국의 대사관이나 정보기관을 찾아와 내부 기밀을 제공하겠다고 제보하는 스파이를 뜻하는 실제 정보학 용어",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-06T07:45:12.570Z",
+      "id": "7867b7d4-be98-429d-8ff0-4d78ac179d77",
+      "createdAt": "2026-10-06T07:45:13.075Z"
+    },
+    {
       "type": "pattern",
       "english": "Swing and a miss",
       "korean": "야구에서 타자가 공을 치려고 배트를 휘둘렀으나 맞히지 못한 헛스윙을 뜻하며, 일상에서는 시도했지만 실패한 일을 비유적으로 이르는 영어 관용구",
