@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "word",
+      "english": "cheat on",
+      "korean": "주로 연인이나 배우자에게 바람을 피우다(부정행위를 하다)",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-06T07:11:53.439Z",
+      "id": "5b9cb59f-42af-4930-a22b-dba6c9c28fb1",
+      "createdAt": "2026-10-06T07:11:53.963Z"
+    },
+    {
       "type": "pattern",
       "english": "sorry I didn't catch that.",
       "korean": "제대로 못들었어요.",
