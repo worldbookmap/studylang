@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "treason",
+      "korean": "반역죄",
+      "pronunciation": "[ˈtriːzn]",
+      "example": "Former German spy chief arrested on treason and espionage allegations.",
+      "tags": [],
+      "reviewedAt": "2026-10-07T08:56:16.360Z",
+      "id": "f66d09b7-eefa-4e23-bab2-4de4875efbc4",
+      "createdAt": "2026-10-07T08:56:17.057Z"
+    },
+    {
+      "type": "word",
       "english": "allegation",
       "korean": "(증거없이 누가 부저안 일을 했다는) 혐의, 주장",
       "pronunciation": "[ˌæləˈɡeɪʃn]",
