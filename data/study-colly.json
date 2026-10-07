@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "allegation",
+      "korean": "(증거없이 누가 부저안 일을 했다는) 혐의, 주장",
+      "pronunciation": "[ˌæləˈɡeɪʃn]",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-07T08:55:40.421Z",
+      "id": "7f87bab5-a943-4369-9beb-d9ed9b121f7b",
+      "createdAt": "2026-10-07T08:55:40.951Z"
+    },
+    {
+      "type": "word",
       "english": "weigh in",
       "korean": "(논쟁·토론·회의 등에) 의견을 내며 끼어들다, 개입하다",
       "pronunciation": "",
