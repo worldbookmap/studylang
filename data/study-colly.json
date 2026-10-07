@@ -3,6 +3,17 @@
   "entries": [
     {
       "type": "word",
+      "english": "weigh in",
+      "korean": "(논쟁·토론·회의 등에) 의견을 내며 끼어들다, 개입하다",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-07T06:22:48.583Z",
+      "id": "2a249a2b-0a70-49f6-a9fc-902f7a6a788a",
+      "createdAt": "2026-10-07T06:22:48.860Z"
+    },
+    {
+      "type": "word",
       "english": "Walk-in",
       "korean": "첩보(스파이) 세계에서 '워크인(Walk-in)'은 자발적으로 적국의 대사관이나 정보기관을 찾아와 내부 기밀을 제공하겠다고 제보하는 스파이를 뜻하는 실제 정보학 용어",
       "pronunciation": "",
