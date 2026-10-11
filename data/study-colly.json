@@ -2,6 +2,17 @@
   "version": 1,
   "entries": [
     {
+      "type": "pattern",
+      "english": "Could you walk me through...",
+      "korean": "절차나 과정, 상황, 시스템 등을 상대방이 이해하기 쉽도록 단계별로 차근차근 설명해 달라고 요청할 때 쓰는 영어 표현입니다",
+      "pronunciation": "",
+      "example": "",
+      "tags": [],
+      "reviewedAt": "2026-10-11T01:47:18.604Z",
+      "id": "a4b0b853-f9d6-49fe-a25e-1eef65153029",
+      "createdAt": "2026-10-11T01:47:19.364Z"
+    },
+    {
       "type": "word",
       "english": "treason",
       "korean": "반역죄",
