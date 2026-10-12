@@ -325,19 +325,28 @@ export default function Home() {
     if (form.type !== "word") return;
 
     setIsWordLookupLoading(true);
+    setError("");
 
     try {
       const response = await fetch(`/api/pronunciation?word=${encodeURIComponent(word.trim())}`);
       const payload = await response.json();
 
-      if (payload.pronunciation || payload.meaning || payload.example) {
-        setForm((current) => ({
-          ...current,
-          pronunciation: payload.pronunciation || current.pronunciation,
-          korean: current.korean.trim() ? current.korean : payload.meaning || current.korean,
-          example: current.example.trim() ? current.example : payload.example || current.example,
-        }));
+      if (!response.ok) {
+        throw new Error(payload.error ?? "단어 정보를 찾지 못했습니다.");
       }
+
+      if (payload.pronunciation || payload.meaning || payload.example) {
+        setForm((current) => current.english.trim() === word.trim()
+          ? {
+              ...current,
+              pronunciation: current.pronunciation.trim() ? current.pronunciation : payload.pronunciation || "",
+              korean: current.korean.trim() ? current.korean : payload.meaning || "",
+              example: current.example.trim() ? current.example : payload.example || "",
+            }
+          : current);
+      }
+    } catch (lookupError) {
+      setError(lookupError instanceof Error ? lookupError.message : "단어 정보를 찾지 못했습니다.");
     } finally {
       setIsWordLookupLoading(false);
     }
@@ -684,7 +693,7 @@ export default function Home() {
                   )}
                   <Button disabled={activeView !== "input" || form.type !== "word" || isWordLookupLoading} variant="secondary" type="button" onClick={() => lookupWordDetails()}>
                     <Search className="h-4 w-4" />
-                    뜻/발음 찾기
+                    {isWordLookupLoading ? "찾는 중..." : "뜻/발음 찾기"}
                   </Button>
                 </div>
               </form>
