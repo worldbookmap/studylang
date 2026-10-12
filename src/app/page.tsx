@@ -135,6 +135,9 @@ export default function Home() {
   const [error, setError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isWordLookupLoading, setIsWordLookupLoading] = useState(false);
+  const [frazeitExamples, setFrazeitExamples] = useState<string[]>([]);
+  const [isFrazeitLoading, setIsFrazeitLoading] = useState(false);
+  const [frazeitError, setFrazeitError] = useState("");
   const [isTranslationLoading, setIsTranslationLoading] = useState(false);
   const [notificationReady, setNotificationReady] = useState(false);
   const [reminderOpen, setReminderOpen] = useState(false);
@@ -292,6 +295,7 @@ export default function Home() {
     }
 
     if (form.type === "pattern" || form.type === "shadowing") {
+      void lookupFrazeitExamples(word);
       if (form.korean.trim()) return;
 
       setIsTranslationLoading(true);
@@ -324,6 +328,7 @@ export default function Home() {
 
     if (form.type !== "word") return;
 
+    void lookupFrazeitExamples(word);
     setIsWordLookupLoading(true);
     setError("");
 
@@ -349,6 +354,29 @@ export default function Home() {
       setError(lookupError instanceof Error ? lookupError.message : "단어 정보를 찾지 못했습니다.");
     } finally {
       setIsWordLookupLoading(false);
+    }
+  }
+
+  async function lookupFrazeitExamples(word: string) {
+    const query = word.trim();
+    if (!query) return;
+
+    setFrazeitExamples([]);
+    setFrazeitError("");
+    setIsFrazeitLoading(true);
+
+    try {
+      const response = await fetch(`/api/frazeit?q=${encodeURIComponent(query)}`, { cache: "no-store" });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error ?? "Fraze.it 예문을 가져오지 못했습니다.");
+
+      setFrazeitExamples((current) => form.english.trim() === query ? payload.phrases ?? [] : current);
+    } catch (lookupError) {
+      if (form.english.trim() === query) {
+        setFrazeitError(lookupError instanceof Error ? lookupError.message : "Fraze.it 예문을 가져오지 못했습니다.");
+      }
+    } finally {
+      setIsFrazeitLoading(false);
     }
   }
 
@@ -626,17 +654,19 @@ export default function Home() {
                   <Textarea
                     value={form.english}
                     onBlur={() => lookupWordDetails()}
-                    onChange={(event) => setForm((current) => {
+                    onChange={(event) => {
                       const english = event.target.value;
                       const wordCount = english.trim().split(/\s+/).filter(Boolean).length;
+                      setFrazeitExamples([]);
+                      setFrazeitError("");
 
-                      return {
+                      setForm((current) => ({
                         ...current,
                         english,
                         type: current.type === "word" && wordCount >= 3 ? "pattern" : current.type,
                         pronunciation: current.type === "word" && wordCount >= 3 ? "" : current.pronunciation,
-                      };
-                    })}
+                      }));
+                    }}
                     className="min-h-11"
                     placeholder="e.g. resilient / I tend to..."
                     required
@@ -672,6 +702,29 @@ export default function Home() {
                     placeholder="I tend to write new phrases down before I forget them."
                   />
                 </label>
+                {(isFrazeitLoading || frazeitError || frazeitExamples.length > 0) && (
+                  <div className="grid gap-2 rounded-md border border-[var(--line)] bg-white/75 p-3 text-sm">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-extrabold">Fraze.it 참고 예문</span>
+                      <span className="text-xs font-semibold text-[var(--muted)]">저장되지 않음</span>
+                    </div>
+                    {isFrazeitLoading && <p className="text-[var(--muted)]">예문 검색 중...</p>}
+                    {frazeitError && <p role="status" className="text-[var(--muted-strong)]">{frazeitError}</p>}
+                    {frazeitExamples.map((phrase, index) => (
+                      <p className="border-t border-[var(--line)] pt-2 leading-relaxed" key={`${index}-${phrase}`}>
+                        {phrase}
+                      </p>
+                    ))}
+                    {frazeitExamples.length > 0 && (
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[var(--line)] pt-2 text-xs text-[var(--muted)]">
+                        <span>© FrazeIt, Inc. · 개인 비상업적 학습용 · API 결과는 저장되지 않습니다.</span>
+                        <a className="font-bold text-[var(--accent)] underline" href="https://fraze.it/" target="_blank" rel="noreferrer">
+                          Fraze.it 출처
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                )}
                 <label className="grid gap-2 text-sm font-extrabold">
                   태그
                   <Textarea
