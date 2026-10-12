@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import {
   ArrowLeftRight,
@@ -8,6 +8,7 @@ import {
   BookOpenCheck,
   BookText,
   CalendarDays,
+  ChevronDown,
   CircleCheck,
   Dices,
   Languages,
@@ -24,6 +25,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { AnimatedGradientText, MagicSurface } from "@/components/magic-ui/magic-surface";
+import { PlayPhraseSearchLink, YouGlishSearchWidget } from "@/components/phrase-video-search";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -125,6 +127,7 @@ export default function Home() {
   const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [listFilter, setListFilter] = useState<"all" | StudyEntryType>("all");
+  const [expandedEntryId, setExpandedEntryId] = useState<string | null>(null);
   const [quizScope, setQuizScope] = useState<"all" | "today">("all");
   const [quizCount, setQuizCount] = useState(5);
   const [quizDirection, setQuizDirection] = useState<QuizDirection>("en-to-ko");
@@ -138,6 +141,7 @@ export default function Home() {
   const [frazeitExamples, setFrazeitExamples] = useState<string[]>([]);
   const [isFrazeitLoading, setIsFrazeitLoading] = useState(false);
   const [frazeitError, setFrazeitError] = useState("");
+  const [phraseSearchTerm, setPhraseSearchTerm] = useState("");
   const [isTranslationLoading, setIsTranslationLoading] = useState(false);
   const [notificationReady, setNotificationReady] = useState(false);
   const [reminderOpen, setReminderOpen] = useState(false);
@@ -361,6 +365,7 @@ export default function Home() {
     const query = word.trim();
     if (!query) return;
 
+    setPhraseSearchTerm(query);
     setFrazeitExamples([]);
     setFrazeitError("");
     setIsFrazeitLoading(true);
@@ -659,6 +664,7 @@ export default function Home() {
                       const wordCount = english.trim().split(/\s+/).filter(Boolean).length;
                       setFrazeitExamples([]);
                       setFrazeitError("");
+                      setPhraseSearchTerm("");
 
                       setForm((current) => ({
                         ...current,
@@ -702,27 +708,31 @@ export default function Home() {
                     placeholder="I tend to write new phrases down before I forget them."
                   />
                 </label>
-                {(isFrazeitLoading || frazeitError || frazeitExamples.length > 0) && (
+                {phraseSearchTerm && (
                   <div className="grid gap-2 rounded-md border border-[var(--line)] bg-white/75 p-3 text-sm">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-extrabold">Fraze.it 참고 예문</span>
-                      <span className="text-xs font-semibold text-[var(--muted)]">저장되지 않음</span>
-                    </div>
-                    {isFrazeitLoading && <p className="text-[var(--muted)]">예문 검색 중...</p>}
-                    {frazeitError && <p role="status" className="text-[var(--muted-strong)]">{frazeitError}</p>}
-                    {frazeitExamples.map((phrase, index) => (
-                      <p className="border-t border-[var(--line)] pt-2 leading-relaxed" key={`${index}-${phrase}`}>
-                        {phrase}
-                      </p>
-                    ))}
-                    {frazeitExamples.length > 0 && (
+                    <section className="grid gap-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-extrabold">Fraze.it 예문</span>
+                        <span className="text-xs font-semibold text-[var(--muted)]">임시 표시 · 저장 안 됨</span>
+                      </div>
+                      {isFrazeitLoading && <p className="text-[var(--muted)]">예문 검색 중...</p>}
+                      {frazeitError && <p role="status" className="text-[var(--muted-strong)]">{frazeitError}</p>}
+                      {frazeitExamples.map((phrase, index) => (
+                        <p className="border-t border-[var(--line)] pt-2 leading-relaxed" key={`${index}-${phrase}`}>
+                          {phrase}
+                        </p>
+                      ))}
                       <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[var(--line)] pt-2 text-xs text-[var(--muted)]">
-                        <span>© FrazeIt, Inc. · 개인 비상업적 학습용 · API 결과는 저장되지 않습니다.</span>
+                        <span>© FrazeIt, Inc. · 개인 비상업적 학습용</span>
                         <a className="font-bold text-[var(--accent)] underline" href="https://fraze.it/" target="_blank" rel="noreferrer">
                           Fraze.it 출처
                         </a>
                       </div>
-                    )}
+                    </section>
+                    <section className="grid gap-3 border-t border-[var(--line)] pt-3">
+                      <YouGlishSearchWidget query={phraseSearchTerm} />
+                      <PlayPhraseSearchLink query={phraseSearchTerm} />
+                    </section>
                   </div>
                 )}
                 <label className="grid gap-2 text-sm font-extrabold">
@@ -979,23 +989,15 @@ export default function Home() {
                 <EmptyState text="검색 결과가 없거나 아직 저장된 항목이 없습니다." />
               ) : (
                 filteredEntries.map((entry) => (
-                  <div className="grid gap-3 rounded-lg border border-[var(--line)] bg-[var(--surface-strong)] p-4 shadow-sm md:grid-cols-[1fr_auto] md:items-center" key={entry.id}>
-                    <EntryRow entry={entry} />
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="secondary" onClick={() => editEntry(entry)}>
-                        <PenLine className="h-4 w-4" />
-                        수정
-                      </Button>
-                      <Button size="sm" variant="secondary" onClick={() => markReviewed(entry)}>
-                        <CircleCheck className="h-4 w-4" />
-                        복습
-                      </Button>
-                      <Button size="sm" variant="danger" onClick={() => deleteEntry(entry.id)}>
-                        <Trash2 className="h-4 w-4" />
-                        삭제
-                      </Button>
-                    </div>
-                  </div>
+                  <MemoryCard
+                    entry={entry}
+                    isExpanded={expandedEntryId === entry.id}
+                    key={entry.id}
+                    onToggle={() => setExpandedEntryId((current) => current === entry.id ? null : entry.id)}
+                    onEdit={editEntry}
+                    onReview={markReviewed}
+                    onDelete={deleteEntry}
+                  />
                 ))
               )}
             </div>
@@ -1153,6 +1155,152 @@ function ExampleText({ text, className }: { text: string; className?: string }) 
         );
       })}
     </p>
+  );
+}
+
+function MemoryCard({
+  entry,
+  isExpanded,
+  onToggle,
+  onEdit,
+  onReview,
+  onDelete,
+}: {
+  entry: StudyEntry;
+  isExpanded: boolean;
+  onToggle: () => void;
+  onEdit: (entry: StudyEntry) => void;
+  onReview: (entry: StudyEntry) => void;
+  onDelete: (entryId: string) => void;
+}) {
+  const [frazeExamples, setFrazeExamples] = useState<string[]>([]);
+  const [isFrazeLoading, setIsFrazeLoading] = useState(false);
+  const [frazeError, setFrazeError] = useState("");
+  const requestController = useRef<AbortController | null>(null);
+  const requestId = useRef(0);
+
+  async function loadFrazeExamples() {
+    const currentRequestId = requestId.current + 1;
+    requestId.current = currentRequestId;
+    requestController.current?.abort();
+    const controller = new AbortController();
+    requestController.current = controller;
+    setFrazeExamples([]);
+    setFrazeError("");
+    setIsFrazeLoading(true);
+
+    try {
+      const response = await fetch(`/api/frazeit?q=${encodeURIComponent(entry.english)}`, {
+        cache: "no-store",
+        signal: controller.signal,
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error ?? "Fraze.it 예문을 찾지 못했습니다.");
+      if (requestId.current === currentRequestId) setFrazeExamples(payload.phrases ?? []);
+    } catch (lookupError) {
+      if (controller.signal.aborted) return;
+      if (requestId.current === currentRequestId) {
+        setFrazeError(lookupError instanceof Error ? lookupError.message : "Fraze.it 예문을 찾지 못했습니다.");
+      }
+    } finally {
+      if (requestId.current === currentRequestId) setIsFrazeLoading(false);
+    }
+  }
+
+  function toggleDetails() {
+    if (isExpanded) {
+      requestId.current += 1;
+      requestController.current?.abort();
+      requestController.current = null;
+      setFrazeExamples([]);
+      setFrazeError("");
+      setIsFrazeLoading(false);
+      onToggle();
+      return;
+    }
+
+    onToggle();
+    void loadFrazeExamples();
+  }
+
+  return (
+    <article className="overflow-hidden rounded-md border border-[var(--line)] bg-[var(--surface-strong)] shadow-sm">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 p-3 sm:p-4">
+        <button
+          aria-expanded={isExpanded}
+          aria-controls={`memory-details-${entry.id}`}
+          className="grid min-w-0 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 text-left"
+          onClick={toggleDetails}
+          type="button"
+        >
+          <Badge>{getStudyCategoryLabel(entry.type)}</Badge>
+          <span className="truncate text-base font-extrabold text-[var(--ink)] sm:text-lg">{entry.english}</span>
+          <ChevronDown className={cn("h-4 w-4 text-[var(--muted)] transition-transform", isExpanded && "rotate-180")} />
+          <span className="col-start-2 col-span-2 line-clamp-1 text-sm font-semibold text-[var(--muted-strong)]">{entry.korean}</span>
+        </button>
+        <Button
+          aria-label={`${entry.english} 듣기`}
+          className="h-8 w-8"
+          size="icon"
+          variant="secondary"
+          title="표현 듣기"
+          onClick={() => {
+            if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(entry.english);
+            utterance.lang = "en-US";
+            utterance.rate = 0.88;
+            window.speechSynthesis.speak(utterance);
+          }}
+        >
+          <Volume2 className="h-4 w-4" />
+        </Button>
+      </div>
+
+      {isExpanded && (
+        <div className="grid gap-4 border-t border-[var(--line)] p-3 sm:p-4" id={`memory-details-${entry.id}`}>
+          <div className="grid gap-2 text-sm">
+            {entry.pronunciation && <p className="font-bold text-[var(--accent)]">{entry.pronunciation}</p>}
+            {entry.example && <ExampleText className="whitespace-pre-wrap text-[var(--muted-strong)]" text={entry.example} />}
+            {entry.tags.length > 0 && <div className="flex flex-wrap gap-1.5">{entry.tags.map((tag) => <Badge key={tag}>#{tag}</Badge>)}</div>}
+          </div>
+
+          <section className="grid gap-3 border-t border-[var(--line)] pt-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-sm font-extrabold">세 사이트 예문 검색</h3>
+              <span className="text-xs font-semibold text-[var(--muted)]">외부 검색 결과는 저장하지 않습니다</span>
+            </div>
+
+            <div className="grid gap-2 rounded-md bg-white/70 p-3 text-sm">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-extrabold">Fraze.it</span>
+                <a className="text-xs font-bold text-[var(--accent)] underline" href="https://fraze.it/" target="_blank" rel="noreferrer">출처</a>
+              </div>
+              {isFrazeLoading && <p className="text-[var(--muted)]">예문을 찾는 중...</p>}
+              {frazeError && <p className="text-[var(--muted-strong)]" role="status">{frazeError}</p>}
+              {frazeExamples.map((phrase, index) => <p className="border-t border-[var(--line)] pt-2 leading-relaxed" key={`${index}-${phrase}`}>{phrase}</p>)}
+              {!isFrazeLoading && !frazeError && frazeExamples.length === 0 && <p className="text-[var(--muted)]">검색 결과가 없습니다.</p>}
+              {frazeExamples.length > 0 && <p className="border-t border-[var(--line)] pt-2 text-xs text-[var(--muted)]">© FrazeIt, Inc. · 개인 비상업적 학습용 · 저장 안 됨</p>}
+            </div>
+
+            <YouGlishSearchWidget query={entry.english} />
+            <PlayPhraseSearchLink query={entry.english} />
+          </section>
+
+          <div className="flex flex-wrap gap-2 border-t border-[var(--line)] pt-3">
+            <Button size="sm" variant="secondary" onClick={() => onEdit(entry)}>
+              <PenLine className="h-4 w-4" /> 수정
+            </Button>
+            <Button size="sm" variant="secondary" onClick={() => onReview(entry)}>
+              <CircleCheck className="h-4 w-4" /> 복습
+            </Button>
+            <Button size="sm" variant="danger" onClick={() => onDelete(entry.id)}>
+              <Trash2 className="h-4 w-4" /> 삭제
+            </Button>
+          </div>
+        </div>
+      )}
+    </article>
   );
 }
 
