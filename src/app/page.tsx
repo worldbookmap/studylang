@@ -135,6 +135,7 @@ export default function Home() {
   const [error, setError] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isWordLookupLoading, setIsWordLookupLoading] = useState(false);
+  const [isTranslationLoading, setIsTranslationLoading] = useState(false);
   const [notificationReady, setNotificationReady] = useState(false);
   const [reminderOpen, setReminderOpen] = useState(false);
   const [reminderSentKey, setReminderSentKey] = useState("");
@@ -286,9 +287,42 @@ export default function Home() {
   }
 
   async function lookupWordDetails(word = form.english) {
-    if (form.type !== "word" || !word.trim()) {
+    if (!word.trim()) {
       return;
     }
+
+    if (form.type === "pattern" || form.type === "shadowing") {
+      if (form.korean.trim()) return;
+
+      setIsTranslationLoading(true);
+      setError("");
+
+      try {
+        const response = await fetch("/api/translate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: word.trim() }),
+        });
+        const payload = await response.json();
+
+        if (!response.ok) {
+          throw new Error(payload.error ?? "DeepL 번역을 가져오지 못했습니다.");
+        }
+
+        setForm((current) => current.english.trim() === word.trim()
+          && (current.type === "pattern" || current.type === "shadowing")
+          && !current.korean.trim()
+          ? { ...current, korean: payload.translation }
+          : current);
+      } catch (translationError) {
+        setError(translationError instanceof Error ? translationError.message : "DeepL 번역을 가져오지 못했습니다.");
+      } finally {
+        setIsTranslationLoading(false);
+      }
+      return;
+    }
+
+    if (form.type !== "word") return;
 
     setIsWordLookupLoading(true);
 
@@ -601,12 +635,12 @@ export default function Home() {
                 </label>
                 <div className="grid gap-4 sm:grid-cols-[1fr_180px]">
                   <label className="grid gap-2 text-sm font-extrabold">
-                    뜻 / 메모
+                    {form.type === "pattern" || form.type === "shadowing" ? "한국어 번역 / 메모" : "뜻 / 메모"}
                     <Textarea
                       value={form.korean}
                       onChange={(event) => setForm((current) => ({ ...current, korean: event.target.value }))}
                       className="min-h-11"
-                      placeholder="회복력 있는, 쉽게 포기하지 않는"
+                      placeholder={isTranslationLoading ? "DeepL 번역 중..." : "회복력 있는, 쉽게 포기하지 않는"}
                       required
                     />
                   </label>

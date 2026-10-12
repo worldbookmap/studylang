@@ -17,9 +17,12 @@ Supabase Dashboard의 SQL Editor에서 [`supabase/schema.sql`](supabase/schema.s
 ```bash
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+DEEPL_API_KEY=your-deepl-api-key
 ```
 
 서비스 키는 서버에서만 사용하며 `NEXT_PUBLIC_` 접두사를 붙이거나 클라이언트 코드에 넣으면 안 됩니다. 사용자 선택 키 `studylang_user`와 기존 콜리/뱁찌 UI는 그대로 유지되고, API가 그 프로필로 데이터를 분리합니다.
+
+DeepL API Free 키도 `DEEPL_API_KEY`라는 이름으로 로컬 `.env.local`과 Vercel Project Settings의 Environment Variables에 설정하세요. 이 키는 클라이언트로 전달하지 않습니다. 영어 문장 또는 쉐도잉 표현 입력 후 입력란에서 포커스를 옮기면 한국어 뜻이 자동으로 채워지며, 이미 한국어 메모가 있으면 덮어쓰지 않습니다. DeepL 키가 없거나 무료 사용량을 초과하면 입력 폼에 오류가 표시됩니다. 현재 앱은 로그인 없이 공개되어 있으므로 번역 API를 외부에서 직접 호출해 무료 사용량을 소진할 수 있습니다. 공개 운영 전 요청 제한 또는 인증을 추가하세요.
 
 ## 로컬 실행
 
