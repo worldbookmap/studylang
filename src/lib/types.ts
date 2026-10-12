@@ -1,4 +1,6 @@
-export type StudyEntryType = "word" | "pattern" | "contraction" | "dialogue";
+export type StudyEntryType = "word" | "pattern" | "shadowing";
+
+export const RETIRED_STUDY_ENTRY_TYPES = ["contraction", "dialogue"] as const;
 
 export type UserId = "colly" | "baebjji";
 

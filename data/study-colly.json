@@ -475,19 +475,6 @@
       "createdAt": "2026-09-24T04:29:12.694Z"
     },
     {
-      "type": "dialogue",
-      "english": "Let’s see. Recently, President Trump and President Xi Jinping met in the U.S. This was the first visit by a Chinese president to the U.S. in about a decade. They talked about AI guidelines and security, Iran, tariffs, and Taiwan. But the meeting produced only a few small deliverables.",
-      "korean": "https://abcnews-com.cdn.ampproject.org/c/s/abcnews.com/amp/Politics/trump-xi-meeting-amid-tensions-iran-taiwan-trade/story?id=136650648",
-      "pronunciation": "",
-      "example": "",
-      "tags": [
-        "1일1요약"
-      ],
-      "reviewedAt": "2026-09-24T04:12:29.544Z",
-      "id": "733245ca-d12f-430c-be74-c8bbccdee4d7",
-      "createdAt": "2026-09-24T04:12:30.298Z"
-    },
-    {
       "type": "pattern",
       "english": "She's giving me the boot, isn't she?",
       "korean": "그녀가 날 쫓아 내려는거지? 그렇지?",
@@ -530,17 +517,6 @@
       "reviewedAt": "2026-09-23T03:07:01.599Z",
       "id": "c2f3c0f3-b314-45d1-952e-4aca369f296a",
       "createdAt": "2026-09-23T03:07:03.066Z"
-    },
-    {
-      "type": "dialogue",
-      "english": "ShinyHunters hacked the FBI's recruiting website, and then they moved laterally to other FBI servers. They downloaded a lot of data, including information about former, current, and prospective employees. They claimed they did it to make the FBI change its previous claims about ShinyHunters' past hacking activities.",
-      "korean": "https://www.theregister.com/security/2026/09/22/shinyhunters-claims-fbi-hack-this-is-not-financially-motivated/5298385\n읽고 바로 요약",
-      "pronunciation": "",
-      "example": "",
-      "tags": [],
-      "reviewedAt": "2026-09-23T02:30:00.510Z",
-      "id": "8fc74073-765a-42b4-aed9-c7ef8119ab38",
-      "createdAt": "2026-09-23T02:30:01.932Z"
     },
     {
       "type": "word",
@@ -642,19 +618,6 @@
       "reviewedAt": "2026-09-22T07:49:19.718Z",
       "id": "0a30a008-5851-4e2b-aca3-6c32c091fdf1",
       "createdAt": "2026-09-22T07:49:20.458Z"
-    },
-    {
-      "type": "dialogue",
-      "english": "Nowadays, AI can find vulnerabilities better than humans, so we're finding a lot more vulnerabilities with AI models. But there's a big difference between finding a bug and actually weaponizing it. Only a very small number of AI-found bugs are actually weaponized, maybe around 1–2 percent. Also, patching vulnerabilities properly is still difficult for AI. AI can successfully patch and fix about 50% of vulnerabilities.",
-      "korean": "https://www.theregister.com/security/2026/09/21/anthropic-linked-cves-pile-up-attackers-mostly-shrug/5298018\n읽고 짧게 말해봄",
-      "pronunciation": "",
-      "example": "",
-      "tags": [
-        "신문기사요약"
-      ],
-      "reviewedAt": "2026-09-22T07:45:35.971Z",
-      "id": "6b72d676-6c1d-480b-9f71-29123f9c8f7b",
-      "createdAt": "2026-09-22T07:45:37.308Z"
     },
     {
       "type": "word",
@@ -787,17 +750,6 @@
       "reviewedAt": "2026-09-21T12:15:21.564Z",
       "id": "dcd340e0-1f17-4c98-a175-c0a2147b0dec",
       "createdAt": "2026-09-21T12:15:22.698Z"
-    },
-    {
-      "type": "contraction",
-      "english": "If it is",
-      "korean": "만약 그것이",
-      "pronunciation": "퓨릿스",
-      "example": "",
-      "tags": [],
-      "reviewedAt": "2026-09-21T07:30:23.803Z",
-      "id": "f485184b-316e-47e3-ad91-dd5690caacd3",
-      "createdAt": "2026-09-21T07:30:27.056Z"
     },
     {
       "type": "word",
@@ -1070,19 +1022,6 @@
       "createdAt": "2026-09-07T23:05:17.284Z"
     },
     {
-      "type": "dialogue",
-      "english": "Hm, training is still not confirmed yet. \nWe're still short on participants, so it hasn't been confirmed yet. \nOnce it's confirmed we'll let you know by email.",
-      "korean": "전화로 트레이닝 확정되었는지 문의에 대한 대답",
-      "pronunciation": "",
-      "example": "",
-      "tags": [
-        "businedss"
-      ],
-      "reviewedAt": "2026-09-07T09:01:58.117Z",
-      "id": "f2771354-fd81-4848-b92a-f8d470a73d44",
-      "createdAt": "2026-09-07T09:01:58.879Z"
-    },
-    {
       "type": "pattern",
       "english": "get a coffee",
       "korean": "커피 주문시",
@@ -1147,71 +1086,6 @@
       "reviewedAt": "2026-09-06T14:54:57.896Z",
       "id": "7a1a0a02-c453-494e-a625-6687b8e5e971",
       "createdAt": "2026-09-06T14:54:58.699Z"
-    },
-    {
-      "type": "contraction",
-      "english": "You would have",
-      "korean": "Then you'd have to let me go",
-      "pronunciation": "You'da (유더)",
-      "example": "Then you'da to let me go.\nYou'da laughted so hard.\nYou'da been proud.",
-      "tags": [
-        "Speed Cell"
-      ],
-      "reviewedAt": "2026-09-05T00:51:50.688Z",
-      "id": "4bd5c29b-6be4-4ba1-9812-d3111f4d7762",
-      "createdAt": "2026-08-28T03:28:11.871Z"
-    },
-    {
-      "type": "contraction",
-      "english": "I would have",
-      "korean": "I'd have done the same thing.",
-      "pronunciation": "I'da",
-      "example": "I'da done the same thing.\nI'da gone if I had more time.\nI'da helped, but I didn't know.\nI'da called, but my phone died.",
-      "tags": [
-        "Speed Cell"
-      ],
-      "reviewedAt": "2026-08-28T03:25:55.561Z",
-      "id": "29a766f9-0c49-45bd-b6ba-0ffc739a00f0",
-      "createdAt": "2026-08-28T03:25:56.511Z"
-    },
-    {
-      "type": "contraction",
-      "english": "When do you want to",
-      "korean": "When do you want to go?",
-      "pronunciation": "When ya wanna",
-      "example": "You hear about the exhibition? When ya wanna see it?",
-      "tags": [
-        "Speed Cell"
-      ],
-      "reviewedAt": "2026-08-28T03:23:22.776Z",
-      "id": "1e129310-1417-44b0-8048-83041d643f8a",
-      "createdAt": "2026-08-28T03:23:24.380Z"
-    },
-    {
-      "type": "contraction",
-      "english": "What will",
-      "korean": "What will happen to him",
-      "pronunciation": "What'll (워를)",
-      "example": "What'll you say if she asks?\nWhat'll we do if it rains?\nWhat'll happen next",
-      "tags": [
-        "Speed Cell"
-      ],
-      "reviewedAt": "2026-08-28T03:13:02.602Z",
-      "id": "6d93bd9f-572b-4fb0-8af2-235908079237",
-      "createdAt": "2026-08-28T03:13:03.469Z"
-    },
-    {
-      "type": "contraction",
-      "english": "You know what I mean.",
-      "korean": "무슨말인지 알지?",
-      "pronunciation": "Y'know wha di mean",
-      "example": "It's just frustrating sometimes, y'know wha di mean?",
-      "tags": [
-        "Speed Cell"
-      ],
-      "reviewedAt": "2026-08-28T03:10:15.282Z",
-      "id": "ca0e33e5-0fdd-4314-b5e3-962a5fdbc888",
-      "createdAt": "2026-08-28T03:10:15.879Z"
     },
     {
       "type": "word",

@@ -1,87 +1,89 @@
 import { NextRequest } from "next/server";
-import { githubErrorResponse, readStudyDatabase, writeStudyDatabase } from "@/lib/github-store";
-import { EntryInput, StudyEntry } from "@/lib/types";
+import {
+  createStudyEntry,
+  deleteStudyEntry,
+  readStudyEntries,
+  supabaseErrorResponse,
+  updateStudyEntry,
+} from "@/lib/supabase-store";
+import { EntryInput, StudyEntry, StudyEntryType, UserId } from "@/lib/types";
 
-function getUserId(request: NextRequest): string {
-  return request.nextUrl.searchParams.get("user") || request.headers.get("x-user-id") || "colly";
+class InvalidProfileError extends Error {}
+
+function getProfileId(request: NextRequest): UserId {
+  const profileId = request.nextUrl.searchParams.get("user") ?? request.headers.get("x-user-id");
+  if (profileId !== "colly" && profileId !== "baebjji") {
+    throw new InvalidProfileError("사용자 프로필을 확인할 수 없습니다.");
+  }
+  return profileId;
+}
+
+function entriesErrorResponse(error: unknown) {
+  if (error instanceof InvalidProfileError) {
+    return Response.json({ error: error.message }, { status: 400 });
+  }
+  return supabaseErrorResponse(error);
 }
 
 export async function GET(request: NextRequest) {
   try {
-    const userId = getUserId(request);
-    const { database } = await readStudyDatabase(userId);
-    return Response.json(database);
+    const profileId = getProfileId(request);
+    const entries = await readStudyEntries(profileId);
+    return Response.json({ version: 1, entries });
   } catch (error) {
-    return githubErrorResponse(error);
+    return entriesErrorResponse(error);
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const userId = getUserId(request);
-    const shouldSync = request.nextUrl.searchParams.get("sync") === "true";
-
-    if (shouldSync) {
-      const { database, sha } = await readStudyDatabase(userId);
-      const nextDatabase = await writeStudyDatabase(database.entries, sha, userId);
-      return Response.json({ ok: true, entries: nextDatabase.entries });
-    }
-
+    const profileId = getProfileId(request);
     const input = (await request.json()) as EntryInput;
-    const { database, sha } = await readStudyDatabase(userId);
-    const entry: StudyEntry = {
-      ...input,
-      id: crypto.randomUUID(),
-      tags: input.tags ?? [],
-      createdAt: new Date().toISOString(),
-    };
-
-    const nextDatabase = await writeStudyDatabase([entry, ...database.entries], sha, userId);
-    return Response.json(nextDatabase, { status: 201 });
+    if (!input.english?.trim() || !input.korean?.trim() || !isStudyEntryType(input.type)) {
+      return Response.json({ error: "영어 표현, 뜻, 올바른 카테고리가 필요합니다." }, { status: 400 });
+    }
+    const entries = await createStudyEntry(input, profileId);
+    return Response.json({ version: 1, entries }, { status: 201 });
   } catch (error) {
-    return githubErrorResponse(error);
+    return entriesErrorResponse(error);
   }
 }
 
 export async function PATCH(request: NextRequest) {
   try {
-    const userId = getUserId(request);
+    const profileId = getProfileId(request);
     const input = (await request.json()) as Partial<StudyEntry> & { id: string };
 
     if (!input.id) {
       return Response.json({ error: "수정할 항목 id가 필요합니다." }, { status: 400 });
     }
 
-    const { database, sha } = await readStudyDatabase(userId);
-    const entries = database.entries.map((entry) =>
-      entry.id === input.id ? { ...entry, ...input, id: entry.id } : entry,
-    );
-
-    const nextDatabase = await writeStudyDatabase(entries, sha, userId);
-    return Response.json(nextDatabase);
+    if (input.type !== undefined && !isStudyEntryType(input.type)) {
+      return Response.json({ error: "올바른 카테고리가 필요합니다." }, { status: 400 });
+    }
+    const entries = await updateStudyEntry(input.id, input, profileId);
+    return Response.json({ version: 1, entries });
   } catch (error) {
-    return githubErrorResponse(error);
+    return entriesErrorResponse(error);
   }
 }
 
 export async function DELETE(request: NextRequest) {
   try {
-    const userId = getUserId(request);
+    const profileId = getProfileId(request);
     const id = request.nextUrl.searchParams.get("id");
 
     if (!id) {
       return Response.json({ error: "삭제할 항목 id가 필요합니다." }, { status: 400 });
     }
 
-    const { database, sha } = await readStudyDatabase(userId);
-    const nextDatabase = await writeStudyDatabase(
-      database.entries.filter((entry) => entry.id !== id),
-      sha,
-      userId,
-    );
-
-    return Response.json(nextDatabase);
+    const entries = await deleteStudyEntry(id, profileId);
+    return Response.json({ version: 1, entries });
   } catch (error) {
-    return githubErrorResponse(error);
+    return entriesErrorResponse(error);
   }
+}
+
+function isStudyEntryType(type: string): type is StudyEntryType {
+  return type === "word" || type === "pattern" || type === "shadowing";
 }
